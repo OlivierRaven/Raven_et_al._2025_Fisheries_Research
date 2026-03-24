@@ -1,0 +1,31 @@
+project:
+  type: manuscript
+
+execute:
+  freeze: false
+  cache: false
+
+manuscript:
+  article: index.qmd
+  notebooks:
+    - notebook: analysis.qmd
+      title: "Analysis Notebook"
+
+format:
+  html:
+    fig-path: "analysis_files/figure-html/"
+    theme: 
+      light: flatly
+      dark: darkly
+    code-fold: true
+    code-tools: true
+    code-summary: "View Code"
+    toc: true
+    toc-depth: 3
+    number-sections: true
+    fig-width: 8
+    fig-height: 6
+  docx: default
+    
+bibliography: references/references.bib
+csl: references/apa.csl

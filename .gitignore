@@ -1,0 +1,13 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+*.txt
+/.quarto/
+**/*.quarto_ipynb
+
+Msc_Thesis/
+manuscript/
+presentation/
+archive/
+gis/

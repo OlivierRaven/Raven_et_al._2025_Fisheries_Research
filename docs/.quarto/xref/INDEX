@@ -1,0 +1,11 @@
+{
+  "analysis.qmd": {
+    "analysis.embed.ipynb": "9036f2ec",
+    "analysis.out.ipynb": "c8a2df7f",
+    "analysis-preview.html": "5089d850"
+  },
+  "index.qmd": {
+    "index.embed.ipynb": "5bbf6412",
+    "index.out.ipynb": "93a36a27"
+  }
+}

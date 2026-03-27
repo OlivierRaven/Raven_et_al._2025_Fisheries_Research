@@ -84,7 +84,7 @@ highlights:
 - Trace element analysis is a powerful tool for tracking brown trout migration in New Zealand.
 
 
-abstract: |
+abstract: 
   Otolith trace element analysis is a powerful tool for studying fish migration between juvenile and adult habitats. To track catchment-scale migration, trace element signatures in juvenile otoliths are compared to the otolith natal region of adults, with the aim of matching adults to their natal habitat. However, the stability of signatures in natal habitat over time, crucial for this method to work across generations, has rarely been tested.
   
   To evaluate spatiotemporal stability of natal stream trace element signatures in otoliths, a four-year study in New Zealand's lower Clutha River/Mata-Au was executed. 602 brown trout juveniles from 20 tributaries were sampled and trace element analysis was performed, enabling comparisons of the signatures within each stream over time.

@@ -6,6 +6,7 @@ project:
 execute:
   freeze: auto
   cache: false
+  eval: true
 
 manuscript:
   article: index.qmd

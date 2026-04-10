@@ -1,58 +1,182 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="generator" content="quarto-1.8.24">
 
-<meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.24">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta name="author" content="Olivier V. Raven">
+    <meta name="author" content="J.E.M. Couper">
+    <meta name="author" content="Hellen Trotter">
+    <meta name="author" content="Malcom R. Reid">
+    <meta name="author" content="R. Svirgsden">
+    <meta name="author" content="M. Rohtla">
+    <meta name="author" content="G.P. Closs">
+    <meta name="dcterms.date" content="2025-06-03">
+    <meta name="keywords" content="Brown trout, Otolith trace element analysis, Otolith, Salmo trutta, Spatial variability, Temporal stability">
 
-<meta name="author" content="Olivier V. Raven">
-<meta name="author" content="J.E.M. Couper">
-<meta name="author" content="Hellen Trotter">
-<meta name="author" content="Malcom R. Reid">
-<meta name="author" content="R. Svirgsden">
-<meta name="author" content="M. Rohtla">
-<meta name="author" content="G.P. Closs">
-<meta name="dcterms.date" content="2025-06-03">
-<meta name="keywords" content="Brown trout, Otolith trace element analysis, Otolith, Salmo trutta, Spatial variability, Temporal stability">
+    <title>Assessment of spatial and temporal stability of tributary-specific otolith trace element signatures</title>
+    <style>
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      div.columns{display: flex; gap: min(4vw, 1.5em);}
+      div.column{flex: auto; overflow-x: auto;}
+      div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+      ul.task-list{list-style: none;}
+      ul.task-list li input[type="checkbox"] {
+        width: 0.8em;
+        margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+        vertical-align: middle;
+      }
+      /* CSS for syntax highlighting */
+      html { -webkit-text-size-adjust: 100%; }
+      pre > code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+      pre > code.sourceCode > span:empty { height: 1.2em; }
+      .sourceCode { overflow: visible; }
+      code.sourceCode > span { color: inherit; text-decoration: inherit; }
+      div.sourceCode { margin: 1em 0; }
+      pre.sourceCode { margin: 0; }
+      @media screen {
+      div.sourceCode { overflow: auto; }
+      }
+      @media print {
+      pre > code.sourceCode { white-space: pre-wrap; }
+      pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+      }
+      pre.numberSource code
+        { counter-reset: source-line 0; }
+      pre.numberSource code > span
+        { position: relative; left: -4em; counter-increment: source-line; }
+      pre.numberSource code > span > a:first-child::before
+        { content: counter(source-line);
+          position: relative; left: -1em; text-align: right; vertical-align: baseline;
+          border: none; display: inline-block;
+          -webkit-touch-callout: none; -webkit-user-select: none;
+          -khtml-user-select: none; -moz-user-select: none;
+          -ms-user-select: none; user-select: none;
+          padding: 0 4px; width: 4em;
+        }
+      pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+      div.sourceCode
+        {   }
+      @media screen {
+      pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+      }
+      /* CSS for citations */
+      div.csl-bib-body { }
+      div.csl-entry {
+        clear: both;
+        margin-bottom: 0em;
+      }
+      .hanging-indent div.csl-entry {
+        margin-left:2em;
+        text-indent:-2em;
+      }
+      div.csl-left-margin {
+        min-width:2em;
+        float:left;
+      }
+      div.csl-right-inline {
+        margin-left:2em;
+        padding-left:1em;
+      }
+      div.csl-indent {
+        margin-left: 2em;
+      }    </style>
 
-<title>Assessment of spatial and temporal stability of tributary-specific otolith trace element signatures</title>
-<style>
-code{white-space: pre-wrap;}
-span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
-div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-ul.task-list{list-style: none;}
-ul.task-list li input[type="checkbox"] {
-  width: 0.8em;
-  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
-  vertical-align: middle;
-}
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+    <style>
+      body.hypothesis-enabled #quarto-embed-header {
+        padding-right: 36px;
+      }
 
+      #quarto-embed-header {
+        height: 3em;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: solid 1px;
+      }
 
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="site_libs/clipboard/clipboard.min.js"></script>
+      #quarto-embed-header h6 {
+        font-size: 1.1em;
+        padding-top: 0.6em;
+        margin-left: 1em;
+        margin-right: 1em;
+        font-weight: 400;
+      }
+
+      #quarto-embed-header a.quarto-back-link,
+      #quarto-embed-header a.quarto-download-embed {
+        font-size: 0.8em;
+        margin-top: 1em;
+        margin-bottom: 1em;
+        margin-left: 1em;
+        margin-right: 1em;
+      }
+
+      .quarto-back-container {
+        padding-left: 0.5em;
+        display: flex;
+      }
+
+      .headroom {
+          will-change: transform;
+          transition: transform 200ms linear;
+      }
+
+      .headroom--pinned {
+          transform: translateY(0%);
+      }
+
+      .headroom--unpinned {
+          transform: translateY(-100%);
+      }      
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script>
+    window.document.addEventListener("DOMContentLoaded", function () {
+
+      var header = window.document.querySelector("#quarto-embed-header");
+      const titleBannerEl = window.document.querySelector("body > #title-block-header");
+      if (titleBannerEl) {
+        titleBannerEl.style.paddingTop = header.clientHeight + "px";
+      }
+      const contentEl = window.document.getElementById('quarto-content');
+      for (const child of contentEl.children) {
+        child.style.paddingTop = header.clientHeight + "px";
+        child.style.marginTop = "1em";
+      }
+
+      // Use the article root if the `back` call doesn't work. This isn't perfect
+      // but should typically work
+      window.quartoBackToArticle = () => {
+        var currentUrl = window.location.href;
+        window.history.back();
+        setTimeout(() => {
+            // if location was not changed in 100 ms, then there is no history back
+            if(currentUrl === window.location.href){              
+                // redirect to site root
+                window.location.href = "index.html";
+            }
+        }, 100);
+      }
+
+      const headroom = new window.Headroom(header, {
+        tolerance: 5,
+        onPin: function () {
+        },
+        onUnpin: function () {
+        },
+      });
+      headroom.init();
+    });
+    </script>
+
+    
+<script src="site_libs/manuscript-notebook/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -67,12 +191,10 @@ div.csl-indent {
 <script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
+     <script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
 
-<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
-
-
-<meta name="citation_title" content="Assessment of spatial and temporal stability of tributary-specific otolith trace element signatures">
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>  
+      <meta name="citation_title" content="Assessment of spatial and temporal stability of tributary-specific otolith trace element signatures">
 <meta name="citation_abstract" content="Otolith trace element analysis is a powerful tool for studying fish migration between juvenile and adult habitats. To track catchment-scale migration, trace element signatures in juvenile otoliths are compared to the otolith natal region of adults, with the aim of matching adults to their natal habitat. However, the stability of signatures in natal habitat over time, crucial for this method to work across generations, has rarely been tested.
 To evaluate spatiotemporal stability of natal stream trace element signatures in otoliths, a four-year study in New Zealand&amp;amp;#039;s lower Clutha River/Mata-Au was executed. 602 brown trout juveniles from 20 tributaries were sampled and trace element analysis was performed, enabling comparisons of the signatures within each stream over time.
 The findings suggest the signatures of the elements Mn, Sr, and Ba incorporated into otoliths are generally stable within each catchment over four-years. This means that, if tracking adult trout back to their natal stream it is not necessary to analyse juvenile otoliths from each year. Spatial variability of Mn, Sr and Ba was tested by using Random Forest and Linear Discriminant Analysis models, which assigned juvenile trout to the correct stream in 61% and 52% cases, respectively. Grouping the sites using Nearest-Neighbour Cluster Analysis resulted in 93% accuracy for both models. Collection of juveniles from key spawning streams across 2-3 years should be sufficient to establish reference signatures for each tributary that will facilitate tracking of adult migration over several years.">
@@ -146,9 +268,16 @@ The findings suggest the signatures of the elements Mn, Sr, and Ba incorporated 
 <meta name="citation_reference" content="citation_title=Relationships between water, otolith, and scale chemistries of westslope cutthroat trout from the coeur d’alene river, idaho: The potential application of hard-part chemistry to describe movements in freshwater;,citation_author=Brian K. Wells;,citation_author=Bruce E. Rieman;,citation_author=James L. Clayton;,citation_author=Dona L. Horan;,citation_author=Cynthia M. Jones;,citation_publication_date=2003-05;,citation_cover_date=2003-05;,citation_year=2003;,citation_fulltext_html_url=http://dx.doi.org/10.1577/1548-8659(2003)132&amp;amp;amp;lt;0409:RBWOAS&amp;gt;2.0.CO;2;,citation_issue=3;,citation_doi=10.1577/1548-8659(2003)132&amp;amp;lt;0409:rbwoas&amp;gt;2.0.co;2;,citation_issn=1548-8659;,citation_volume=132;,citation_journal_title=Transactions of the American Fisheries Society;,citation_publisher=Oxford University Press (OUP);">
 </head>
 
-<body class="quarto-light">
+  <body class="quarto-notebook quarto-light">
+    <div id="quarto-embed-header" class="headroom fixed-top bg-primary">
+      
+      <a onclick="window.quartoBackToArticle(); return false;" class="btn btn-primary quarto-back-link" href=""><i class="bi bi-caret-left"></i> Back to Article</a>
+      <h6><i class="bi bi-journal-code"></i> Article Notebook</h6>
 
-<header id="title-block-header" class="quarto-title-block default toc-left page-columns page-full">
+            <a href="./index.qmd" class="btn btn-primary quarto-download-embed" download="index.qmd">Download Source</a>
+          </div>
+
+     <header id="title-block-header" class="quarto-title-block default toc-left page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
       <h1 class="title">Assessment of spatial and temporal stability of tributary-specific otolith trace element signatures</h1>
@@ -291,17 +420,31 @@ The findings suggest the signatures of the elements Mn, Sr, and Ba incorporated 
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   <li><a href="#supplemental-information" id="toc-supplemental-information" class="nav-link" data-scroll-target="#supplemental-information">Supplemental information</a></li>
   </ul>
-<div class="quarto-alternate-notebooks"><h2>Notebooks</h2><ul><li><a href="analysis-preview.html"><i class="bi bi-journal-code"></i>Analysis Notebook</a></li><li><a href="index-preview.html"><i class="bi bi-journal-code"></i>Article Notebook</a></li></ul></div></nav>
+</nav>
 </div>
 <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
 </div>
-<main class="content quarto-banner-title-block" id="quarto-document-content">
+<main class="content quarto-banner-title-block" id="quarto-document-content">      
 
-
-
-  
-
-
+       <div class="cell-container"><div class="cell-decorator"><pre>In [1]:</pre></div><div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">file.exists</span>(<span class="st">"data/derived/inline_values.rds"</span>)) {</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stop</span>(<span class="st">"inline_values.rds not found. Please render analysis.qmd first."</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>vals <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/derived/inline_values.rds"</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>accuracy_lda <span class="ot">&lt;-</span> vals<span class="sc">$</span>accuracy_lda</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>accuracy_rf <span class="ot">&lt;-</span> vals<span class="sc">$</span>accuracy_rf</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>p_waiwera_mn_2022_2021 <span class="ot">&lt;-</span> vals<span class="sc">$</span>p_waiwera_mn_2022_2021</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>p_mn_2015_2022 <span class="ot">&lt;-</span> vals<span class="sc">$</span>p_mn_2015_2022</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>p_ba_2015_2022 <span class="ot">&lt;-</span> vals<span class="sc">$</span>p_ba_2015_2022</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>p_ba_2015_2021 <span class="ot">&lt;-</span> vals<span class="sc">$</span>p_ba_2015_2021</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>p_ba_2023_2021 <span class="ot">&lt;-</span> vals<span class="sc">$</span>p_ba_2023_2021</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>p_ba_2023_2022 <span class="ot">&lt;-</span> vals<span class="sc">$</span>p_ba_2023_2022</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>accuracy_Svirgsden_rf <span class="ot">&lt;-</span> vals<span class="sc">$</span>accuracy_Svirgsden_rf</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>accuracy_Svirgsden_lda <span class="ot">&lt;-</span> vals<span class="sc">$</span>accuracy_Svirgsden_lda</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>accuracy_lda_nnca <span class="ot">&lt;-</span> vals<span class="sc">$</span>accuracy_lda_nnca</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>accuracy_rf_nnca <span class="ot">&lt;-</span> vals<span class="sc">$</span>accuracy_rf_nnca</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div></div>
 <section id="introduction" class="level1">
 <h1>Introduction</h1>
 <p>Migration is an important aspect of the life cycle for many fish species. Therefore, understanding fish migration patterns and behaviour is crucial for sustainable management of fish populations <span class="citation" data-cites="Carlson2016">(<a href="#ref-Carlson2016" role="doc-biblioref">Carlson et al., 2016</a>)</span>. Brown trout (<em>Salmo trutta L.</em>) can migrate extensively over their lifetime <span class="citation" data-cites="Klemetsen2003">(<a href="#ref-Klemetsen2003" role="doc-biblioref">Klemetsen et al., 2003</a>)</span>, which is typical for many salmonid species. Brown trout exhibit variable life history strategies including residency, potadromy, and anadromy <span class="citation" data-cites="Elliott1994 Jonsson2011">(<a href="#ref-Elliott1994" role="doc-biblioref">Elliott, 1994</a>; <a href="#ref-Jonsson2011" role="doc-biblioref">Jonsson &amp; Jonsson, 2011</a>)</span>. Migration is important for some trout populations which access productive lower river reaches, estuaries or the sea allowing enhanced growth <span class="citation" data-cites="Thorstad2012">(<a href="#ref-Thorstad2012" role="doc-biblioref">Thorstad et al., 2012</a>)</span>. Spawning occurs mostly in small tributaries where juvenile trout remain typically for six months to two years prior to migrating to the larger systems where they continue growing <span class="citation" data-cites="Klemetsen2003 Ferguson2019">(<a href="#ref-Ferguson2019" role="doc-biblioref">Ferguson et al., 2019</a>; <a href="#ref-Klemetsen2003" role="doc-biblioref">Klemetsen et al., 2003</a>)</span>.</p>
@@ -354,9 +497,15 @@ Figure&nbsp;1: A) Map of New Zealand showing the location of the Clutha River ca
 <section id="element-selection" class="level2">
 <h2 class="anchored" data-anchor-id="element-selection">Element selection</h2>
 <p>Elements selected for this study needed to be temporally stable and spatially variable. MANOVA results showed that Mn, Sr, and Ba were statistically different among sites but not across years (<a href="#tbl-element-selection-static" class="quarto-xref">Table&nbsp;1</a>, <a href="#fig-main-elements" class="quarto-xref">Figure&nbsp;2</a>), meeting the selection criteria. In contrast, Li, Na, Mg, Al, P, K, Fe, Cu, Zn, and Rb either showed no significant spatial variation or exhibited significant temporal variation (<a href="#tbl-element-selection-static" class="quarto-xref">Table&nbsp;1</a>, <a href="#fig-other-elements" class="quarto-xref">Figure&nbsp;9</a>), making them unsuitable. Additionally, Al, K, Cu, and Rb showed high relative standard deviation (RSD) values in the reference material MACS-3, indicating poor analytical precision (<a href="#fig-reference-material" class="quarto-xref">Figure&nbsp;8</a>). As a result, only Mn, Sr, and Ba were selected for further analysis.</p>
-<div class="quarto-embed-nb-cell">
-<div class="cell">
-<div id="tbl-element-selection-static" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<div class="quarto-embed-nb-cell" data-notebook="/Users/olivierraven/Documents/Trout_study/publication/analysis.qmd" data-notebook-title="Analysis Notebook" data-notebook-cellid="cell-tbl-element-selection-static">
+<div class="cell-container"><div class="cell-decorator"><pre>In [2]:</pre></div><div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>element_selection_display <span class="op">|&gt;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  dplyr::mutate(</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    `Spatial Variability` <span class="op">=</span> ifelse(`Spatial Variability`, <span class="st">"Yes"</span>, <span class="st">"No"</span>),</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    `Temporal Stability` <span class="op">=</span> ifelse(`Temporal Stability`, <span class="st">"Yes"</span>, <span class="st">"No"</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  ) <span class="op">|&gt;</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  knitr::kable()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [3]:</pre></div><div id="tbl-element-selection-static" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-element-selection-static-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;1: Output of MANOVA’s testing the mean of the thirteen trace elements between sites and year separately. The green colour indicating spatial variable but temporal stable.
@@ -522,8 +671,8 @@ Table&nbsp;1: Output of MANOVA’s testing the mean of the thirteen trace elemen
 </div>
 </div>
 </figure>
-</div>
-</div>
+</div></div>
+</div></div>
 </div>
 </section>
 <section id="temporal-stability" class="level2">
@@ -531,12 +680,60 @@ Table&nbsp;1: Output of MANOVA’s testing the mean of the thirteen trace elemen
 <p>The elements Mn, Sr, and Ba were selected as temporally stable as they did not show significant difference across years (<a href="#tbl-element-selection-static" class="quarto-xref">Table&nbsp;1</a>). The temporal stability of Mn, Sr, and Ba is also illustrated in <a href="#fig-lda" class="quarto-xref">Figure&nbsp;3</a>, where the spatial signatures of several sites are visualized using LD1 and LD2 from the preformed LDA model. Sites such as Carons Creek, Fruit Burn, Jimmys Creek, and Kaihiku Stream exhibit relatively stable signatures over time, as indicated by tightly clustered points and minimal overlap across sampling periodss. In contrast, sites like Back Stream and Jimmys Creek show greater within-site variation, with points more widely dispersed. For most sites, the signatures remain within the 95% confidence ellipses, suggesting that intra-site variability was generally low across the sampling years.</p>
 <p>Intra-annual differences were examined at the 3 sites sampled August and September 2021. No significant differences were observed between years for Waitahuna River. However, significant differences were found for Mn concentrations in the Waiwera River (2021 vs.&nbsp;2022, <em>p</em> = 0.0036), and for Mn, Sr, and Ba at Fruit Burn between 2021 and other years (<a href="#tbl-temporal" class="quarto-xref">Table&nbsp;5</a>).</p>
 <p>The 11 juvenile brown trout collected from the Waipahi Tributary A site in 2015 by <span class="citation" data-cites="Svirgsden2018">Svirgsden et al. (<a href="#ref-Svirgsden2018" role="doc-biblioref">2018</a>)</span> showed statistically significant differences in Mn and Ba concentrations when compared with more recent samples. For Mn, a significant difference was found only between 2015 vs.&nbsp;2022 (<em>p</em> = 0.00783). For Ba, multiple significant pairwise differences were detected: 2022 vs.&nbsp;2015 (<em>p</em> = 3.54^{-5}), 2021 vs.&nbsp;2015 (<em>p</em> = 0.0114), 2023 vs.&nbsp;2021 (<em>p</em> = 0.0117), and 2023 vs.&nbsp;2022 (<em>p</em> = 8.94^{-5}). Despite these temporal differences, the RF model was able to correctly assign 74.3589744% of the 39 samples from 2015 to the Waipahi Tributary A site, while the LDA model achieved a lower assignment accuracy of 49.8422713%.</p>
-<div class="quarto-embed-nb-cell">
-<div id="cell-fig-main-elements" class="cell">
+<div class="quarto-embed-nb-cell" data-notebook="/Users/olivierraven/Documents/Trout_study/publication/analysis.qmd" data-notebook-title="Analysis Notebook" data-notebook-cellid="cell-fig-main-elements">
+<div class="cell-container"><div class="cell-decorator"><pre>In [4]:</pre></div><div id="cell-fig-main-elements" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>vars_main <span class="op">&lt;-</span> c(<span class="st">"meanMn55"</span>, <span class="st">"meanSr88"</span>, <span class="st">"meanBa138"</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Combine all variables into a single data frame for faceting</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>df_mean_juv_long_main <span class="op">&lt;-</span> df_mean_juv_clean <span class="op">%&gt;%</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  dplyr::select(Slide_code, Year, Site, dplyr::all_of(vars_main)) <span class="op">%&gt;%</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  tidyr::pivot_longer(</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    cols <span class="op">=</span> dplyr::all_of(vars_main),</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    names_to <span class="op">=</span> <span class="st">"Variable"</span>,</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    values_to <span class="op">=</span> <span class="st">"Value"</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  ) <span class="op">%&gt;%</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  dplyr::mutate(Variable <span class="op">=</span> factor(Variable, levels <span class="op">=</span> vars_main))</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the mean for each variable</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>mean_values_main <span class="op">&lt;-</span> df_mean_juv_long_main <span class="op">%&gt;%</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>  group_by(Variable) <span class="op">%&gt;%</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>  summarise(mean_values_main <span class="op">=</span> mean(Value, na.rm <span class="op">=</span> TRUE))</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the plot</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>main_elements <span class="op">&lt;-</span> ggplot(</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>  df_mean_juv_long_main,</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>  aes(Site, Value, fill <span class="op">=</span> <span class="im">as</span>.factor(Year))</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>) <span class="op">+</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>  geom_boxplot(size <span class="op">=</span> <span class="fl">0.2</span>, outlier.shape <span class="op">=</span> <span class="dv">16</span>, outlier.size <span class="op">=</span> <span class="fl">.5</span>) <span class="op">+</span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>  geom_hline(</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>    data <span class="op">=</span> mean_values_main,</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>    aes(yintercept <span class="op">=</span> mean_values_main),</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>    linetype <span class="op">=</span> <span class="dv">2</span>,</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>  ) <span class="op">+</span> <span class="co"># Mean line for each variable</span></span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>  facet_wrap(<span class="op">~</span>Variable, scales <span class="op">=</span> <span class="st">"free_y"</span>, ncol <span class="op">=</span> <span class="dv">1</span>) <span class="op">+</span> <span class="co"># Facet by the variable names</span></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>  theme_bw() <span class="op">+</span></span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>  theme(</span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>    axis.title.x <span class="op">=</span> element_blank(),</span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>    axis.text.x <span class="op">=</span> element_text(angle <span class="op">=</span> <span class="dv">45</span>, hjust <span class="op">=</span> <span class="dv">1</span>),</span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>    strip.text.x <span class="op">=</span> element_text(),</span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>    labs(fill <span class="op">=</span> <span class="st">"Year"</span>)</span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>  ) <span class="op">+</span></span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>  guides(fill <span class="op">=</span> guide_legend(title <span class="op">=</span> <span class="st">"Year"</span>))</span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>ggsave(</span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>  main_elements,</span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>  <span class="bu">file</span> <span class="op">=</span> <span class="bu">file</span>.path(out_dir, <span class="st">"main_elements.png"</span>),</span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>  width <span class="op">=</span> <span class="dv">10</span>,</span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a>  height <span class="op">=</span> <span class="dv">10</span>,</span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>  bg <span class="op">=</span> <span class="st">"white"</span>,</span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a>  dpi <span class="op">=</span> <span class="dv">600</span></span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a>main_elements</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div id="fig-main-elements" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-main-elements-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div aria-describedby="fig-main-elements-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="">
 <a href="index_files/figure-html/analysis-fig-main-elements-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure&nbsp;2: Boxplots showing the mean of the three selected elements Mn, Sr, Ba in element:Ca ratio in mmol/mol. Divided over the 20 sites and years (colours). The mean of all sites (dashed line)."><img src="index_files/figure-html/analysis-fig-main-elements-output-1.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-main-elements-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -545,18 +742,76 @@ Figure&nbsp;2: Boxplots showing the mean of the three selected elements Mn, Sr, 
 </figure>
 </div>
 </div>
-</div>
+</div></div>
 </div>
 </section>
 <section id="spatial-variability" class="level2">
 <h2 class="anchored" data-anchor-id="spatial-variability">Spatial variability</h2>
 <p>The elements Mn, Sr, and Ba were also selected as spatial variable as they did show significant differences across sites (<a href="#tbl-element-selection-static" class="quarto-xref">Table&nbsp;1</a>). The RF model based on these three elements correctly assigned 0.6037302% of samples to their original stream of origin (<a href="#tbl-rf" class="quarto-xref">Table&nbsp;2</a>). The highest classification accuracies were observed for Back Stream, Flodden Stream, Waipahi Tributary A, and Whiskey Gully Stream, each with over 80% correct assignments. In contrast, Carsons Creek had the lowest classification accuracy at just 18%. The LDA model achieved a slightly lower overall accuracy of 52.7731092% based on leave-one-out cross-validation (<a href="#tbl-lda" class="quarto-xref">Table&nbsp;3</a>). Back Stream, Benger Burn, and Coal Creek had the highest LDA assignment accuracy, each exceeding 80%, while Anguilla Burn and Crookston Burn had the lowest, with 0% of samples correctly assigned. The LDA model scatterplot illustrates how stream signatures cluster in multivariate space (<a href="#fig-lda" class="quarto-xref">Figure&nbsp;3</a>). The spatial variation between the sites is present but there is substantial overlap. This overlap likely contributes to the moderate LDA classification accuracy, as it makes it more difficult to distinguish among certain sites based on their elemental profiles alone.</p>
-<div class="quarto-embed-nb-cell">
-<div id="cell-fig-lda" class="cell">
+<div class="quarto-embed-nb-cell" data-notebook="/Users/olivierraven/Documents/Trout_study/publication/analysis.qmd" data-notebook-title="Analysis Notebook" data-notebook-cellid="cell-fig-lda">
+<div class="cell-container"><div class="cell-decorator"><pre>In [5]:</pre></div><div id="cell-fig-lda" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">### Fit to the entire dataset</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>lda_model <span class="op">&lt;-</span> MASS::lda(Site <span class="op">~</span> ., data <span class="op">=</span> df_mean_juv_clean_main)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># In-sample predictions (scores, classes, posteriors)</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>pred <span class="op">&lt;-</span> predict(lda_model, newdata <span class="op">=</span> df_mean_juv_clean_main)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>predicted_labels_J <span class="op">&lt;-</span> pred$class</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>accuracy_score <span class="op">&lt;-</span> mean(predicted_labels_J <span class="op">==</span> df_mean_juv_clean_main$Site)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>posterior_probs_J <span class="op">&lt;-</span> pred$posterior</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>high_probs_J <span class="op">&lt;-</span> <span class="bu">apply</span>(posterior_probs_J, <span class="dv">1</span>, <span class="bu">max</span>)</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="co"># LDA scores (linear discriminant coordinates)</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>lda_scores <span class="op">&lt;-</span> pred$x</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Attach IDs and predictors for plotting/export (aligned because we only dropped NAs before)</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>JdfII <span class="op">&lt;-</span> cbind(</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>  df_main_full[, c(<span class="st">"meanMn55"</span>, <span class="st">"meanSr88"</span>, <span class="st">"meanBa138"</span>), drop <span class="op">=</span> FALSE],</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>  Slide_code <span class="op">=</span> df_main_full$Slide_code,</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>  Year <span class="op">=</span> df_main_full$Year,</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>  Site <span class="op">=</span> df_main_full$Site,</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>  predicted_site <span class="op">=</span> predicted_labels_J,</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>  highest_probs <span class="op">=</span> high_probs_J</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>LD <span class="op">&lt;-</span> cbind(JdfII, LD1 <span class="op">=</span> lda_scores[, <span class="dv">1</span>], LD2 <span class="op">=</span> lda_scores[, <span class="dv">2</span>])</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>Juv_results <span class="op">&lt;-</span> LD</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot</span></span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a><span class="co"># Scatterplot colored by predicted site</span></span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>LDA_Plot_all <span class="op">&lt;-</span> ggplot(Juv_results, aes(x <span class="op">=</span> LD1, y <span class="op">=</span> LD2)) <span class="op">+</span></span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>  geom_point(aes(fill <span class="op">=</span> predicted_site), color <span class="op">=</span> <span class="st">"black"</span>, shape <span class="op">=</span> <span class="dv">21</span>) <span class="op">+</span></span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>  stat_ellipse(aes(col <span class="op">=</span> predicted_site), level <span class="op">=</span> <span class="fl">0.95</span>) <span class="op">+</span></span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>  theme_bw()</span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a><span class="co"># Scatterplot of LD1 vs LD2, colored by Year, faceted by Site</span></span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>lda_plot <span class="op">&lt;-</span> ggplot(Juv_results, aes(x <span class="op">=</span> LD1, y <span class="op">=</span> LD2)) <span class="op">+</span></span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>  stat_ellipse(aes(col <span class="op">=</span> <span class="im">as</span>.factor(Year)), level <span class="op">=</span> <span class="fl">0.95</span>) <span class="op">+</span></span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>  geom_point(aes(fill <span class="op">=</span> <span class="im">as</span>.factor(Year)), color <span class="op">=</span> <span class="st">"black"</span>, shape <span class="op">=</span> <span class="dv">21</span>) <span class="op">+</span></span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>  labs(x <span class="op">=</span> <span class="st">"LD1"</span>, y <span class="op">=</span> <span class="st">"LD2"</span>, fill <span class="op">=</span> <span class="st">"Year"</span>, color <span class="op">=</span> <span class="st">"Year"</span>) <span class="op">+</span></span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>  facet_wrap(<span class="op">~</span>Site) <span class="op">+</span></span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a>  theme_bw()</span>
+<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a>ggsave(</span>
+<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a>  lda_plot,</span>
+<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a>  <span class="bu">file</span> <span class="op">=</span> <span class="bu">file</span>.path(out_dir, <span class="st">"lda_plot.png"</span>),</span>
+<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a>  width <span class="op">=</span> <span class="dv">10</span>,</span>
+<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a>  height <span class="op">=</span> <span class="dv">10</span>,</span>
+<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a>  bg <span class="op">=</span> <span class="st">"white"</span>,</span>
+<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a>  dpi <span class="op">=</span> <span class="dv">600</span></span>
+<span id="cb4-53"><a href="#cb4-53" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in MASS::cov.trob(data[, vars], wt = weight * nrow(data)): Probable
+convergence failureWarning in MASS::cov.trob(data[, vars], wt = weight * nrow(data)): Probable
+convergence failure</code></pre>
+</div>
 <div class="cell-output cell-output-display">
 <div id="fig-lda" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-lda-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div aria-describedby="fig-lda-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="">
 <a href="index_files/figure-html/analysis-fig-lda-output-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure&nbsp;3: Scatterplots of LD1 vs LD2 variation of the trace element signatures of elements Mn, Sr, and Ba from the four years divided over the 20 sites. Points in each plot depict individual fish. Ellipses show 0.95 confidence interval for each year for each site. LD1 explains 63.47 %, LD2 explains 22.42 % of the total variance."><img src="index_files/figure-html/analysis-fig-lda-output-2.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-lda-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -565,11 +820,45 @@ Figure&nbsp;3: Scatterplots of LD1 vs LD2 variation of the trace element signatu
 </figure>
 </div>
 </div>
+</div></div>
 </div>
-</div>
-<div class="quarto-embed-nb-cell">
-<div class="cell">
-<div id="tbl-rf" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<div class="quarto-embed-nb-cell" data-notebook="/Users/olivierraven/Documents/Trout_study/publication/analysis.qmd" data-notebook-title="Analysis Notebook" data-notebook-cellid="cell-tbl-rf">
+<div class="cell-container"><div class="cell-decorator"><pre>In [6]:</pre></div><div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df_mean_juv_clean_main <span class="op">&lt;-</span> df_mean_juv_clean <span class="op">%&gt;%</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  dplyr::select(Site, dplyr::all_of(vars_main))</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>rf_model <span class="op">&lt;-</span> randomForest(</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  Site <span class="op">~</span> .,</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  data <span class="op">=</span> df_mean_juv_clean_main,</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  ntree <span class="op">=</span> <span class="dv">400</span>,</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  importance <span class="op">=</span> TRUE</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>conf_matrix <span class="op">&lt;-</span> rf_model$confusion</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>correct_predictions <span class="op">&lt;-</span> <span class="bu">sum</span>(diag(conf_matrix))</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>total_predictions <span class="op">&lt;-</span> <span class="bu">sum</span>(conf_matrix)</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>accuracy_rf <span class="op">&lt;-</span> correct_predictions <span class="op">/</span> total_predictions</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove the class.error column for display</span></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>conf_display_rf <span class="op">&lt;-</span> conf_matrix[, <span class="op">!</span>colnames(conf_matrix) <span class="op">%</span><span class="kw">in</span><span class="op">%</span> <span class="st">"class.error"</span>]</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Add class error as % column</span></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>class_error_pct <span class="op">&lt;-</span> paste0(<span class="bu">round</span>(conf_matrix[, <span class="st">"class.error"</span>] <span class="op">*</span> <span class="dv">100</span>, <span class="dv">1</span>), <span class="st">"%"</span>)</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>conf_display_rf <span class="op">&lt;-</span> cbind(</span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>  <span class="im">as</span>.data.frame(conf_display_rf),</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>  `Class error` <span class="op">=</span> class_error_pct</span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>write.csv(</span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>  conf_matrix,</span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>  <span class="bu">file</span> <span class="op">=</span> <span class="bu">file</span>.path(out_dir, <span class="st">"rf_conf_matrix.csv"</span>),</span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>  row.names <span class="op">=</span> TRUE</span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a>knitr::kable(conf_display_rf, rownames_to_stub <span class="op">=</span> TRUE)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [7]:</pre></div><div id="tbl-rf" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-rf-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;2: RF model confusion matrix of the 602 signatures tested. Actual shown in columns and predicted shown in rows. Overall accuracy: 61.0% (367 of 602 correct).
@@ -1113,12 +1402,83 @@ Table&nbsp;2: RF model confusion matrix of the 602 signatures tested. Actual sho
 </div>
 </div>
 </figure>
+</div></div>
+</div></div>
 </div>
-</div>
-</div>
-<div class="quarto-embed-nb-cell">
-<div class="cell">
-<div id="tbl-lda" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<div class="quarto-embed-nb-cell" data-notebook="/Users/olivierraven/Documents/Trout_study/publication/analysis.qmd" data-notebook-title="Analysis Notebook" data-notebook-cellid="cell-tbl-lda">
+<div class="cell-container"><div class="cell-decorator"><pre>In [8]:</pre></div><div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Build a single working frame</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>df_main_full <span class="op">&lt;-</span> df_mean_juv_clean <span class="op">%&gt;%</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  dplyr::select(Slide_code, Year, Site, dplyr::all_of(vars_main)) <span class="op">%&gt;%</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  tidyr::drop_na(dplyr::all_of(vars_main))</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>df_mean_juv_clean_main <span class="op">&lt;-</span> df_main_full <span class="op">%&gt;%</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  dplyr::select(Site, dplyr::all_of(vars_main))</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="co"># LOOCV</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>num_folds <span class="op">&lt;-</span> nrow(df_mean_juv_clean_main)</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>accuracy_scores <span class="op">&lt;-</span> numeric(num_folds)</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>partition_indices <span class="op">&lt;-</span> seq_len(num_folds)</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>site_levels <span class="op">&lt;-</span> levels(<span class="im">as</span>.factor(df_mean_juv_clean_main$Site))</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>K <span class="op">&lt;-</span> length(site_levels)</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>class_table <span class="op">&lt;-</span> matrix(</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>  <span class="dv">0</span>,</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>  nrow <span class="op">=</span> K,</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>  ncol <span class="op">=</span> K,</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>  dimnames <span class="op">=</span> <span class="bu">list</span>(Predicted <span class="op">=</span> site_levels, Actual <span class="op">=</span> site_levels)</span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="kw">in</span> seq_len(num_folds)) {</span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>  training_data <span class="op">&lt;-</span> df_mean_juv_clean_main[</span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>    partition_indices <span class="op">!=</span> i,</span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>    ,</span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>    drop <span class="op">=</span> FALSE</span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>  ]</span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>  testing_data <span class="op">&lt;-</span> df_mean_juv_clean_main[partition_indices <span class="op">==</span> i, , drop <span class="op">=</span> FALSE]</span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>  lda_model_cv <span class="op">&lt;-</span> MASS::lda(Site <span class="op">~</span> ., data <span class="op">=</span> training_data)</span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>  pred_cv <span class="op">&lt;-</span> predict(lda_model_cv, newdata <span class="op">=</span> testing_data)</span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>  predicted_labels <span class="op">&lt;-</span> pred_cv$class</span>
+<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>  accuracy_scores[i] <span class="op">&lt;-</span> mean(predicted_labels <span class="op">==</span> testing_data$Site)</span>
+<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a>  tbl <span class="op">&lt;-</span> table(</span>
+<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a>    factor(predicted_labels, levels <span class="op">=</span> site_levels),</span>
+<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a>    factor(testing_data$Site, levels <span class="op">=</span> site_levels)</span>
+<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a>  class_table <span class="op">&lt;-</span> class_table <span class="op">+</span> tbl</span>
+<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a>mean_accuracy <span class="op">&lt;-</span> mean(accuracy_scores)</span>
+<span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a>sum_accuracy <span class="op">&lt;-</span> <span class="bu">sum</span>(accuracy_scores)</span>
+<span id="cb7-46"><a href="#cb7-46" aria-hidden="true" tabindex="-1"></a>sd_accuracy <span class="op">&lt;-</span> sd(accuracy_scores)</span>
+<span id="cb7-47"><a href="#cb7-47" aria-hidden="true" tabindex="-1"></a>se_accuracy <span class="op">&lt;-</span> sd_accuracy <span class="op">/</span> sqrt(length(accuracy_scores))</span>
+<span id="cb7-48"><a href="#cb7-48" aria-hidden="true" tabindex="-1"></a>accuracy_lda <span class="op">&lt;-</span> mean_accuracy <span class="op">*</span> <span class="dv">100</span></span>
+<span id="cb7-49"><a href="#cb7-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-50"><a href="#cb7-50" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert matrix to wide data frame correctly</span></span>
+<span id="cb7-51"><a href="#cb7-51" aria-hidden="true" tabindex="-1"></a>conf_wide <span class="op">&lt;-</span> <span class="im">as</span>.data.frame.matrix(class_table)</span>
+<span id="cb7-52"><a href="#cb7-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-53"><a href="#cb7-53" aria-hidden="true" tabindex="-1"></a><span class="co"># Add class error column</span></span>
+<span id="cb7-54"><a href="#cb7-54" aria-hidden="true" tabindex="-1"></a>class_error_pct <span class="op">&lt;-</span> paste0(</span>
+<span id="cb7-55"><a href="#cb7-55" aria-hidden="true" tabindex="-1"></a>  <span class="bu">round</span>(</span>
+<span id="cb7-56"><a href="#cb7-56" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">1</span> <span class="op">-</span> diag(class_table) <span class="op">/</span> rowSums(class_table)) <span class="op">*</span> <span class="dv">100</span>,</span>
+<span id="cb7-57"><a href="#cb7-57" aria-hidden="true" tabindex="-1"></a>    <span class="dv">1</span></span>
+<span id="cb7-58"><a href="#cb7-58" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb7-59"><a href="#cb7-59" aria-hidden="true" tabindex="-1"></a>  <span class="st">"%"</span></span>
+<span id="cb7-60"><a href="#cb7-60" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb7-61"><a href="#cb7-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-62"><a href="#cb7-62" aria-hidden="true" tabindex="-1"></a>conf_display_lda <span class="op">&lt;-</span> cbind(conf_wide, `Class error` <span class="op">=</span> class_error_pct)</span>
+<span id="cb7-63"><a href="#cb7-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-64"><a href="#cb7-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-65"><a href="#cb7-65" aria-hidden="true" tabindex="-1"></a>write.csv(</span>
+<span id="cb7-66"><a href="#cb7-66" aria-hidden="true" tabindex="-1"></a>  conf_display_lda,</span>
+<span id="cb7-67"><a href="#cb7-67" aria-hidden="true" tabindex="-1"></a>  <span class="bu">file</span> <span class="op">=</span> <span class="bu">file</span>.path(out_dir, <span class="st">"lda_conf_matrix.csv"</span>),</span>
+<span id="cb7-68"><a href="#cb7-68" aria-hidden="true" tabindex="-1"></a>  row.names <span class="op">=</span> TRUE</span>
+<span id="cb7-69"><a href="#cb7-69" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb7-70"><a href="#cb7-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-71"><a href="#cb7-71" aria-hidden="true" tabindex="-1"></a>knitr::kable(conf_display_lda, rownames_to_stub <span class="op">=</span> TRUE)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [9]:</pre></div><div id="tbl-lda" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-lda-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;3: LDA model confusion matrix of the 602 signatures tested by 602 folds of cross validation. Actual shown in columns and predicted shown in rows. The diagonal bold numbers are the correct predictions for each site.
@@ -1662,16 +2022,82 @@ Table&nbsp;3: LDA model confusion matrix of the 602 signatures tested by 602 fol
 </div>
 </div>
 </figure>
-</div>
-</div>
+</div></div>
+</div></div>
 </div>
 <p>The NNCA dendrogram based on the Silhouette Index show three main clusters of the 20 sites (<a href="#fig-nnca" class="quarto-xref">Figure&nbsp;4</a>). Consistent with the data (<a href="#fig-main-elements" class="quarto-xref">Figure&nbsp;2</a>), Back Stream is distinct from the other sites forming cluster a. Back Stream show higher values for the elements Sr and Ba compared to the other sites. The RF and LDA model where also used to predict the signatures for each cluster, which resulted in an accuracy score of 92.2689076% and 92.2689076% (<a href="#tbl-conf-nnca" class="quarto-xref">Table&nbsp;4</a>). The LDA model scatterplot also shows the three distinct clusters, with more overlap in cluster b and c (<a href="#fig-nnca-lda" class="quarto-xref">Figure&nbsp;5</a>).</p>
-<div class="quarto-embed-nb-cell">
-<div id="cell-fig-nnca" class="cell">
+<div class="quarto-embed-nb-cell" data-notebook="/Users/olivierraven/Documents/Trout_study/publication/analysis.qmd" data-notebook-title="Analysis Notebook" data-notebook-cellid="cell-fig-nnca">
+<div class="cell-container"><div class="cell-decorator"><pre>In [10]:</pre></div><div id="cell-fig-nnca" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate mean elemental composition per site</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>mean_by_group <span class="op">&lt;-</span> aggregate(</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  cbind(meanMn55, meanSr88, meanBa138) <span class="op">~</span> Site,</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  data <span class="op">=</span> Juv_results,</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  FUN <span class="op">=</span> mean</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 1) Prepare matrix with Site names as row names (no reordering)</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="co">#    Assumes mean_by_group has first column 'Site' and remaining numeric features</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>data_mat <span class="op">&lt;-</span> <span class="im">as</span>.matrix(mean_by_group[, <span class="op">-</span><span class="dv">1</span>, drop <span class="op">=</span> FALSE])</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>rownames(data_mat) <span class="op">&lt;-</span> mean_by_group$Site</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 2) Distance + clustering (same as before)</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>distance_matrix <span class="op">&lt;-</span> dist(data_mat)</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>fit <span class="op">&lt;-</span> hclust(distance_matrix, method <span class="op">=</span> <span class="st">"single"</span>)</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="co"># 3) Determine optimal cluster count via silhouette (same logic)</span></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>k_max <span class="op">&lt;-</span> <span class="bu">max</span>(<span class="dv">2</span>, <span class="bu">min</span>(<span class="dv">19</span>, nrow(mean_by_group) <span class="op">-</span> <span class="dv">1</span>))</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>sil_scores <span class="op">&lt;-</span> sapply(<span class="dv">2</span>:k_max, function(k) {</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>  grp <span class="op">&lt;-</span> cutree(fit, k <span class="op">=</span> k)</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>  mean(silhouette(grp, distance_matrix)[, <span class="st">"sil_width"</span>])</span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>optimal_clusters <span class="op">&lt;-</span> which.<span class="bu">max</span>(sil_scores) <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a><span class="co"># 4) Convert to ggdendro data; labels come directly from hclust (Site names via rownames)</span></span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>dd <span class="op">&lt;-</span> ggdendro::dendro_data(fit, <span class="bu">type</span> <span class="op">=</span> <span class="st">"rectangle"</span>)</span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a><span class="co"># 5) Right panel: horizontal dendrogram (suppress leaf labels here to avoid duplication)</span></span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>dend_plot <span class="op">&lt;-</span> ggplot() <span class="op">+</span></span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a>  geom_segment(</span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a>    data <span class="op">=</span> dd$segments,</span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a>    aes(x <span class="op">=</span> y, y <span class="op">=</span> x, xend <span class="op">=</span> yend, yend <span class="op">=</span> xend),</span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a>    linewidth <span class="op">=</span> <span class="fl">0.3</span></span>
+<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a>  ) <span class="op">+</span></span>
+<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a>  labs(x <span class="op">=</span> <span class="st">"Distance between sites"</span>, y <span class="op">=</span> NULL) <span class="op">+</span></span>
+<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a>  theme_minimal() <span class="op">+</span></span>
+<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a>  theme(</span>
+<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a>    panel.grid <span class="op">=</span> element_blank(),</span>
+<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a>    axis.text.y <span class="op">=</span> element_blank(),</span>
+<span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a>    axis.ticks.y <span class="op">=</span> element_blank(),</span>
+<span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a>    plot.title.position <span class="op">=</span> <span class="st">"plot"</span></span>
+<span id="cb8-42"><a href="#cb8-42" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb8-43"><a href="#cb8-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-44"><a href="#cb8-44" aria-hidden="true" tabindex="-1"></a><span class="co"># 6) Left panel: Site labels in dendrogram leaf order (already Site names)</span></span>
+<span id="cb8-45"><a href="#cb8-45" aria-hidden="true" tabindex="-1"></a>labels_df <span class="op">&lt;-</span> dd$labels</span>
+<span id="cb8-46"><a href="#cb8-46" aria-hidden="true" tabindex="-1"></a>labels_df$y <span class="op">&lt;-</span> labels_df$x</span>
+<span id="cb8-47"><a href="#cb8-47" aria-hidden="true" tabindex="-1"></a>left_labels <span class="op">&lt;-</span> ggplot(labels_df, aes(x <span class="op">=</span> <span class="dv">1</span>, y <span class="op">=</span> y, label <span class="op">=</span> label)) <span class="op">+</span></span>
+<span id="cb8-48"><a href="#cb8-48" aria-hidden="true" tabindex="-1"></a>  geom_text(hjust <span class="op">=</span> <span class="dv">1</span>) <span class="op">+</span></span>
+<span id="cb8-49"><a href="#cb8-49" aria-hidden="true" tabindex="-1"></a>  xlim(<span class="fl">0.5</span>, <span class="fl">1.02</span>) <span class="op">+</span></span>
+<span id="cb8-50"><a href="#cb8-50" aria-hidden="true" tabindex="-1"></a>  labs(x <span class="op">=</span> NULL, y <span class="op">=</span> NULL) <span class="op">+</span></span>
+<span id="cb8-51"><a href="#cb8-51" aria-hidden="true" tabindex="-1"></a>  theme_void()</span>
+<span id="cb8-52"><a href="#cb8-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-53"><a href="#cb8-53" aria-hidden="true" tabindex="-1"></a><span class="co"># 7) Combine panels: LEFT labels (narrow) + RIGHT tree (wide)</span></span>
+<span id="cb8-54"><a href="#cb8-54" aria-hidden="true" tabindex="-1"></a>NNCA_tree_plot <span class="op">&lt;-</span> left_labels <span class="op">+</span></span>
+<span id="cb8-55"><a href="#cb8-55" aria-hidden="true" tabindex="-1"></a>  dend_plot <span class="op">+</span></span>
+<span id="cb8-56"><a href="#cb8-56" aria-hidden="true" tabindex="-1"></a>  patchwork::plot_layout(widths <span class="op">=</span> c(<span class="dv">1</span>, <span class="dv">1</span>))</span>
+<span id="cb8-57"><a href="#cb8-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-58"><a href="#cb8-58" aria-hidden="true" tabindex="-1"></a>ggsave(</span>
+<span id="cb8-59"><a href="#cb8-59" aria-hidden="true" tabindex="-1"></a>  NNCA_tree_plot,</span>
+<span id="cb8-60"><a href="#cb8-60" aria-hidden="true" tabindex="-1"></a>  <span class="bu">file</span> <span class="op">=</span> <span class="bu">file</span>.path(out_dir, <span class="st">"NNCA_tree_plot.png"</span>),</span>
+<span id="cb8-61"><a href="#cb8-61" aria-hidden="true" tabindex="-1"></a>  width <span class="op">=</span> <span class="dv">4</span>,</span>
+<span id="cb8-62"><a href="#cb8-62" aria-hidden="true" tabindex="-1"></a>  height <span class="op">=</span> <span class="dv">5</span>,</span>
+<span id="cb8-63"><a href="#cb8-63" aria-hidden="true" tabindex="-1"></a>  dpi <span class="op">=</span> <span class="dv">600</span></span>
+<span id="cb8-64"><a href="#cb8-64" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb8-65"><a href="#cb8-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-66"><a href="#cb8-66" aria-hidden="true" tabindex="-1"></a>NNCA_tree_plot</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div id="fig-nnca" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-nnca-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div aria-describedby="fig-nnca-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="">
 <a href="index_files/figure-html/analysis-fig-nnca-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Figure&nbsp;4: Dendrogram of the Nearest-Neighbour Cluster Analysis of the trace element signatures of elements Mn, Sr, and Ba from the four years. Based on the Silhouette index, three clusters were selected."><img src="index_files/figure-html/analysis-fig-nnca-output-1.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-nnca-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -1680,11 +2106,110 @@ Figure&nbsp;4: Dendrogram of the Nearest-Neighbour Cluster Analysis of the trace
 </figure>
 </div>
 </div>
+</div></div>
 </div>
-</div>
-<div class="quarto-embed-nb-cell">
-<div class="cell">
-<div id="tbl-conf-nnca" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<div class="quarto-embed-nb-cell" data-notebook="/Users/olivierraven/Documents/Trout_study/publication/analysis.qmd" data-notebook-title="Analysis Notebook" data-notebook-cellid="cell-tbl-conf-nnca">
+<div class="cell-container"><div class="cell-decorator"><pre>In [11]:</pre></div><div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Assign cluster numbers to each Catch_location</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>mean_by_group$NNCA <span class="op">&lt;-</span> cutree(fit, k <span class="op">=</span> optimal_clusters)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Merge NNCA data into Juv_results based on Catch_location</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>Juv_results_NNCA <span class="op">&lt;-</span> Juv_results <span class="op">%&gt;%</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  dplyr::left_join(mean_by_group <span class="op">%&gt;%</span> dplyr::select(Site, NNCA), by <span class="op">=</span> <span class="st">"Site"</span>)</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Select useful columns</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>Juv_NNCA <span class="op">&lt;-</span> Juv_results_NNCA <span class="op">%&gt;%</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>  dplyr::select(meanMn55, meanSr88, meanBa138, NNCA) <span class="op">%&gt;%</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>  dplyr::mutate(NNCA <span class="op">=</span> <span class="im">as</span>.factor(NNCA))</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>cluster_levels <span class="op">&lt;-</span> levels(Juv_NNCA$NNCA)</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>K <span class="op">&lt;-</span> length(cluster_levels)</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a><span class="co">### RF</span></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>rf_model_nnca <span class="op">&lt;-</span> randomForest(</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>  NNCA <span class="op">~</span> .,</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>  data <span class="op">=</span> Juv_NNCA,</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>  ntree <span class="op">=</span> <span class="dv">400</span>,</span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>  importance <span class="op">=</span> TRUE</span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>conf_rf <span class="op">&lt;-</span> rf_model_nnca$confusion[, cluster_levels] <span class="co"># drop class.error</span></span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>accuracy_rf_nnca <span class="op">&lt;-</span> <span class="bu">sum</span>(diag(conf_rf)) <span class="op">/</span> <span class="bu">sum</span>(conf_rf)</span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>accuracy_rf_nnca <span class="op">&lt;-</span> accuracy_rf_nnca <span class="op">*</span> <span class="dv">100</span></span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a><span class="co">### LDA - LOOCV confusion matrix</span></span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>num_folds <span class="op">&lt;-</span> nrow(Juv_NNCA)</span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>accuracy_scores_lda <span class="op">&lt;-</span> numeric(num_folds)</span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a>lda_class_table <span class="op">&lt;-</span> matrix(</span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a>  <span class="dv">0</span>,</span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a>  nrow <span class="op">=</span> K,</span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a>  ncol <span class="op">=</span> K,</span>
+<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a>  dimnames <span class="op">=</span> <span class="bu">list</span>(Predicted <span class="op">=</span> cluster_levels, Actual <span class="op">=</span> cluster_levels)</span>
+<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="kw">in</span> seq_len(num_folds)) {</span>
+<span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a>  training_data <span class="op">&lt;-</span> Juv_NNCA[<span class="op">-</span>i, ]</span>
+<span id="cb9-41"><a href="#cb9-41" aria-hidden="true" tabindex="-1"></a>  testing_data <span class="op">&lt;-</span> Juv_NNCA[i, , drop <span class="op">=</span> FALSE]</span>
+<span id="cb9-42"><a href="#cb9-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-43"><a href="#cb9-43" aria-hidden="true" tabindex="-1"></a>  lda_model_cv <span class="op">&lt;-</span> MASS::lda(NNCA <span class="op">~</span> ., data <span class="op">=</span> training_data)</span>
+<span id="cb9-44"><a href="#cb9-44" aria-hidden="true" tabindex="-1"></a>  pred_cv <span class="op">&lt;-</span> predict(lda_model_cv, newdata <span class="op">=</span> testing_data)$class</span>
+<span id="cb9-45"><a href="#cb9-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-46"><a href="#cb9-46" aria-hidden="true" tabindex="-1"></a>  accuracy_scores_lda[i] <span class="op">&lt;-</span> mean(pred_cv <span class="op">==</span> testing_data$NNCA)</span>
+<span id="cb9-47"><a href="#cb9-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-48"><a href="#cb9-48" aria-hidden="true" tabindex="-1"></a>  tbl_i <span class="op">&lt;-</span> table(</span>
+<span id="cb9-49"><a href="#cb9-49" aria-hidden="true" tabindex="-1"></a>    factor(pred_cv, levels <span class="op">=</span> cluster_levels),</span>
+<span id="cb9-50"><a href="#cb9-50" aria-hidden="true" tabindex="-1"></a>    factor(testing_data$NNCA, levels <span class="op">=</span> cluster_levels)</span>
+<span id="cb9-51"><a href="#cb9-51" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb9-52"><a href="#cb9-52" aria-hidden="true" tabindex="-1"></a>  lda_class_table <span class="op">&lt;-</span> lda_class_table <span class="op">+</span> tbl_i</span>
+<span id="cb9-53"><a href="#cb9-53" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb9-54"><a href="#cb9-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-55"><a href="#cb9-55" aria-hidden="true" tabindex="-1"></a>mean_accuracy_lda <span class="op">&lt;-</span> mean(accuracy_scores_lda)</span>
+<span id="cb9-56"><a href="#cb9-56" aria-hidden="true" tabindex="-1"></a>accuracy_lda_nnca <span class="op">&lt;-</span> <span class="bu">sum</span>(diag(lda_class_table)) <span class="op">/</span> <span class="bu">sum</span>(lda_class_table)</span>
+<span id="cb9-57"><a href="#cb9-57" aria-hidden="true" tabindex="-1"></a>accuracy_lda_nnca <span class="op">&lt;-</span> accuracy_lda_nnca <span class="op">*</span> <span class="dv">100</span></span>
+<span id="cb9-58"><a href="#cb9-58" aria-hidden="true" tabindex="-1"></a><span class="co"># Final LDA for LD scores (plot use)</span></span>
+<span id="cb9-59"><a href="#cb9-59" aria-hidden="true" tabindex="-1"></a>lda_model_final <span class="op">&lt;-</span> MASS::lda(NNCA <span class="op">~</span> ., data <span class="op">=</span> Juv_NNCA)</span>
+<span id="cb9-60"><a href="#cb9-60" aria-hidden="true" tabindex="-1"></a>predicted_labels <span class="op">&lt;-</span> predict(lda_model_final, newdata <span class="op">=</span> Juv_NNCA)$class</span>
+<span id="cb9-61"><a href="#cb9-61" aria-hidden="true" tabindex="-1"></a>LD <span class="op">&lt;-</span> predict(lda_model_final)$x</span>
+<span id="cb9-62"><a href="#cb9-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-63"><a href="#cb9-63" aria-hidden="true" tabindex="-1"></a>Juv_NNCA2 <span class="op">&lt;-</span> cbind(</span>
+<span id="cb9-64"><a href="#cb9-64" aria-hidden="true" tabindex="-1"></a>  Juv_NNCA,</span>
+<span id="cb9-65"><a href="#cb9-65" aria-hidden="true" tabindex="-1"></a>  predicted_labels <span class="op">=</span> predicted_labels,</span>
+<span id="cb9-66"><a href="#cb9-66" aria-hidden="true" tabindex="-1"></a>  LD1 <span class="op">=</span> LD[, <span class="dv">1</span>],</span>
+<span id="cb9-67"><a href="#cb9-67" aria-hidden="true" tabindex="-1"></a>  LD2 <span class="op">=</span> LD[, <span class="dv">2</span>]</span>
+<span id="cb9-68"><a href="#cb9-68" aria-hidden="true" tabindex="-1"></a>) <span class="op">%&gt;%</span></span>
+<span id="cb9-69"><a href="#cb9-69" aria-hidden="true" tabindex="-1"></a>  dplyr::mutate(Correct <span class="op">=</span> ifelse(NNCA <span class="op">==</span> predicted_labels, <span class="st">"1"</span>, <span class="st">"0"</span>))</span>
+<span id="cb9-70"><a href="#cb9-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-71"><a href="#cb9-71" aria-hidden="true" tabindex="-1"></a><span class="co"># ---- Build side-by-side table ----</span></span>
+<span id="cb9-72"><a href="#cb9-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-73"><a href="#cb9-73" aria-hidden="true" tabindex="-1"></a>conf_rf_wide <span class="op">&lt;-</span> <span class="im">as</span>.data.frame.matrix(conf_rf[, cluster_levels])</span>
+<span id="cb9-74"><a href="#cb9-74" aria-hidden="true" tabindex="-1"></a>conf_lda_wide <span class="op">&lt;-</span> <span class="im">as</span>.data.frame.matrix(lda_class_table)</span>
+<span id="cb9-75"><a href="#cb9-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-76"><a href="#cb9-76" aria-hidden="true" tabindex="-1"></a>combined <span class="op">&lt;-</span> cbind(conf_rf_wide, conf_lda_wide)</span>
+<span id="cb9-77"><a href="#cb9-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-78"><a href="#cb9-78" aria-hidden="true" tabindex="-1"></a><span class="co"># Move rownames to explicit column</span></span>
+<span id="cb9-79"><a href="#cb9-79" aria-hidden="true" tabindex="-1"></a>combined_display <span class="op">&lt;-</span> data.frame(</span>
+<span id="cb9-80"><a href="#cb9-80" aria-hidden="true" tabindex="-1"></a>  Predicted <span class="op">=</span> cluster_levels,</span>
+<span id="cb9-81"><a href="#cb9-81" aria-hidden="true" tabindex="-1"></a>  combined,</span>
+<span id="cb9-82"><a href="#cb9-82" aria-hidden="true" tabindex="-1"></a>  check.names <span class="op">=</span> FALSE</span>
+<span id="cb9-83"><a href="#cb9-83" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb9-84"><a href="#cb9-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-85"><a href="#cb9-85" aria-hidden="true" tabindex="-1"></a><span class="co"># Rename to avoid duplicates</span></span>
+<span id="cb9-86"><a href="#cb9-86" aria-hidden="true" tabindex="-1"></a>colnames(combined_display) <span class="op">&lt;-</span> c(</span>
+<span id="cb9-87"><a href="#cb9-87" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Predicted"</span>,</span>
+<span id="cb9-88"><a href="#cb9-88" aria-hidden="true" tabindex="-1"></a>  paste0(<span class="st">"RF_"</span>, cluster_levels),</span>
+<span id="cb9-89"><a href="#cb9-89" aria-hidden="true" tabindex="-1"></a>  paste0(<span class="st">"LDA_"</span>, cluster_levels)</span>
+<span id="cb9-90"><a href="#cb9-90" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb9-91"><a href="#cb9-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-92"><a href="#cb9-92" aria-hidden="true" tabindex="-1"></a>write.csv(</span>
+<span id="cb9-93"><a href="#cb9-93" aria-hidden="true" tabindex="-1"></a>  combined_display,</span>
+<span id="cb9-94"><a href="#cb9-94" aria-hidden="true" tabindex="-1"></a>  <span class="bu">file</span> <span class="op">=</span> <span class="bu">file</span>.path(out_dir, <span class="st">"combined_nnca_conf_matrix.csv"</span>),</span>
+<span id="cb9-95"><a href="#cb9-95" aria-hidden="true" tabindex="-1"></a>  row.names <span class="op">=</span> TRUE</span>
+<span id="cb9-96"><a href="#cb9-96" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb9-97"><a href="#cb9-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-98"><a href="#cb9-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-99"><a href="#cb9-99" aria-hidden="true" tabindex="-1"></a>knitr::kable(combined_display)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [12]:</pre></div><div id="tbl-conf-nnca" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-conf-nnca-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;4: Confusion matrix of the RF and LDA of the tree clusters from the NNCA. Actual shown in columns and predicted shown in rows. The diagonal bold numbers are the correct predictions for each cluster.
@@ -1736,15 +2261,39 @@ Table&nbsp;4: Confusion matrix of the RF and LDA of the tree clusters from the N
 </div>
 </div>
 </figure>
+</div></div>
+</div></div>
 </div>
-</div>
-</div>
-<div class="quarto-embed-nb-cell">
-<div id="cell-fig-nnca-lda" class="cell">
+<div class="quarto-embed-nb-cell" data-notebook="/Users/olivierraven/Documents/Trout_study/publication/analysis.qmd" data-notebook-title="Analysis Notebook" data-notebook-cellid="cell-fig-nnca-lda">
+<div class="cell-container"><div class="cell-decorator"><pre>In [13]:</pre></div><div id="cell-fig-nnca-lda" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a column to indicate correctness of prediction</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>Juv_NNCA2$Correct <span class="op">&lt;-</span> ifelse(</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  Juv_NNCA2$NNCA <span class="op">==</span> Juv_NNCA2$predicted_labels,</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">"1"</span>,</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">"0"</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot with correctly classified in black, misclassified in white</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>LDA_NNCA <span class="op">&lt;-</span> ggplot(Juv_NNCA2, aes(x <span class="op">=</span> LD1, y <span class="op">=</span> LD2)) <span class="op">+</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  geom_point(aes(fill <span class="op">=</span> Correct), color <span class="op">=</span> <span class="st">'black'</span>, shape <span class="op">=</span> <span class="dv">21</span>) <span class="op">+</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>  scale_fill_manual(values <span class="op">=</span> c(<span class="st">"1"</span> <span class="op">=</span> <span class="st">"black"</span>, <span class="st">"0"</span> <span class="op">=</span> <span class="st">"white"</span>)) <span class="op">+</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>  stat_ellipse(aes(col <span class="op">=</span> NNCA), level <span class="op">=</span> <span class="fl">0.95</span>) <span class="op">+</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>  theme_bw()</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>ggsave(</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>  LDA_NNCA,</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>  <span class="bu">file</span> <span class="op">=</span> <span class="bu">file</span>.path(out_dir, <span class="st">"LDA_NNCA.png"</span>),</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>  width <span class="op">=</span> <span class="dv">5</span>,</span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>  height <span class="op">=</span> <span class="dv">4</span>,</span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>  bg <span class="op">=</span> <span class="st">"white"</span>,</span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>  dpi <span class="op">=</span> <span class="dv">600</span></span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>LDA_NNCA</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div id="fig-nnca-lda" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-nnca-lda-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div aria-describedby="fig-nnca-lda-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="">
 <a href="index_files/figure-html/analysis-fig-nnca-lda-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Figure&nbsp;5: Scatterplots of LD1 vs LD2 variation of the trace element signatures of elements Mn, Sr, and Ba from the four years divided over the three clusters from the NNCA. Points are individual signatures and are coloured according to their prediction, 0 not correct, 1 correct predicted. Ellipses show 0.95 confidence interval, colours represent the different clusters, a: red (n=30), b: green (n=229), c: blue (n=343). LD1 explains 87.4 %, LD2 explains 12.6 % of the total variance."><img src="index_files/figure-html/analysis-fig-nnca-lda-output-1.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-nnca-lda-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -1753,7 +2302,7 @@ Figure&nbsp;5: Scatterplots of LD1 vs LD2 variation of the trace element signatu
 </figure>
 </div>
 </div>
-</div>
+</div></div>
 </div>
 </section>
 </section>
@@ -1995,12 +2544,70 @@ Figure&nbsp;8: Mean (g/g), standard deviation, and relative standard deviation o
 </figcaption>
 </figure>
 </div>
-<div class="quarto-embed-nb-cell">
-<div id="cell-fig-other-elements" class="cell">
+<div class="quarto-embed-nb-cell" data-notebook="/Users/olivierraven/Documents/Trout_study/publication/analysis.qmd" data-notebook-title="Analysis Notebook" data-notebook-cellid="cell-fig-other-elements">
+<div class="cell-container"><div class="cell-decorator"><pre>In [14]:</pre></div><div id="cell-fig-other-elements" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>vars_other <span class="op">&lt;-</span> c(</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">"meanLi7"</span>,</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">"meanNa23"</span>,</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">"meanMg24"</span>,</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">"meanAl27"</span>,</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">"meanP31"</span>,</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">"meanK39"</span>,</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">"meanFe57"</span>,</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>  <span class="st">"meanCu65"</span>,</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>  <span class="st">"meanZn66"</span>,</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>  <span class="st">"meanRb85"</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a><span class="co"># make long format of the other elements</span></span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>df_mean_juv_long_other <span class="op">&lt;-</span> df_mean_juv_clean <span class="op">%&gt;%</span></span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>  dplyr::select(Slide_code, Year, Site, dplyr::all_of(vars_other)) <span class="op">%&gt;%</span></span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>  tidyr::pivot_longer(</span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>    cols <span class="op">=</span> dplyr::all_of(vars_other),</span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>    names_to <span class="op">=</span> <span class="st">"Variable"</span>,</span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>    values_to <span class="op">=</span> <span class="st">"Value"</span></span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>  ) <span class="op">%&gt;%</span></span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>  dplyr::mutate(Variable <span class="op">=</span> factor(Variable, levels <span class="op">=</span> vars_other))</span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the mean for each variable</span></span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a>mean_values_other <span class="op">&lt;-</span> df_mean_juv_long_other <span class="op">%&gt;%</span></span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a>  group_by(Variable) <span class="op">%&gt;%</span></span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a>  summarise(mean_values_other <span class="op">=</span> mean(Value, na.rm <span class="op">=</span> TRUE))</span>
+<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the plot</span></span>
+<span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a>other_elements <span class="op">&lt;-</span> ggplot(</span>
+<span id="cb11-31"><a href="#cb11-31" aria-hidden="true" tabindex="-1"></a>  df_mean_juv_long_other,</span>
+<span id="cb11-32"><a href="#cb11-32" aria-hidden="true" tabindex="-1"></a>  aes(Site, Value, fill <span class="op">=</span> <span class="im">as</span>.factor(Year))</span>
+<span id="cb11-33"><a href="#cb11-33" aria-hidden="true" tabindex="-1"></a>) <span class="op">+</span> <span class="co">#</span></span>
+<span id="cb11-34"><a href="#cb11-34" aria-hidden="true" tabindex="-1"></a>  geom_boxplot(size <span class="op">=</span> <span class="fl">0.2</span>, outlier.shape <span class="op">=</span> <span class="dv">16</span>, outlier.size <span class="op">=</span> <span class="fl">.5</span>) <span class="op">+</span></span>
+<span id="cb11-35"><a href="#cb11-35" aria-hidden="true" tabindex="-1"></a>  geom_hline(</span>
+<span id="cb11-36"><a href="#cb11-36" aria-hidden="true" tabindex="-1"></a>    data <span class="op">=</span> mean_values_other,</span>
+<span id="cb11-37"><a href="#cb11-37" aria-hidden="true" tabindex="-1"></a>    aes(yintercept <span class="op">=</span> mean_values_other),</span>
+<span id="cb11-38"><a href="#cb11-38" aria-hidden="true" tabindex="-1"></a>    linetype <span class="op">=</span> <span class="dv">2</span>,</span>
+<span id="cb11-39"><a href="#cb11-39" aria-hidden="true" tabindex="-1"></a>  ) <span class="op">+</span> <span class="co"># Mean line for each variable</span></span>
+<span id="cb11-40"><a href="#cb11-40" aria-hidden="true" tabindex="-1"></a>  facet_wrap(<span class="op">~</span>Variable, scales <span class="op">=</span> <span class="st">"free_y"</span>, ncol <span class="op">=</span> <span class="dv">2</span>) <span class="op">+</span> <span class="co"># Facet by the variable names</span></span>
+<span id="cb11-41"><a href="#cb11-41" aria-hidden="true" tabindex="-1"></a>  theme_bw() <span class="op">+</span></span>
+<span id="cb11-42"><a href="#cb11-42" aria-hidden="true" tabindex="-1"></a>  theme(</span>
+<span id="cb11-43"><a href="#cb11-43" aria-hidden="true" tabindex="-1"></a>    axis.title.x <span class="op">=</span> element_blank(),</span>
+<span id="cb11-44"><a href="#cb11-44" aria-hidden="true" tabindex="-1"></a>    axis.text.x <span class="op">=</span> element_text(angle <span class="op">=</span> <span class="dv">45</span>, hjust <span class="op">=</span> <span class="dv">1</span>),</span>
+<span id="cb11-45"><a href="#cb11-45" aria-hidden="true" tabindex="-1"></a>    strip.text.x <span class="op">=</span> element_text(),</span>
+<span id="cb11-46"><a href="#cb11-46" aria-hidden="true" tabindex="-1"></a>    labs(fill <span class="op">=</span> <span class="st">"Year"</span>)</span>
+<span id="cb11-47"><a href="#cb11-47" aria-hidden="true" tabindex="-1"></a>  ) <span class="op">+</span></span>
+<span id="cb11-48"><a href="#cb11-48" aria-hidden="true" tabindex="-1"></a>  guides(fill <span class="op">=</span> guide_legend(title <span class="op">=</span> <span class="st">"Year"</span>))</span>
+<span id="cb11-49"><a href="#cb11-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-50"><a href="#cb11-50" aria-hidden="true" tabindex="-1"></a>ggsave(</span>
+<span id="cb11-51"><a href="#cb11-51" aria-hidden="true" tabindex="-1"></a>  other_elements,</span>
+<span id="cb11-52"><a href="#cb11-52" aria-hidden="true" tabindex="-1"></a>  <span class="bu">file</span> <span class="op">=</span> <span class="bu">file</span>.path(out_dir, <span class="st">"other_elements.png"</span>),</span>
+<span id="cb11-53"><a href="#cb11-53" aria-hidden="true" tabindex="-1"></a>  width <span class="op">=</span> <span class="dv">10</span>,</span>
+<span id="cb11-54"><a href="#cb11-54" aria-hidden="true" tabindex="-1"></a>  height <span class="op">=</span> <span class="dv">10</span>,</span>
+<span id="cb11-55"><a href="#cb11-55" aria-hidden="true" tabindex="-1"></a>  dpi <span class="op">=</span> <span class="dv">600</span></span>
+<span id="cb11-56"><a href="#cb11-56" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb11-57"><a href="#cb11-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-58"><a href="#cb11-58" aria-hidden="true" tabindex="-1"></a>other_elements</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div id="fig-other-elements" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-other-elements-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div aria-describedby="fig-other-elements-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="">
 <a href="index_files/figure-html/analysis-fig-other-elements-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9" title="Figure&nbsp;9: Boxplots showing the mean of the elements in element:Ca ratio in mmol/mol. Divided over the 20 sites and years (colours). The mean of all sites (dashed line)."><img src="index_files/figure-html/analysis-fig-other-elements-output-1.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-other-elements-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -2009,11 +2616,188 @@ Figure&nbsp;9: Boxplots showing the mean of the elements in element:Ca ratio in 
 </figure>
 </div>
 </div>
+</div></div>
 </div>
-</div>
-<div class="quarto-embed-nb-cell">
-<div class="cell">
-<div id="tbl-temporal" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<div class="quarto-embed-nb-cell" data-notebook="/Users/olivierraven/Documents/Trout_study/publication/analysis.qmd" data-notebook-title="Analysis Notebook" data-notebook-cellid="cell-tbl-temporal">
+<div class="cell-container"><div class="cell-decorator"><pre>In [15]:</pre></div><div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>sites <span class="op">&lt;-</span> <span class="bu">list</span>(</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Waiwera River"</span> <span class="op">=</span> <span class="bu">filter</span>(df_mean_juv_clean, Site <span class="op">==</span> <span class="st">"Waiwera River"</span>),</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Waitahuna River"</span> <span class="op">=</span> <span class="bu">filter</span>(df_mean_juv_clean, Site <span class="op">==</span> <span class="st">"Waitahuna River"</span>),</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Fruid Burn"</span> <span class="op">=</span> <span class="bu">filter</span>(df_mean_juv_clean, Site <span class="op">==</span> <span class="st">"Fruid Burn"</span>)</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>elements <span class="op">&lt;-</span> c(<span class="st">"meanMn55"</span>, <span class="st">"meanSr88"</span>, <span class="st">"meanBa138"</span>)</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>results <span class="op">&lt;-</span> <span class="bu">list</span>()</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (site_name <span class="kw">in</span> names(sites)) {</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>  df_site <span class="op">&lt;-</span> sites[[site_name]]</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>  df_site$Year <span class="op">&lt;-</span> <span class="im">as</span>.factor(df_site$Year)</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (elem <span class="kw">in</span> elements) {</span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>    formula <span class="op">&lt;-</span> <span class="im">as</span>.formula(paste(elem, <span class="st">"~ Year"</span>))</span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>    anova_res <span class="op">&lt;-</span> aov(formula, data <span class="op">=</span> df_site)</span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>    sm <span class="op">&lt;-</span> summary(anova_res)</span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>    f_val <span class="op">&lt;-</span> <span class="bu">round</span>(sm[[<span class="dv">1</span>]]$`F value`[<span class="dv">1</span>], <span class="dv">3</span>)</span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>    p_val <span class="op">&lt;-</span> sm[[<span class="dv">1</span>]]$`Pr(<span class="op">&gt;</span>F)`[<span class="dv">1</span>]</span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Significance stars</span></span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>    sig <span class="op">&lt;-</span> dplyr::case_when(</span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>      p_val <span class="op">&lt;</span> <span class="fl">0.001</span> <span class="op">~</span> <span class="st">"***"</span>,</span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>      p_val <span class="op">&lt;</span> <span class="fl">0.01</span> <span class="op">~</span> <span class="st">"**"</span>,</span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>      p_val <span class="op">&lt;</span> <span class="fl">0.05</span> <span class="op">~</span> <span class="st">"*"</span>,</span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a>      TRUE <span class="op">~</span> <span class="st">""</span></span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Always return a character string</span></span>
+<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a>    p_fmt <span class="op">&lt;-</span> <span class="im">as</span>.character(</span>
+<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a>      ifelse(</span>
+<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a>        p_val <span class="op">&lt;</span> <span class="fl">0.0001</span>,</span>
+<span id="cb12-34"><a href="#cb12-34" aria-hidden="true" tabindex="-1"></a>        formatC(p_val, <span class="bu">format</span> <span class="op">=</span> <span class="st">"e"</span>, digits <span class="op">=</span> <span class="dv">2</span>),</span>
+<span id="cb12-35"><a href="#cb12-35" aria-hidden="true" tabindex="-1"></a>        <span class="im">as</span>.character(<span class="bu">round</span>(p_val, <span class="dv">3</span>))</span>
+<span id="cb12-36"><a href="#cb12-36" aria-hidden="true" tabindex="-1"></a>      )</span>
+<span id="cb12-37"><a href="#cb12-37" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb12-38"><a href="#cb12-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-39"><a href="#cb12-39" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Tukey HSD</span></span>
+<span id="cb12-40"><a href="#cb12-40" aria-hidden="true" tabindex="-1"></a>    tukey <span class="op">&lt;-</span> TukeyHSD(anova_res)</span>
+<span id="cb12-41"><a href="#cb12-41" aria-hidden="true" tabindex="-1"></a>    tukey_df <span class="op">&lt;-</span> <span class="im">as</span>.data.frame(tukey$Year)</span>
+<span id="cb12-42"><a href="#cb12-42" aria-hidden="true" tabindex="-1"></a>    tukey_df$comparison <span class="op">&lt;-</span> rownames(tukey_df)</span>
+<span id="cb12-43"><a href="#cb12-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-44"><a href="#cb12-44" aria-hidden="true" tabindex="-1"></a>    tukey_str <span class="op">&lt;-</span> <span class="cf">if</span> (p_val <span class="op">&lt;</span> <span class="fl">0.05</span>) {</span>
+<span id="cb12-45"><a href="#cb12-45" aria-hidden="true" tabindex="-1"></a>      paste(</span>
+<span id="cb12-46"><a href="#cb12-46" aria-hidden="true" tabindex="-1"></a>        <span class="bu">apply</span>(tukey_df, <span class="dv">1</span>, function(row) {</span>
+<span id="cb12-47"><a href="#cb12-47" aria-hidden="true" tabindex="-1"></a>          comp <span class="op">&lt;-</span> row[<span class="st">"comparison"</span>]</span>
+<span id="cb12-48"><a href="#cb12-48" aria-hidden="true" tabindex="-1"></a>          diff <span class="op">&lt;-</span> <span class="bu">round</span>(<span class="im">as</span>.numeric(row[<span class="st">"diff"</span>]), <span class="dv">5</span>)</span>
+<span id="cb12-49"><a href="#cb12-49" aria-hidden="true" tabindex="-1"></a>          p_t <span class="op">&lt;-</span> <span class="bu">round</span>(<span class="im">as</span>.numeric(row[<span class="st">"p adj"</span>]), <span class="dv">4</span>)</span>
+<span id="cb12-50"><a href="#cb12-50" aria-hidden="true" tabindex="-1"></a>          paste0(comp, <span class="st">": "</span>, diff, <span class="st">" (p="</span>, p_t, <span class="st">")"</span>)</span>
+<span id="cb12-51"><a href="#cb12-51" aria-hidden="true" tabindex="-1"></a>        }),</span>
+<span id="cb12-52"><a href="#cb12-52" aria-hidden="true" tabindex="-1"></a>        collapse <span class="op">=</span> <span class="st">"</span><span class="ch">\n</span><span class="st">"</span></span>
+<span id="cb12-53"><a href="#cb12-53" aria-hidden="true" tabindex="-1"></a>      )</span>
+<span id="cb12-54"><a href="#cb12-54" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
+<span id="cb12-55"><a href="#cb12-55" aria-hidden="true" tabindex="-1"></a>      <span class="st">""</span></span>
+<span id="cb12-56"><a href="#cb12-56" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb12-57"><a href="#cb12-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-58"><a href="#cb12-58" aria-hidden="true" tabindex="-1"></a>    results[[length(results) <span class="op">+</span> <span class="dv">1</span>]] <span class="op">&lt;-</span> data.frame(</span>
+<span id="cb12-59"><a href="#cb12-59" aria-hidden="true" tabindex="-1"></a>      Site <span class="op">=</span> site_name,</span>
+<span id="cb12-60"><a href="#cb12-60" aria-hidden="true" tabindex="-1"></a>      Element <span class="op">=</span> elem,</span>
+<span id="cb12-61"><a href="#cb12-61" aria-hidden="true" tabindex="-1"></a>      F_value <span class="op">=</span> f_val,</span>
+<span id="cb12-62"><a href="#cb12-62" aria-hidden="true" tabindex="-1"></a>      Pr_F <span class="op">=</span> p_fmt,</span>
+<span id="cb12-63"><a href="#cb12-63" aria-hidden="true" tabindex="-1"></a>      Significance <span class="op">=</span> sig,</span>
+<span id="cb12-64"><a href="#cb12-64" aria-hidden="true" tabindex="-1"></a>      Tukey_HSD <span class="op">=</span> tukey_str,</span>
+<span id="cb12-65"><a href="#cb12-65" aria-hidden="true" tabindex="-1"></a>      stringsAsFactors <span class="op">=</span> FALSE</span>
+<span id="cb12-66"><a href="#cb12-66" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb12-67"><a href="#cb12-67" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb12-68"><a href="#cb12-68" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb12-69"><a href="#cb12-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-70"><a href="#cb12-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-71"><a href="#cb12-71" aria-hidden="true" tabindex="-1"></a>tbl_temporal <span class="op">&lt;-</span> bind_rows(results)</span>
+<span id="cb12-72"><a href="#cb12-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-73"><a href="#cb12-73" aria-hidden="true" tabindex="-1"></a><span class="co"># Keep site name only on first row per site</span></span>
+<span id="cb12-74"><a href="#cb12-74" aria-hidden="true" tabindex="-1"></a>tbl_temporal <span class="op">&lt;-</span> tbl_temporal <span class="op">|&gt;</span></span>
+<span id="cb12-75"><a href="#cb12-75" aria-hidden="true" tabindex="-1"></a>  group_by(Site) <span class="op">|&gt;</span></span>
+<span id="cb12-76"><a href="#cb12-76" aria-hidden="true" tabindex="-1"></a>  mutate(Site <span class="op">=</span> ifelse(row_number() <span class="op">==</span> <span class="dv">1</span>, Site, <span class="st">""</span>)) <span class="op">|&gt;</span></span>
+<span id="cb12-77"><a href="#cb12-77" aria-hidden="true" tabindex="-1"></a>  ungroup()</span>
+<span id="cb12-78"><a href="#cb12-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-79"><a href="#cb12-79" aria-hidden="true" tabindex="-1"></a>colnames(tbl_temporal) <span class="op">&lt;-</span> c(</span>
+<span id="cb12-80"><a href="#cb12-80" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Site"</span>,</span>
+<span id="cb12-81"><a href="#cb12-81" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Element"</span>,</span>
+<span id="cb12-82"><a href="#cb12-82" aria-hidden="true" tabindex="-1"></a>  <span class="st">"F value"</span>,</span>
+<span id="cb12-83"><a href="#cb12-83" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Pr(&gt;F)"</span>,</span>
+<span id="cb12-84"><a href="#cb12-84" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Significance"</span>,</span>
+<span id="cb12-85"><a href="#cb12-85" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Tukey HSD Results"</span></span>
+<span id="cb12-86"><a href="#cb12-86" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb12-87"><a href="#cb12-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-88"><a href="#cb12-88" aria-hidden="true" tabindex="-1"></a>knitr::kable(tbl_temporal)</span>
+<span id="cb12-89"><a href="#cb12-89" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-temporal</span></span>
+<span id="cb12-90"><a href="#cb12-90" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: true</span></span>
+<span id="cb12-91"><a href="#cb12-91" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb12-92"><a href="#cb12-92" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Output of ANOVA and Tukey's HSD test of the three sites that have been sampled in August and September instead of January till March in 2021."</span></span>
+<span id="cb12-93"><a href="#cb12-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-94"><a href="#cb12-94" aria-hidden="true" tabindex="-1"></a><span class="co"># Re-run the ANOVAs for Waiwera specifically</span></span>
+<span id="cb12-95"><a href="#cb12-95" aria-hidden="true" tabindex="-1"></a>waiwera_data <span class="op">&lt;-</span> <span class="bu">filter</span>(df_mean_juv_clean, Site <span class="op">==</span> <span class="st">"Waiwera River"</span>) <span class="op">|&gt;</span></span>
+<span id="cb12-96"><a href="#cb12-96" aria-hidden="true" tabindex="-1"></a>  mutate(Year <span class="op">=</span> <span class="im">as</span>.factor(Year))</span>
+<span id="cb12-97"><a href="#cb12-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-98"><a href="#cb12-98" aria-hidden="true" tabindex="-1"></a>fruid_data <span class="op">&lt;-</span> <span class="bu">filter</span>(df_mean_juv_clean, Site <span class="op">==</span> <span class="st">"Fruid Burn"</span>) <span class="op">|&gt;</span></span>
+<span id="cb12-99"><a href="#cb12-99" aria-hidden="true" tabindex="-1"></a>  mutate(Year <span class="op">=</span> <span class="im">as</span>.factor(Year))</span>
+<span id="cb12-100"><a href="#cb12-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-101"><a href="#cb12-101" aria-hidden="true" tabindex="-1"></a>tukey_waiwera_mn <span class="op">&lt;-</span> TukeyHSD(aov(meanMn55 <span class="op">~</span> Year, data <span class="op">=</span> waiwera_data))</span>
+<span id="cb12-102"><a href="#cb12-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-103"><a href="#cb12-103" aria-hidden="true" tabindex="-1"></a>tukey_fruid_mn <span class="op">&lt;-</span> TukeyHSD(aov(meanMn55 <span class="op">~</span> Year, data <span class="op">=</span> fruid_data))</span>
+<span id="cb12-104"><a href="#cb12-104" aria-hidden="true" tabindex="-1"></a>tukey_fruid_sr <span class="op">&lt;-</span> TukeyHSD(aov(meanSr88 <span class="op">~</span> Year, data <span class="op">=</span> fruid_data))</span>
+<span id="cb12-105"><a href="#cb12-105" aria-hidden="true" tabindex="-1"></a>tukey_fruid_ba <span class="op">&lt;-</span> TukeyHSD(aov(meanBa138 <span class="op">~</span> Year, data <span class="op">=</span> fruid_data))</span>
+<span id="cb12-106"><a href="#cb12-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-107"><a href="#cb12-107" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract p-values</span></span>
+<span id="cb12-108"><a href="#cb12-108" aria-hidden="true" tabindex="-1"></a>p_waiwera_mn_2022_2021 <span class="op">&lt;-</span> <span class="bu">round</span>(</span>
+<span id="cb12-109"><a href="#cb12-109" aria-hidden="true" tabindex="-1"></a>  <span class="im">as</span>.data.frame(tukey_waiwera_mn$Year)[<span class="st">"2022-2021"</span>, <span class="st">"p adj"</span>],</span>
+<span id="cb12-110"><a href="#cb12-110" aria-hidden="true" tabindex="-1"></a>  <span class="dv">4</span></span>
+<span id="cb12-111"><a href="#cb12-111" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb12-112"><a href="#cb12-112" aria-hidden="true" tabindex="-1"></a>p_waiwera_mn_2023_2022 <span class="op">&lt;-</span> <span class="bu">round</span>(</span>
+<span id="cb12-113"><a href="#cb12-113" aria-hidden="true" tabindex="-1"></a>  <span class="im">as</span>.data.frame(tukey_waiwera_mn$Year)[<span class="st">"2023-2022"</span>, <span class="st">"p adj"</span>],</span>
+<span id="cb12-114"><a href="#cb12-114" aria-hidden="true" tabindex="-1"></a>  <span class="dv">4</span></span>
+<span id="cb12-115"><a href="#cb12-115" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb12-116"><a href="#cb12-116" aria-hidden="true" tabindex="-1"></a>p_waiwera_mn_2023_2021 <span class="op">&lt;-</span> <span class="bu">round</span>(</span>
+<span id="cb12-117"><a href="#cb12-117" aria-hidden="true" tabindex="-1"></a>  <span class="im">as</span>.data.frame(tukey_waiwera_mn$Year)[<span class="st">"2023-2021"</span>, <span class="st">"p adj"</span>],</span>
+<span id="cb12-118"><a href="#cb12-118" aria-hidden="true" tabindex="-1"></a>  <span class="dv">4</span></span>
+<span id="cb12-119"><a href="#cb12-119" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb12-120"><a href="#cb12-120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-121"><a href="#cb12-121" aria-hidden="true" tabindex="-1"></a>p_fruid_mn_2022_2021 <span class="op">&lt;-</span> <span class="bu">round</span>(</span>
+<span id="cb12-122"><a href="#cb12-122" aria-hidden="true" tabindex="-1"></a>  <span class="im">as</span>.data.frame(tukey_fruid_mn$Year)[<span class="st">"2022-2021"</span>, <span class="st">"p adj"</span>],</span>
+<span id="cb12-123"><a href="#cb12-123" aria-hidden="true" tabindex="-1"></a>  <span class="dv">4</span></span>
+<span id="cb12-124"><a href="#cb12-124" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb12-125"><a href="#cb12-125" aria-hidden="true" tabindex="-1"></a>p_fruid_mn_2023_2022 <span class="op">&lt;-</span> <span class="bu">round</span>(</span>
+<span id="cb12-126"><a href="#cb12-126" aria-hidden="true" tabindex="-1"></a>  <span class="im">as</span>.data.frame(tukey_fruid_mn$Year)[<span class="st">"2023-2022"</span>, <span class="st">"p adj"</span>],</span>
+<span id="cb12-127"><a href="#cb12-127" aria-hidden="true" tabindex="-1"></a>  <span class="dv">4</span></span>
+<span id="cb12-128"><a href="#cb12-128" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb12-129"><a href="#cb12-129" aria-hidden="true" tabindex="-1"></a>p_fruid_mn_2023_2021 <span class="op">&lt;-</span> <span class="bu">round</span>(</span>
+<span id="cb12-130"><a href="#cb12-130" aria-hidden="true" tabindex="-1"></a>  <span class="im">as</span>.data.frame(tukey_fruid_mn$Year)[<span class="st">"2023-2021"</span>, <span class="st">"p adj"</span>],</span>
+<span id="cb12-131"><a href="#cb12-131" aria-hidden="true" tabindex="-1"></a>  <span class="dv">4</span></span>
+<span id="cb12-132"><a href="#cb12-132" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb12-133"><a href="#cb12-133" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-134"><a href="#cb12-134" aria-hidden="true" tabindex="-1"></a>p_fruid_sr_2022_2021 <span class="op">&lt;-</span> <span class="bu">round</span>(</span>
+<span id="cb12-135"><a href="#cb12-135" aria-hidden="true" tabindex="-1"></a>  <span class="im">as</span>.data.frame(tukey_fruid_sr$Year)[<span class="st">"2022-2021"</span>, <span class="st">"p adj"</span>],</span>
+<span id="cb12-136"><a href="#cb12-136" aria-hidden="true" tabindex="-1"></a>  <span class="dv">4</span></span>
+<span id="cb12-137"><a href="#cb12-137" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb12-138"><a href="#cb12-138" aria-hidden="true" tabindex="-1"></a>p_fruid_sr_2023_2022 <span class="op">&lt;-</span> <span class="bu">round</span>(</span>
+<span id="cb12-139"><a href="#cb12-139" aria-hidden="true" tabindex="-1"></a>  <span class="im">as</span>.data.frame(tukey_fruid_sr$Year)[<span class="st">"2023-2022"</span>, <span class="st">"p adj"</span>],</span>
+<span id="cb12-140"><a href="#cb12-140" aria-hidden="true" tabindex="-1"></a>  <span class="dv">4</span></span>
+<span id="cb12-141"><a href="#cb12-141" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb12-142"><a href="#cb12-142" aria-hidden="true" tabindex="-1"></a>p_fruid_sr_2023_2021 <span class="op">&lt;-</span> <span class="bu">round</span>(</span>
+<span id="cb12-143"><a href="#cb12-143" aria-hidden="true" tabindex="-1"></a>  <span class="im">as</span>.data.frame(tukey_fruid_sr$Year)[<span class="st">"2023-2021"</span>, <span class="st">"p adj"</span>],</span>
+<span id="cb12-144"><a href="#cb12-144" aria-hidden="true" tabindex="-1"></a>  <span class="dv">4</span></span>
+<span id="cb12-145"><a href="#cb12-145" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb12-146"><a href="#cb12-146" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-147"><a href="#cb12-147" aria-hidden="true" tabindex="-1"></a>p_fruid_ba_2022_2021 <span class="op">&lt;-</span> <span class="bu">round</span>(</span>
+<span id="cb12-148"><a href="#cb12-148" aria-hidden="true" tabindex="-1"></a>  <span class="im">as</span>.data.frame(tukey_fruid_ba$Year)[<span class="st">"2022-2021"</span>, <span class="st">"p adj"</span>],</span>
+<span id="cb12-149"><a href="#cb12-149" aria-hidden="true" tabindex="-1"></a>  <span class="dv">4</span></span>
+<span id="cb12-150"><a href="#cb12-150" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb12-151"><a href="#cb12-151" aria-hidden="true" tabindex="-1"></a>p_fruid_ba_2023_2022 <span class="op">&lt;-</span> <span class="bu">round</span>(</span>
+<span id="cb12-152"><a href="#cb12-152" aria-hidden="true" tabindex="-1"></a>  <span class="im">as</span>.data.frame(tukey_fruid_ba$Year)[<span class="st">"2023-2022"</span>, <span class="st">"p adj"</span>],</span>
+<span id="cb12-153"><a href="#cb12-153" aria-hidden="true" tabindex="-1"></a>  <span class="dv">4</span></span>
+<span id="cb12-154"><a href="#cb12-154" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb12-155"><a href="#cb12-155" aria-hidden="true" tabindex="-1"></a>p_fruid_ba_2023_2021 <span class="op">&lt;-</span> <span class="bu">round</span>(</span>
+<span id="cb12-156"><a href="#cb12-156" aria-hidden="true" tabindex="-1"></a>  <span class="im">as</span>.data.frame(tukey_fruid_ba$Year)[<span class="st">"2023-2021"</span>, <span class="st">"p adj"</span>],</span>
+<span id="cb12-157"><a href="#cb12-157" aria-hidden="true" tabindex="-1"></a>  <span class="dv">4</span></span>
+<span id="cb12-158"><a href="#cb12-158" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb12-159"><a href="#cb12-159" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-160"><a href="#cb12-160" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-161"><a href="#cb12-161" aria-hidden="true" tabindex="-1"></a>saveRDS(</span>
+<span id="cb12-162"><a href="#cb12-162" aria-hidden="true" tabindex="-1"></a>  <span class="bu">list</span>(</span>
+<span id="cb12-163"><a href="#cb12-163" aria-hidden="true" tabindex="-1"></a>    accuracy_lda <span class="op">=</span> accuracy_lda,</span>
+<span id="cb12-164"><a href="#cb12-164" aria-hidden="true" tabindex="-1"></a>    accuracy_rf <span class="op">=</span> accuracy_rf,</span>
+<span id="cb12-165"><a href="#cb12-165" aria-hidden="true" tabindex="-1"></a>    p_waiwera_mn_2022_2021 <span class="op">=</span> p_waiwera_mn_2022_2021,</span>
+<span id="cb12-166"><a href="#cb12-166" aria-hidden="true" tabindex="-1"></a>    p_mn_2015_2022 <span class="op">=</span> p_mn_2015_2022,</span>
+<span id="cb12-167"><a href="#cb12-167" aria-hidden="true" tabindex="-1"></a>    p_ba_2015_2022 <span class="op">=</span> p_ba_2015_2022,</span>
+<span id="cb12-168"><a href="#cb12-168" aria-hidden="true" tabindex="-1"></a>    p_ba_2015_2021 <span class="op">=</span> p_ba_2015_2021,</span>
+<span id="cb12-169"><a href="#cb12-169" aria-hidden="true" tabindex="-1"></a>    p_ba_2023_2021 <span class="op">=</span> p_ba_2023_2021,</span>
+<span id="cb12-170"><a href="#cb12-170" aria-hidden="true" tabindex="-1"></a>    p_ba_2023_2022 <span class="op">=</span> p_ba_2023_2022,</span>
+<span id="cb12-171"><a href="#cb12-171" aria-hidden="true" tabindex="-1"></a>    accuracy_Svirgsden_rf <span class="op">=</span> accuracy_Svirgsden_rf,</span>
+<span id="cb12-172"><a href="#cb12-172" aria-hidden="true" tabindex="-1"></a>    accuracy_Svirgsden_lda <span class="op">=</span> accuracy_Svirgsden_lda,</span>
+<span id="cb12-173"><a href="#cb12-173" aria-hidden="true" tabindex="-1"></a>    accuracy_lda_nnca <span class="op">=</span> accuracy_lda_nnca,</span>
+<span id="cb12-174"><a href="#cb12-174" aria-hidden="true" tabindex="-1"></a>    accuracy_rf_nnca <span class="op">=</span> accuracy_rf_nnca</span>
+<span id="cb12-175"><a href="#cb12-175" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb12-176"><a href="#cb12-176" aria-hidden="true" tabindex="-1"></a>  <span class="st">"data/derived/inline_values.rds"</span></span>
+<span id="cb12-177"><a href="#cb12-177" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [16]:</pre></div><div id="tbl-temporal" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-temporal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;5: Output of ANOVA and Tukey’s HSD test of the three sites that have been sampled in August and September instead of January till March in 2021.
@@ -2053,53 +2837,13 @@ Table&nbsp;5: Output of ANOVA and Tukey’s HSD test of the three sites that hav
 </div>
 </div>
 </figure>
-</div>
-</div>
+</div></div>
+</div></div>
 </div>
 <!--{{< embed analysis.qmd#fig-raw-ablations >}}-->
 </section>
-
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{raven2025,
-  author = {Raven, Olivier V. and Couper, J.E.M. and Trotter, Hellen and
-    Reid, Malcom R. and Svirgsden, R. and Rohtla, M. and Closs, G.P.},
-  title = {Assessment of Spatial and Temporal Stability of
-    Tributary-Specific Otolith Trace Element Signatures},
-  date = {2025-06-03},
-  langid = {en},
-  abstract = {Otolith trace element analysis is a powerful tool for
-    studying fish migration between juvenile and adult habitats. To
-    track catchment-scale migration, trace element signatures in
-    juvenile otoliths are compared to the otolith natal region of
-    adults, with the aim of matching adults to their natal habitat.
-    However, the stability of signatures in natal habitat over time,
-    crucial for this method to work across generations, has rarely been
-    tested. To evaluate spatiotemporal stability of natal stream trace
-    element signatures in otoliths, a four-year study in New Zealand’s
-    lower Clutha River/Mata-Au was executed. 602 brown trout juveniles
-    from 20 tributaries were sampled and trace element analysis was
-    performed, enabling comparisons of the signatures within each stream
-    over time. The findings suggest the signatures of the elements Mn,
-    Sr, and Ba incorporated into otoliths are generally stable within
-    each catchment over four-years. This means that, if tracking adult
-    trout back to their natal stream it is not necessary to analyse
-    juvenile otoliths from each year. Spatial variability of Mn, Sr and
-    Ba was tested by using Random Forest and Linear Discriminant
-    Analysis models, which assigned juvenile trout to the correct stream
-    in 61\% and 52\% cases, respectively. Grouping the sites using
-    Nearest-Neighbour Cluster Analysis resulted in 93\% accuracy for
-    both models. Collection of juveniles from key spawning streams
-    across 2-3 years should be sufficient to establish reference
-    signatures for each tributary that will facilitate tracking of adult
-    migration over several years.}
-}
-</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-raven2025" class="csl-entry quarto-appendix-citeas" role="listitem">
-Raven, O. V., Couper, J. E. M., Trotter, H., Reid, M. R., Svirgsden, R.,
-Rohtla, M., &amp; Closs, G. P. (2025, June 3). <em>Assessment of spatial
-and temporal stability of tributary-specific otolith trace element
-signatures</em>. Fisheries Research.
-</div></div></section></div></main>
-<!-- /main column -->
-<script id="quarto-html-after-body" type="application/javascript">
+     </main>
+<!-- /main column -->  <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
     const anchorJS = new window.AnchorJS();
@@ -2498,9 +3242,7 @@ signatures</em>. Fisheries Research.
       }
     }
   });
-  </script>
-</div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+  </script>  </div> <!-- /content -->  <script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
 (function() {
   let previousOnload = window.onload;
   window.onload = () => {
@@ -2531,9 +3273,6 @@ signatures</em>. Fisheries Research.
   };
   
 })();
-          </script>
-
-
-
-
+          </script> 
+  
 </body></html>

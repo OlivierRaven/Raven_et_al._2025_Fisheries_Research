@@ -936,6 +936,7 @@ mean_accuracy <- mean(accuracy_scores)
 sum_accuracy <- sum(accuracy_scores)
 sd_accuracy <- sd(accuracy_scores)
 se_accuracy <- sd_accuracy / sqrt(length(accuracy_scores))
+accuracy_lda <- mean_accuracy * 100
 
 # Convert matrix to wide data frame correctly
 conf_wide <- as.data.frame.matrix(class_table)
@@ -1094,7 +1095,6 @@ p_ba_2015_2021 <- round(tukey_ba_df["2015-2021", "p adj"], 4)
 p_ba_2023_2021 <- round(tukey_ba_df["2023-2021", "p adj"], 4)
 p_ba_2023_2022 <- round(tukey_ba_df["2023-2022", "p adj"], 7)
 
-
 ```
 
 ## RF Svirgsden et al. (2018)
@@ -1196,6 +1196,8 @@ for (i in 1:num_folds) {
 class_table
 accuracy_Svirgsden_lda <- mean(accuracy_scores) * 100
 accuracy_Svirgsden_lda
+
+
 ```
 
 
@@ -1306,6 +1308,7 @@ rf_model_nnca <- randomForest(
 
 conf_rf <- rf_model_nnca$confusion[, cluster_levels] # drop class.error
 accuracy_rf_nnca <- sum(diag(conf_rf)) / sum(conf_rf)
+accuracy_rf_nnca <- accuracy_rf_nnca * 100
 
 ### LDA - LOOCV confusion matrix
 num_folds <- nrow(Juv_NNCA)
@@ -1336,7 +1339,7 @@ for (i in seq_len(num_folds)) {
 
 mean_accuracy_lda <- mean(accuracy_scores_lda)
 accuracy_lda_nnca <- sum(diag(lda_class_table)) / sum(lda_class_table)
-
+accuracy_lda_nnca <- accuracy_lda_nnca * 100
 # Final LDA for LD scores (plot use)
 lda_model_final <- MASS::lda(NNCA ~ ., data = Juv_NNCA)
 predicted_labels <- predict(lda_model_final, newdata = Juv_NNCA)$class
@@ -1379,6 +1382,7 @@ write.csv(
 
 
 knitr::kable(combined_display)
+
 
 ```
 
@@ -1575,6 +1579,25 @@ p_fruid_ba_2023_2022 <- round(
 p_fruid_ba_2023_2021 <- round(
   as.data.frame(tukey_fruid_ba$Year)["2023-2021", "p adj"],
   4
+)
+
+
+saveRDS(
+  list(
+    accuracy_lda = accuracy_lda,
+    accuracy_rf = accuracy_rf,
+    p_waiwera_mn_2022_2021 = p_waiwera_mn_2022_2021,
+    p_mn_2015_2022 = p_mn_2015_2022,
+    p_ba_2015_2022 = p_ba_2015_2022,
+    p_ba_2015_2021 = p_ba_2015_2021,
+    p_ba_2023_2021 = p_ba_2023_2021,
+    p_ba_2023_2022 = p_ba_2023_2022,
+    accuracy_Svirgsden_rf = accuracy_Svirgsden_rf,
+    accuracy_Svirgsden_lda = accuracy_Svirgsden_lda,
+    accuracy_lda_nnca = accuracy_lda_nnca,
+    accuracy_rf_nnca = accuracy_rf_nnca
+  ),
+  "data/derived/inline_values.rds"
 )
 
 ```

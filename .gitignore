@@ -13,7 +13,6 @@ archive/
 gis/
 
 *.embed.ipynb
-index_files/
 .quarto/
 *.knit.md
 *.utf8.md

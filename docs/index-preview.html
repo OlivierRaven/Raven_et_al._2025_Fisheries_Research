@@ -681,7 +681,7 @@ Table&nbsp;1: Output of MANOVA’s testing the mean of the thirteen trace elemen
 <p>Intra-annual differences were examined at the 3 sites sampled August and September 2021. No significant differences were observed between years for Waitahuna River. However, significant differences were found for Mn concentrations in the Waiwera River (2021 vs.&nbsp;2022, <em>p</em> = 0.0036), and for Mn, Sr, and Ba at Fruit Burn between 2021 and other years (<a href="#tbl-temporal" class="quarto-xref">Table&nbsp;5</a>).</p>
 <p>The 11 juvenile brown trout collected from the Waipahi Tributary A site in 2015 by <span class="citation" data-cites="Svirgsden2018">Svirgsden et al. (<a href="#ref-Svirgsden2018" role="doc-biblioref">2018</a>)</span> showed statistically significant differences in Mn and Ba concentrations when compared with more recent samples. For Mn, a significant difference was found only between 2015 vs.&nbsp;2022 (<em>p</em> = 0.00783). For Ba, multiple significant pairwise differences were detected: 2022 vs.&nbsp;2015 (<em>p</em> = 3.54^{-5}), 2021 vs.&nbsp;2015 (<em>p</em> = 0.0114), 2023 vs.&nbsp;2021 (<em>p</em> = 0.0117), and 2023 vs.&nbsp;2022 (<em>p</em> = 8.94^{-5}). Despite these temporal differences, the RF model was able to correctly assign 74.3589744% of the 39 samples from 2015 to the Waipahi Tributary A site, while the LDA model achieved a lower assignment accuracy of 49.8422713%.</p>
 <div class="quarto-embed-nb-cell" data-notebook="/Users/olivierraven/Documents/Trout_study/publication/analysis.qmd" data-notebook-title="Analysis Notebook" data-notebook-cellid="cell-fig-main-elements">
-<div class="cell-container"><div class="cell-decorator"><pre>In [4]:</pre></div><div id="cell-fig-main-elements" class="cell">
+<div class="cell-container"><div class="cell-decorator"><pre>In [4]:</pre></div><div id="cell-fig-main-elements" class="cell" data-fig-width="6" data-fig-height="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>vars_main <span class="op">&lt;-</span> c(<span class="st">"meanMn55"</span>, <span class="st">"meanSr88"</span>, <span class="st">"meanBa138"</span>)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Combine all variables into a single data frame for faceting</span></span>
@@ -722,9 +722,9 @@ Table&nbsp;1: Output of MANOVA’s testing the mean of the thirteen trace elemen
 <span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>ggsave(</span>
 <span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>  main_elements,</span>
-<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>  <span class="bu">file</span> <span class="op">=</span> <span class="bu">file</span>.path(out_dir, <span class="st">"main_elements.png"</span>),</span>
-<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>  width <span class="op">=</span> <span class="dv">10</span>,</span>
-<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a>  height <span class="op">=</span> <span class="dv">10</span>,</span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>  <span class="bu">file</span> <span class="op">=</span> <span class="bu">file</span>.path(out_dir, <span class="st">"fig-main-elements.png"</span>),</span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>  width <span class="op">=</span> <span class="dv">6</span>,</span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a>  height <span class="op">=</span> <span class="dv">6</span>,</span>
 <span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>  bg <span class="op">=</span> <span class="st">"white"</span>,</span>
 <span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a>  dpi <span class="op">=</span> <span class="dv">600</span></span>
 <span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a>)</span>
@@ -749,7 +749,7 @@ Figure&nbsp;2: Boxplots showing the mean of the three selected elements Mn, Sr, 
 <h2 class="anchored" data-anchor-id="spatial-variability">Spatial variability</h2>
 <p>The elements Mn, Sr, and Ba were also selected as spatial variable as they did show significant differences across sites (<a href="#tbl-element-selection-static" class="quarto-xref">Table&nbsp;1</a>). The RF model based on these three elements correctly assigned 0.6037302% of samples to their original stream of origin (<a href="#tbl-rf" class="quarto-xref">Table&nbsp;2</a>). The highest classification accuracies were observed for Back Stream, Flodden Stream, Waipahi Tributary A, and Whiskey Gully Stream, each with over 80% correct assignments. In contrast, Carsons Creek had the lowest classification accuracy at just 18%. The LDA model achieved a slightly lower overall accuracy of 52.7731092% based on leave-one-out cross-validation (<a href="#tbl-lda" class="quarto-xref">Table&nbsp;3</a>). Back Stream, Benger Burn, and Coal Creek had the highest LDA assignment accuracy, each exceeding 80%, while Anguilla Burn and Crookston Burn had the lowest, with 0% of samples correctly assigned. The LDA model scatterplot illustrates how stream signatures cluster in multivariate space (<a href="#fig-lda" class="quarto-xref">Figure&nbsp;3</a>). The spatial variation between the sites is present but there is substantial overlap. This overlap likely contributes to the moderate LDA classification accuracy, as it makes it more difficult to distinguish among certain sites based on their elemental profiles alone.</p>
 <div class="quarto-embed-nb-cell" data-notebook="/Users/olivierraven/Documents/Trout_study/publication/analysis.qmd" data-notebook-title="Analysis Notebook" data-notebook-cellid="cell-fig-lda">
-<div class="cell-container"><div class="cell-decorator"><pre>In [5]:</pre></div><div id="cell-fig-lda" class="cell">
+<div class="cell-container"><div class="cell-decorator"><pre>In [5]:</pre></div><div id="cell-fig-lda" class="cell" data-fig-width="8" data-fig-height="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">### Fit to the entire dataset</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>lda_model <span class="op">&lt;-</span> MASS::lda(Site <span class="op">~</span> ., data <span class="op">=</span> df_mean_juv_clean_main)</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -797,9 +797,9 @@ Figure&nbsp;2: Boxplots showing the mean of the three selected elements Mn, Sr, 
 <span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a>ggsave(</span>
 <span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a>  lda_plot,</span>
-<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a>  <span class="bu">file</span> <span class="op">=</span> <span class="bu">file</span>.path(out_dir, <span class="st">"lda_plot.png"</span>),</span>
-<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a>  width <span class="op">=</span> <span class="dv">10</span>,</span>
-<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a>  height <span class="op">=</span> <span class="dv">10</span>,</span>
+<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a>  <span class="bu">file</span> <span class="op">=</span> <span class="bu">file</span>.path(out_dir, <span class="st">"fig-lda.png"</span>),</span>
+<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a>  width <span class="op">=</span> <span class="dv">8</span>,</span>
+<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a>  height <span class="op">=</span> <span class="dv">6</span>,</span>
 <span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a>  bg <span class="op">=</span> <span class="st">"white"</span>,</span>
 <span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a>  dpi <span class="op">=</span> <span class="dv">600</span></span>
 <span id="cb4-53"><a href="#cb4-53" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -969,108 +969,108 @@ Table&nbsp;2: RF model confusion matrix of the 602 signatures tested. Actual sho
 <td>Benger Burn</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">25</td>
+<td style="text-align: right;">26</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">7</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">4</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: left;">35.9%</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">33.3%</td>
 </tr>
 <tr class="even">
 <td>Blackcleugh Burn</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">13</td>
+<td style="text-align: right;">11</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">6</td>
+<td style="text-align: right;">7</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">3</td>
+<td style="text-align: right;">2</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">4</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: left;">56.7%</td>
+<td style="text-align: left;">63.3%</td>
 </tr>
 <tr class="odd">
 <td>Canadian Creek</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">6</td>
+<td style="text-align: right;">7</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">19</td>
+<td style="text-align: right;">18</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
 <td style="text-align: right;">2</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: left;">40.6%</td>
+<td style="text-align: left;">43.8%</td>
 </tr>
 <tr class="even">
 <td>Carsons Creek</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">3</td>
 <td style="text-align: right;">7</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">5</td>
 <td style="text-align: right;">6</td>
-<td style="text-align: right;">5</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
 <td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">2</td>
 <td style="text-align: right;">2</td>
 <td style="text-align: right;">3</td>
-<td style="text-align: left;">82.1%</td>
+<td style="text-align: left;">84.6%</td>
 </tr>
 <tr class="odd">
 <td>Coal Creek</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">30</td>
-<td style="text-align: right;">3</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">29</td>
+<td style="text-align: right;">5</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -1082,8 +1082,8 @@ Table&nbsp;2: RF model confusion matrix of the 602 signatures tested. Actual sho
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: left;">25%</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">27.5%</td>
 </tr>
 <tr class="even">
 <td>Crookston Burn</td>
@@ -1136,7 +1136,7 @@ Table&nbsp;2: RF model confusion matrix of the 602 signatures tested. Actual sho
 <tr class="even">
 <td>Fruid Burn</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">3</td>
 <td style="text-align: right;">0</td>
@@ -1144,18 +1144,18 @@ Table&nbsp;2: RF model confusion matrix of the 602 signatures tested. Actual sho
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">19</td>
+<td style="text-align: right;">18</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">3</td>
+<td style="text-align: right;">4</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: left;">32.1%</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">35.7%</td>
 </tr>
 <tr class="odd">
 <td>Heriot Burn</td>
@@ -1164,12 +1164,12 @@ Table&nbsp;2: RF model confusion matrix of the 602 signatures tested. Actual sho
 <td style="text-align: right;">4</td>
 <td style="text-align: right;">2</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">10</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
 <td style="text-align: right;">11</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">10</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">2</td>
@@ -1179,22 +1179,22 @@ Table&nbsp;2: RF model confusion matrix of the 602 signatures tested. Actual sho
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: left;">63.3%</td>
+<td style="text-align: left;">66.7%</td>
 </tr>
 <tr class="even">
 <td>Jimmys Creek</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">0</td>
 <td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">4</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">29</td>
+<td style="text-align: right;">31</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -1203,16 +1203,16 @@ Table&nbsp;2: RF model confusion matrix of the 602 signatures tested. Actual sho
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: left;">29.3%</td>
+<td style="text-align: left;">24.4%</td>
 </tr>
 <tr class="odd">
 <td>Kaihiku Stream</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">4</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">5</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -1240,25 +1240,25 @@ Table&nbsp;2: RF model confusion matrix of the 602 signatures tested. Actual sho
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
 <td style="text-align: right;">3</td>
-<td style="text-align: right;">4</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">9</td>
+<td style="text-align: right;">10</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">4</td>
+<td style="text-align: right;">5</td>
 <td style="text-align: right;">5</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: left;">70%</td>
+<td style="text-align: left;">66.7%</td>
 </tr>
 <tr class="odd">
 <td>Low Burn</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
 <td style="text-align: right;">2</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">1</td>
@@ -1270,7 +1270,7 @@ Table&nbsp;2: RF model confusion matrix of the 602 signatures tested. Actual sho
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">21</td>
-<td style="text-align: right;">5</td>
+<td style="text-align: right;">4</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -1285,7 +1285,6 @@ Table&nbsp;2: RF model confusion matrix of the 602 signatures tested. Actual sho
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">2</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -1293,7 +1292,8 @@ Table&nbsp;2: RF model confusion matrix of the 602 signatures tested. Actual sho
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">3</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">4</td>
 <td style="text-align: right;">20</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -1303,27 +1303,27 @@ Table&nbsp;2: RF model confusion matrix of the 602 signatures tested. Actual sho
 </tr>
 <tr class="odd">
 <td>Waipahi Trib A</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">23</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">24</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: left;">14.8%</td>
+<td style="text-align: left;">11.1%</td>
 </tr>
 <tr class="even">
 <td>Waitahuna River</td>
@@ -1340,14 +1340,14 @@ Table&nbsp;2: RF model confusion matrix of the 602 signatures tested. Actual sho
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">9</td>
+<td style="text-align: right;">8</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">14</td>
+<td style="text-align: right;">15</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: left;">51.7%</td>
+<td style="text-align: left;">48.3%</td>
 </tr>
 <tr class="odd">
 <td>Waiwera River</td>
@@ -1361,17 +1361,17 @@ Table&nbsp;2: RF model confusion matrix of the 602 signatures tested. Actual sho
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
 <td style="text-align: right;">1</td>
+<td style="text-align: right;">25</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">23</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">17.9%</td>
+<td style="text-align: left;">10.7%</td>
 </tr>
 <tr class="even">
 <td>Whiskey Gully Stream</td>
@@ -1380,10 +1380,10 @@ Table&nbsp;2: RF model confusion matrix of the 602 signatures tested. Actual sho
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">3</td>
+<td style="text-align: right;">4</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -2027,7 +2027,7 @@ Table&nbsp;3: LDA model confusion matrix of the 602 signatures tested by 602 fol
 </div>
 <p>The NNCA dendrogram based on the Silhouette Index show three main clusters of the 20 sites (<a href="#fig-nnca" class="quarto-xref">Figure&nbsp;4</a>). Consistent with the data (<a href="#fig-main-elements" class="quarto-xref">Figure&nbsp;2</a>), Back Stream is distinct from the other sites forming cluster a. Back Stream show higher values for the elements Sr and Ba compared to the other sites. The RF and LDA model where also used to predict the signatures for each cluster, which resulted in an accuracy score of 92.2689076% and 92.2689076% (<a href="#tbl-conf-nnca" class="quarto-xref">Table&nbsp;4</a>). The LDA model scatterplot also shows the three distinct clusters, with more overlap in cluster b and c (<a href="#fig-nnca-lda" class="quarto-xref">Figure&nbsp;5</a>).</p>
 <div class="quarto-embed-nb-cell" data-notebook="/Users/olivierraven/Documents/Trout_study/publication/analysis.qmd" data-notebook-title="Analysis Notebook" data-notebook-cellid="cell-fig-nnca">
-<div class="cell-container"><div class="cell-decorator"><pre>In [10]:</pre></div><div id="cell-fig-nnca" class="cell">
+<div class="cell-container"><div class="cell-decorator"><pre>In [10]:</pre></div><div id="cell-fig-nnca" class="cell" data-fig-width="4" data-fig-height="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate mean elemental composition per site</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>mean_by_group <span class="op">&lt;-</span> aggregate(</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  cbind(meanMn55, meanSr88, meanBa138) <span class="op">~</span> Site,</span>
@@ -2087,7 +2087,7 @@ Table&nbsp;3: LDA model confusion matrix of the 602 signatures tested by 602 fol
 <span id="cb8-57"><a href="#cb8-57" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-58"><a href="#cb8-58" aria-hidden="true" tabindex="-1"></a>ggsave(</span>
 <span id="cb8-59"><a href="#cb8-59" aria-hidden="true" tabindex="-1"></a>  NNCA_tree_plot,</span>
-<span id="cb8-60"><a href="#cb8-60" aria-hidden="true" tabindex="-1"></a>  <span class="bu">file</span> <span class="op">=</span> <span class="bu">file</span>.path(out_dir, <span class="st">"NNCA_tree_plot.png"</span>),</span>
+<span id="cb8-60"><a href="#cb8-60" aria-hidden="true" tabindex="-1"></a>  <span class="bu">file</span> <span class="op">=</span> <span class="bu">file</span>.path(out_dir, <span class="st">" fig-nnca.png"</span>),</span>
 <span id="cb8-61"><a href="#cb8-61" aria-hidden="true" tabindex="-1"></a>  width <span class="op">=</span> <span class="dv">4</span>,</span>
 <span id="cb8-62"><a href="#cb8-62" aria-hidden="true" tabindex="-1"></a>  height <span class="op">=</span> <span class="dv">5</span>,</span>
 <span id="cb8-63"><a href="#cb8-63" aria-hidden="true" tabindex="-1"></a>  dpi <span class="op">=</span> <span class="dv">600</span></span>
@@ -2232,8 +2232,8 @@ Table&nbsp;4: Confusion matrix of the RF and LDA of the tree clusters from the N
 <tr class="odd">
 <td style="text-align: left;">1</td>
 <td style="text-align: right;">323</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">13</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">14</td>
 <td style="text-align: right;">317</td>
 <td style="text-align: right;">4</td>
 <td style="text-align: right;">21</td>
@@ -2249,9 +2249,9 @@ Table&nbsp;4: Confusion matrix of the RF and LDA of the tree clusters from the N
 </tr>
 <tr class="odd">
 <td style="text-align: left;">3</td>
-<td style="text-align: right;">20</td>
+<td style="text-align: right;">18</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">207</td>
+<td style="text-align: right;">209</td>
 <td style="text-align: right;">13</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">206</td>
@@ -2265,7 +2265,7 @@ Table&nbsp;4: Confusion matrix of the RF and LDA of the tree clusters from the N
 </div></div>
 </div>
 <div class="quarto-embed-nb-cell" data-notebook="/Users/olivierraven/Documents/Trout_study/publication/analysis.qmd" data-notebook-title="Analysis Notebook" data-notebook-cellid="cell-fig-nnca-lda">
-<div class="cell-container"><div class="cell-decorator"><pre>In [13]:</pre></div><div id="cell-fig-nnca-lda" class="cell">
+<div class="cell-container"><div class="cell-decorator"><pre>In [13]:</pre></div><div id="cell-fig-nnca-lda" class="cell" data-fig-width="4" data-fig-height="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a column to indicate correctness of prediction</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>Juv_NNCA2$Correct <span class="op">&lt;-</span> ifelse(</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  Juv_NNCA2$NNCA <span class="op">==</span> Juv_NNCA2$predicted_labels,</span>
@@ -2282,7 +2282,7 @@ Table&nbsp;4: Confusion matrix of the RF and LDA of the tree clusters from the N
 <span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>ggsave(</span>
 <span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>  LDA_NNCA,</span>
-<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>  <span class="bu">file</span> <span class="op">=</span> <span class="bu">file</span>.path(out_dir, <span class="st">"LDA_NNCA.png"</span>),</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>  <span class="bu">file</span> <span class="op">=</span> <span class="bu">file</span>.path(out_dir, <span class="st">"fig-nnca-lda.png"</span>),</span>
 <span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>  width <span class="op">=</span> <span class="dv">5</span>,</span>
 <span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>  height <span class="op">=</span> <span class="dv">4</span>,</span>
 <span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>  bg <span class="op">=</span> <span class="st">"white"</span>,</span>
@@ -2545,7 +2545,7 @@ Figure&nbsp;8: Mean (g/g), standard deviation, and relative standard deviation o
 </figure>
 </div>
 <div class="quarto-embed-nb-cell" data-notebook="/Users/olivierraven/Documents/Trout_study/publication/analysis.qmd" data-notebook-title="Analysis Notebook" data-notebook-cellid="cell-fig-other-elements">
-<div class="cell-container"><div class="cell-decorator"><pre>In [14]:</pre></div><div id="cell-fig-other-elements" class="cell">
+<div class="cell-container"><div class="cell-decorator"><pre>In [14]:</pre></div><div id="cell-fig-other-elements" class="cell" data-fig-width="10" data-fig-height="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>vars_other <span class="op">&lt;-</span> c(</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">"meanLi7"</span>,</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">"meanNa23"</span>,</span>
@@ -2597,7 +2597,7 @@ Figure&nbsp;8: Mean (g/g), standard deviation, and relative standard deviation o
 <span id="cb11-49"><a href="#cb11-49" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-50"><a href="#cb11-50" aria-hidden="true" tabindex="-1"></a>ggsave(</span>
 <span id="cb11-51"><a href="#cb11-51" aria-hidden="true" tabindex="-1"></a>  other_elements,</span>
-<span id="cb11-52"><a href="#cb11-52" aria-hidden="true" tabindex="-1"></a>  <span class="bu">file</span> <span class="op">=</span> <span class="bu">file</span>.path(out_dir, <span class="st">"other_elements.png"</span>),</span>
+<span id="cb11-52"><a href="#cb11-52" aria-hidden="true" tabindex="-1"></a>  <span class="bu">file</span> <span class="op">=</span> <span class="bu">file</span>.path(out_dir, <span class="st">"fig-other-elements.png"</span>),</span>
 <span id="cb11-53"><a href="#cb11-53" aria-hidden="true" tabindex="-1"></a>  width <span class="op">=</span> <span class="dv">10</span>,</span>
 <span id="cb11-54"><a href="#cb11-54" aria-hidden="true" tabindex="-1"></a>  height <span class="op">=</span> <span class="dv">10</span>,</span>
 <span id="cb11-55"><a href="#cb11-55" aria-hidden="true" tabindex="-1"></a>  dpi <span class="op">=</span> <span class="dv">600</span></span>

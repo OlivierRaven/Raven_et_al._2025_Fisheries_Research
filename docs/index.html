@@ -532,7 +532,7 @@ Table&nbsp;1: Output of MANOVA’s testing the mean of the thirteen trace elemen
 <p>Intra-annual differences were examined at the 3 sites sampled August and September 2021. No significant differences were observed between years for Waitahuna River. However, significant differences were found for Mn concentrations in the Waiwera River (2021 vs.&nbsp;2022, <em>p</em> = 0.0036), and for Mn, Sr, and Ba at Fruit Burn between 2021 and other years (<a href="#tbl-temporal" class="quarto-xref">Table&nbsp;5</a>).</p>
 <p>The 11 juvenile brown trout collected from the Waipahi Tributary A site in 2015 by <span class="citation" data-cites="Svirgsden2018">Svirgsden et al. (<a href="#ref-Svirgsden2018" role="doc-biblioref">2018</a>)</span> showed statistically significant differences in Mn and Ba concentrations when compared with more recent samples. For Mn, a significant difference was found only between 2015 vs.&nbsp;2022 (<em>p</em> = 0.00783). For Ba, multiple significant pairwise differences were detected: 2022 vs.&nbsp;2015 (<em>p</em> = 3.54^{-5}), 2021 vs.&nbsp;2015 (<em>p</em> = 0.0114), 2023 vs.&nbsp;2021 (<em>p</em> = 0.0117), and 2023 vs.&nbsp;2022 (<em>p</em> = 8.94^{-5}). Despite these temporal differences, the RF model was able to correctly assign 74.3589744% of the 39 samples from 2015 to the Waipahi Tributary A site, while the LDA model achieved a lower assignment accuracy of 49.8422713%.</p>
 <div class="quarto-embed-nb-cell">
-<div id="cell-fig-main-elements" class="cell">
+<div id="cell-fig-main-elements" class="cell" data-fig-width="6" data-fig-height="6">
 <div class="cell-output cell-output-display">
 <div id="fig-main-elements" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -552,7 +552,7 @@ Figure&nbsp;2: Boxplots showing the mean of the three selected elements Mn, Sr, 
 <h2 class="anchored" data-anchor-id="spatial-variability">Spatial variability</h2>
 <p>The elements Mn, Sr, and Ba were also selected as spatial variable as they did show significant differences across sites (<a href="#tbl-element-selection-static" class="quarto-xref">Table&nbsp;1</a>). The RF model based on these three elements correctly assigned 0.6037302% of samples to their original stream of origin (<a href="#tbl-rf" class="quarto-xref">Table&nbsp;2</a>). The highest classification accuracies were observed for Back Stream, Flodden Stream, Waipahi Tributary A, and Whiskey Gully Stream, each with over 80% correct assignments. In contrast, Carsons Creek had the lowest classification accuracy at just 18%. The LDA model achieved a slightly lower overall accuracy of 52.7731092% based on leave-one-out cross-validation (<a href="#tbl-lda" class="quarto-xref">Table&nbsp;3</a>). Back Stream, Benger Burn, and Coal Creek had the highest LDA assignment accuracy, each exceeding 80%, while Anguilla Burn and Crookston Burn had the lowest, with 0% of samples correctly assigned. The LDA model scatterplot illustrates how stream signatures cluster in multivariate space (<a href="#fig-lda" class="quarto-xref">Figure&nbsp;3</a>). The spatial variation between the sites is present but there is substantial overlap. This overlap likely contributes to the moderate LDA classification accuracy, as it makes it more difficult to distinguish among certain sites based on their elemental profiles alone.</p>
 <div class="quarto-embed-nb-cell">
-<div id="cell-fig-lda" class="cell">
+<div id="cell-fig-lda" class="cell" data-fig-width="8" data-fig-height="6">
 <div class="cell-output cell-output-display">
 <div id="fig-lda" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -680,108 +680,108 @@ Table&nbsp;2: RF model confusion matrix of the 602 signatures tested. Actual sho
 <td>Benger Burn</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">25</td>
+<td style="text-align: right;">26</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">7</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">4</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: left;">35.9%</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">33.3%</td>
 </tr>
 <tr class="even">
 <td>Blackcleugh Burn</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">13</td>
+<td style="text-align: right;">11</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">6</td>
+<td style="text-align: right;">7</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">3</td>
+<td style="text-align: right;">2</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">4</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: left;">56.7%</td>
+<td style="text-align: left;">63.3%</td>
 </tr>
 <tr class="odd">
 <td>Canadian Creek</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">6</td>
+<td style="text-align: right;">7</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">19</td>
+<td style="text-align: right;">18</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
 <td style="text-align: right;">2</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: left;">40.6%</td>
+<td style="text-align: left;">43.8%</td>
 </tr>
 <tr class="even">
 <td>Carsons Creek</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">3</td>
 <td style="text-align: right;">7</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">5</td>
 <td style="text-align: right;">6</td>
-<td style="text-align: right;">5</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
 <td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">2</td>
 <td style="text-align: right;">2</td>
 <td style="text-align: right;">3</td>
-<td style="text-align: left;">82.1%</td>
+<td style="text-align: left;">84.6%</td>
 </tr>
 <tr class="odd">
 <td>Coal Creek</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">30</td>
-<td style="text-align: right;">3</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">29</td>
+<td style="text-align: right;">5</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -793,8 +793,8 @@ Table&nbsp;2: RF model confusion matrix of the 602 signatures tested. Actual sho
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: left;">25%</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">27.5%</td>
 </tr>
 <tr class="even">
 <td>Crookston Burn</td>
@@ -847,7 +847,7 @@ Table&nbsp;2: RF model confusion matrix of the 602 signatures tested. Actual sho
 <tr class="even">
 <td>Fruid Burn</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">3</td>
 <td style="text-align: right;">0</td>
@@ -855,18 +855,18 @@ Table&nbsp;2: RF model confusion matrix of the 602 signatures tested. Actual sho
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">19</td>
+<td style="text-align: right;">18</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">3</td>
+<td style="text-align: right;">4</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: left;">32.1%</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">35.7%</td>
 </tr>
 <tr class="odd">
 <td>Heriot Burn</td>
@@ -875,12 +875,12 @@ Table&nbsp;2: RF model confusion matrix of the 602 signatures tested. Actual sho
 <td style="text-align: right;">4</td>
 <td style="text-align: right;">2</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">10</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
 <td style="text-align: right;">11</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">10</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">2</td>
@@ -890,22 +890,22 @@ Table&nbsp;2: RF model confusion matrix of the 602 signatures tested. Actual sho
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: left;">63.3%</td>
+<td style="text-align: left;">66.7%</td>
 </tr>
 <tr class="even">
 <td>Jimmys Creek</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">0</td>
 <td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">4</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">29</td>
+<td style="text-align: right;">31</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -914,16 +914,16 @@ Table&nbsp;2: RF model confusion matrix of the 602 signatures tested. Actual sho
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: left;">29.3%</td>
+<td style="text-align: left;">24.4%</td>
 </tr>
 <tr class="odd">
 <td>Kaihiku Stream</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">4</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">5</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -951,25 +951,25 @@ Table&nbsp;2: RF model confusion matrix of the 602 signatures tested. Actual sho
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
 <td style="text-align: right;">3</td>
-<td style="text-align: right;">4</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">9</td>
+<td style="text-align: right;">10</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">4</td>
+<td style="text-align: right;">5</td>
 <td style="text-align: right;">5</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: left;">70%</td>
+<td style="text-align: left;">66.7%</td>
 </tr>
 <tr class="odd">
 <td>Low Burn</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
 <td style="text-align: right;">2</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">1</td>
@@ -981,7 +981,7 @@ Table&nbsp;2: RF model confusion matrix of the 602 signatures tested. Actual sho
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">21</td>
-<td style="text-align: right;">5</td>
+<td style="text-align: right;">4</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -996,7 +996,6 @@ Table&nbsp;2: RF model confusion matrix of the 602 signatures tested. Actual sho
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">2</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -1004,7 +1003,8 @@ Table&nbsp;2: RF model confusion matrix of the 602 signatures tested. Actual sho
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">3</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">4</td>
 <td style="text-align: right;">20</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -1014,27 +1014,27 @@ Table&nbsp;2: RF model confusion matrix of the 602 signatures tested. Actual sho
 </tr>
 <tr class="odd">
 <td>Waipahi Trib A</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">23</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">24</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: left;">14.8%</td>
+<td style="text-align: left;">11.1%</td>
 </tr>
 <tr class="even">
 <td>Waitahuna River</td>
@@ -1051,14 +1051,14 @@ Table&nbsp;2: RF model confusion matrix of the 602 signatures tested. Actual sho
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">9</td>
+<td style="text-align: right;">8</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">14</td>
+<td style="text-align: right;">15</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: left;">51.7%</td>
+<td style="text-align: left;">48.3%</td>
 </tr>
 <tr class="odd">
 <td>Waiwera River</td>
@@ -1072,17 +1072,17 @@ Table&nbsp;2: RF model confusion matrix of the 602 signatures tested. Actual sho
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
 <td style="text-align: right;">1</td>
+<td style="text-align: right;">25</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">23</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">17.9%</td>
+<td style="text-align: left;">10.7%</td>
 </tr>
 <tr class="even">
 <td>Whiskey Gully Stream</td>
@@ -1091,10 +1091,10 @@ Table&nbsp;2: RF model confusion matrix of the 602 signatures tested. Actual sho
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">3</td>
+<td style="text-align: right;">4</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -1667,7 +1667,7 @@ Table&nbsp;3: LDA model confusion matrix of the 602 signatures tested by 602 fol
 </div>
 <p>The NNCA dendrogram based on the Silhouette Index show three main clusters of the 20 sites (<a href="#fig-nnca" class="quarto-xref">Figure&nbsp;4</a>). Consistent with the data (<a href="#fig-main-elements" class="quarto-xref">Figure&nbsp;2</a>), Back Stream is distinct from the other sites forming cluster a. Back Stream show higher values for the elements Sr and Ba compared to the other sites. The RF and LDA model where also used to predict the signatures for each cluster, which resulted in an accuracy score of 92.2689076% and 92.2689076% (<a href="#tbl-conf-nnca" class="quarto-xref">Table&nbsp;4</a>). The LDA model scatterplot also shows the three distinct clusters, with more overlap in cluster b and c (<a href="#fig-nnca-lda" class="quarto-xref">Figure&nbsp;5</a>).</p>
 <div class="quarto-embed-nb-cell">
-<div id="cell-fig-nnca" class="cell">
+<div id="cell-fig-nnca" class="cell" data-fig-width="4" data-fig-height="5">
 <div class="cell-output cell-output-display">
 <div id="fig-nnca" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -1707,8 +1707,8 @@ Table&nbsp;4: Confusion matrix of the RF and LDA of the tree clusters from the N
 <tr class="odd">
 <td style="text-align: left;">1</td>
 <td style="text-align: right;">323</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">13</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">14</td>
 <td style="text-align: right;">317</td>
 <td style="text-align: right;">4</td>
 <td style="text-align: right;">21</td>
@@ -1724,9 +1724,9 @@ Table&nbsp;4: Confusion matrix of the RF and LDA of the tree clusters from the N
 </tr>
 <tr class="odd">
 <td style="text-align: left;">3</td>
-<td style="text-align: right;">20</td>
+<td style="text-align: right;">18</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">207</td>
+<td style="text-align: right;">209</td>
 <td style="text-align: right;">13</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">206</td>
@@ -1740,7 +1740,7 @@ Table&nbsp;4: Confusion matrix of the RF and LDA of the tree clusters from the N
 </div>
 </div>
 <div class="quarto-embed-nb-cell">
-<div id="cell-fig-nnca-lda" class="cell">
+<div id="cell-fig-nnca-lda" class="cell" data-fig-width="4" data-fig-height="5">
 <div class="cell-output cell-output-display">
 <div id="fig-nnca-lda" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -1996,7 +1996,7 @@ Figure&nbsp;8: Mean (g/g), standard deviation, and relative standard deviation o
 </figure>
 </div>
 <div class="quarto-embed-nb-cell">
-<div id="cell-fig-other-elements" class="cell">
+<div id="cell-fig-other-elements" class="cell" data-fig-width="10" data-fig-height="10">
 <div class="cell-output cell-output-display">
 <div id="fig-other-elements" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">

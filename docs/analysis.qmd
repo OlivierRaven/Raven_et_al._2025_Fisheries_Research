@@ -13,7 +13,7 @@ format:
     toc-depth: 3
     number-sections: true
 fig-width: 8
-fig-height: 6
+fig-height: 8
 
 execute:
   freeze: auto
@@ -283,6 +283,8 @@ write.csv(
 ```{r}
 #| label: fig-raw-ablations
 #| include: true
+#| fig-width: 12
+#| fig-height: 10
 #| fig-cap: "The raw ablations of all the otoliths for each of the 13 elements"
 
 df_ablation_juv <- read_csv("data/derived/df_ablation_juv.csv")
@@ -333,7 +335,7 @@ raw_ablation_plot <- ggplot(
 
 ggsave(
   raw_ablation_plot,
-  file = file.path(out_dir, "raw_ablation_plot.png"),
+  file = file.path(out_dir, "fig-raw-ablations.png"),
   width = 12,
   height = 10,
   dpi = 600
@@ -718,6 +720,8 @@ twoway_tbl <- dplyr::bind_rows(lapply(
 ```{r}
 #| label: fig-main-elements
 #| include: true
+#| fig-width: 6
+#| fig-height: 6
 #| fig-cap: "Boxplots showing the mean of the three selected elements Mn, Sr, Ba in element:Ca ratio in mmol/mol. Divided over the 20 sites and years (colours). The mean of all sites (dashed line)."
 
 vars_main <- c("meanMn55", "meanSr88", "meanBa138")
@@ -760,9 +764,9 @@ main_elements <- ggplot(
 
 ggsave(
   main_elements,
-  file = file.path(out_dir, "main_elements.png"),
-  width = 10,
-  height = 10,
+  file = file.path(out_dir, "fig-main-elements.png"),
+  width = 6,
+  height = 6,
   bg = "white",
   dpi = 600
 )
@@ -775,6 +779,8 @@ main_elements
 ```{r}
 #| label: fig-other-elements
 #| include: true
+#| fig-width: 10
+#| fig-height: 10
 #| fig-cap: "Boxplots showing the mean of the elements in element:Ca ratio in mmol/mol. Divided over the 20 sites and years (colours). The mean of all sites (dashed line)."
 
 vars_other <- c(
@@ -828,7 +834,7 @@ other_elements <- ggplot(
 
 ggsave(
   other_elements,
-  file = file.path(out_dir, "other_elements.png"),
+  file = file.path(out_dir, "fig-other-elements.png"),
   width = 10,
   height = 10,
   dpi = 600
@@ -968,6 +974,8 @@ knitr::kable(conf_display_lda, rownames_to_stub = TRUE)
 ```{r}
 #| label: fig-lda
 #| include: true
+#| fig-width: 8
+#| fig-height: 6
 #| fig-cap: "Scatterplots of LD1 vs LD2 variation of the trace element signatures of elements Mn, Sr, and Ba from the four years divided over the 20 sites. Points in each plot depict individual fish. Ellipses show 0.95 confidence interval for each year for each site. LD1 explains 63.47 %, LD2 explains 22.42 % of the total variance."
 
 ### Fit to the entire dataset
@@ -1017,9 +1025,9 @@ lda_plot <- ggplot(Juv_results, aes(x = LD1, y = LD2)) +
 
 ggsave(
   lda_plot,
-  file = file.path(out_dir, "lda_plot.png"),
-  width = 10,
-  height = 10,
+  file = file.path(out_dir, "fig-lda.png"),
+  width = 8,
+  height = 6,
   bg = "white",
   dpi = 600
 )
@@ -1205,6 +1213,8 @@ accuracy_Svirgsden_lda
 ```{r}
 #| label: fig-nnca
 #| include: true
+#| fig-width: 4
+#| fig-height: 5
 #| fig-cap: "Dendrogram of the Nearest-Neighbour Cluster Analysis of the trace element signatures of elements Mn, Sr, and Ba from the four years. Based on the Silhouette index, three clusters were selected."
 
 # Calculate mean elemental composition per site
@@ -1266,7 +1276,7 @@ NNCA_tree_plot <- left_labels +
 
 ggsave(
   NNCA_tree_plot,
-  file = file.path(out_dir, "NNCA_tree_plot.png"),
+  file = file.path(out_dir, " fig-nnca.png"),
   width = 4,
   height = 5,
   dpi = 600
@@ -1390,6 +1400,8 @@ knitr::kable(combined_display)
 ```{r}
 #| label: fig-nnca-lda
 #| include: true
+#| fig-width: 4
+#| fig-height: 5
 #| fig-cap: "Scatterplots of LD1 vs LD2 variation of the trace element signatures of elements Mn, Sr, and Ba from the four years divided over the three clusters from the NNCA. Points are individual signatures and are coloured according to their prediction, 0 not correct, 1 correct predicted. Ellipses show 0.95 confidence interval, colours represent the different clusters, a: red (n=30), b: green (n=229), c: blue (n=343). LD1 explains 87.4 %, LD2 explains 12.6 % of the total variance."
 
 # Create a column to indicate correctness of prediction
@@ -1408,7 +1420,7 @@ LDA_NNCA <- ggplot(Juv_NNCA2, aes(x = LD1, y = LD2)) +
 
 ggsave(
   LDA_NNCA,
-  file = file.path(out_dir, "LDA_NNCA.png"),
+  file = file.path(out_dir, "fig-nnca-lda.png"),
   width = 5,
   height = 4,
   bg = "white",

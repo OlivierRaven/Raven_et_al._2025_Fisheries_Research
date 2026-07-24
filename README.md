@@ -3,7 +3,8 @@
 O.V. Raven, J.E.M. Couper, H. Trotter, M.R. Reid, R. Svirgsden, M. Rohtla, G.P. Closs
 
 **Published:** Fisheries Research 287 (2025) 107420
-**DOI:** [10.1016/j.fishres.2025.107420](https://doi.org/10.1016/j.fishres.2025.107420)
+**Article DOI:** [10.1016/j.fishres.2025.107420](https://doi.org/10.1016/j.fishres.2025.107420)
+**Code & data archive (Zenodo, concept DOI, always resolves to the latest version):** [10.5281/zenodo.21539667](https://doi.org/10.5281/zenodo.21539667)
 
 ## Overview
 
@@ -61,9 +62,14 @@ The rendered site is published at: <https://olivierraven.github.io/Raven_et_al._
 
 ## Data availability
 
-Derived data files needed to reproduce the statistical analyses and figures are tracked in `data/derived/`, and the original raw field/lab data are tracked in `data/raw/`. As stated in the published article, the data underlying this study are available on request; this repository provides open access to those same files and to the full analysis code.
+Raw ablation data (`data/raw/`) and derived data (`data/derived/`) needed to reproduce the statistical analyses and figures are both tracked in this repository. As stated in the published article, the data underlying this study are available on request; this repository, and its permanent archive on Zenodo, provide open access to those same files and to the full analysis code.
 
 Generated outputs (figures, tables, confusion matrices) are tracked in `outputs/`.
+
+Each tagged release of this repository (starting with `v1.0-published`) is automatically archived on Zenodo with its own versioned DOI:
+
+- **Concept DOI** (cite this for "the latest version"): [10.5281/zenodo.21539667](https://doi.org/10.5281/zenodo.21539667)
+- **v1.0-published DOI** (cite this to reference the exact state at time of publication): [10.5281/zenodo.21539668](https://doi.org/10.5281/zenodo.21539668)
 
 ## Funding
 
@@ -76,4 +82,4 @@ Raven, O.V., Couper, J.E.M., Trotter, H., Reid, M.R., Svirgsden, R., Rohtla, M.,
 ## Licence
 
 Code: MIT License
-Data: available on request as per the published article's data availability statement.
+Data: CC BY 4.0 (as archived on Zenodo)

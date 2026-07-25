@@ -1,0 +1,8 @@
+"Comparison","Value"
+"Mn: 2015 vs 2022","p = 0.00783"
+"Ba: 2022 vs 2015","p = 0.0000354"
+"Ba: 2021 vs 2015","p = 0.0114"
+"Ba: 2023 vs 2021","p = 0.0117"
+"Ba: 2023 vs 2022","p = 0.0000894"
+"RF model accuracy (2015 samples → Waipahi Trib A)","74.4%"
+"LDA model accuracy (2015 samples → Waipahi Trib A)","49.8%"

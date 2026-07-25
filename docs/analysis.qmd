@@ -853,6 +853,11 @@ other_elements
 df_mean_juv_clean_main <- df_mean_juv_clean %>%
   dplyr::select(Site, dplyr::all_of(vars_main))
 
+# Fixed seed: randomForest() bootstrap-samples and picks split variables at
+# random, so accuracy drifts a little on every re-render without this. Added
+# after publication — results are stable from here on, but this exact seed
+# was not used for the numbers printed in the published article.
+set.seed(42)
 rf_model <- randomForest(
   Site ~ .,
   data = df_mean_juv_clean_main,
@@ -1118,6 +1123,8 @@ rf_train <- df_mean_juv_main %>%
   ) %>%
   drop_na()
 
+# Fixed seed — see note by the first randomForest() call above.
+set.seed(42)
 rf_model_no_year <- randomForest(
   Site ~ meanMn55 + meanSr88 + meanBa138,
   data = rf_train,
@@ -1206,6 +1213,43 @@ accuracy_Svirgsden_lda <- mean(accuracy_scores) * 100
 accuracy_Svirgsden_lda
 
 
+```
+
+## Comparison summary
+```{r}
+#| label: tbl-svirgsden-comparison
+#| include: true
+#| echo: false
+#| tbl-cap: "Comparison of 2015 Svirgsden et al. (2018) otolith signatures against 2020-2023 samples at Waipahi Tributary A: pairwise Tukey HSD p-values for Mn and Ba, and RF/LDA model accuracy assigning the 2015 samples back to Waipahi Trib A."
+
+svirgsden_comparison <- data.frame(
+  Comparison = c(
+    "Mn: 2015 vs 2022",
+    "Ba: 2022 vs 2015",
+    "Ba: 2021 vs 2015",
+    "Ba: 2023 vs 2021",
+    "Ba: 2023 vs 2022",
+    "RF model accuracy (2015 samples → Waipahi Trib A)",
+    "LDA model accuracy (2015 samples → Waipahi Trib A)"
+  ),
+  Value = c(
+    paste0("p = ", format(p_mn_2015_2022, scientific = FALSE)),
+    paste0("p = ", format(p_ba_2015_2022, scientific = FALSE)),
+    paste0("p = ", format(p_ba_2015_2021, scientific = FALSE)),
+    paste0("p = ", format(p_ba_2023_2021, scientific = FALSE)),
+    paste0("p = ", format(p_ba_2023_2022, scientific = FALSE)),
+    paste0(round(accuracy_Svirgsden_rf, 1), "%"),
+    paste0(round(accuracy_Svirgsden_lda, 1), "%")
+  )
+)
+
+write.csv(
+  svirgsden_comparison,
+  file = file.path(out_dir, "svirgsden_comparison_table.csv"),
+  row.names = FALSE
+)
+
+knitr::kable(svirgsden_comparison)
 ```
 
 
@@ -1309,6 +1353,8 @@ cluster_levels <- levels(Juv_NNCA$NNCA)
 K <- length(cluster_levels)
 
 ### RF
+# Fixed seed — see note by the first randomForest() call above.
+set.seed(42)
 rf_model_nnca <- randomForest(
   NNCA ~ .,
   data = Juv_NNCA,

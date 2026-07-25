@@ -1,0 +1,171 @@
+{
+  "paper": {
+    "doi": "10.1016/j.fishres.2025.107420",
+    "repo": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research"
+  },
+  "generatedAt": "2026-07-25T07:50:01Z",
+  "gitRef": "4a0acf1b40d63c42e40bdbde48117b4f5aa34db3",
+  "claims": [
+    {
+      "label": "tbl-element-selection-static",
+      "manuscriptRef": "@tbl-element-selection-static",
+      "claimText": "MANOVA results showed that Mn, Sr, and Ba were statistically different among sites but not across years , @fig-main-elements), meeting the selection criteria.",
+      "caption": "Output of MANOVA’s testing the mean of the thirteen trace elements between sites and year separately. The green colour indicating spatial variable but temporal stable.",
+      "sourceFile": "analysis.qmd",
+      "lineStart": 537,
+      "lineEnd": 550,
+      "reads": [],
+      "writes": [],
+      "embeddedAsFigure": false,
+      "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/4a0acf1b40d63c42e40bdbde48117b4f5aa34db3/analysis.qmd#L537-L550"
+    },
+    {
+      "label": "fig-main-elements",
+      "manuscriptRef": "@fig-main-elements",
+      "claimText": "MANOVA results showed that Mn, Sr, and Ba were statistically different among sites but not across years (@tbl-element-selection-static, , meeting the selection criteria.",
+      "caption": "Boxplots showing the mean of the three selected elements Mn, Sr, Ba in element:Ca ratio in mmol/mol. Divided over the 20 sites and years (colours). The mean of all sites (dashed line).",
+      "sourceFile": "analysis.qmd",
+      "lineStart": 720,
+      "lineEnd": 776,
+      "reads": [],
+      "writes": [
+        "outputs/fig-main-elements.png"
+      ],
+      "embeddedAsFigure": true,
+      "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/4a0acf1b40d63c42e40bdbde48117b4f5aa34db3/analysis.qmd#L720-L776"
+    },
+    {
+      "label": "fig-other-elements",
+      "manuscriptRef": "@fig-other-elements",
+      "claimText": "In contrast, Li, Na, Mg, Al, P, K, Fe, Cu, Zn, and Rb either showed no significant spatial variation or exhibited significant temporal variation (@tbl-element-selection-static, , making them unsuitable.",
+      "caption": "Boxplots showing the mean of the elements in element:Ca ratio in mmol/mol. Divided over the 20 sites and years (colours). The mean of all sites (dashed line).",
+      "sourceFile": "analysis.qmd",
+      "lineStart": 779,
+      "lineEnd": 844,
+      "reads": [],
+      "writes": [
+        "outputs/fig-other-elements.png"
+      ],
+      "embeddedAsFigure": true,
+      "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/4a0acf1b40d63c42e40bdbde48117b4f5aa34db3/analysis.qmd#L779-L844"
+    },
+    {
+      "label": "tbl-rf",
+      "manuscriptRef": "@tbl-rf",
+      "claimText": "The RF model based on these three elements correctly assigned [computed value]% of samples to their original stream of origin .",
+      "caption": "RF model confusion matrix of the 602 signatures tested. Actual shown in columns and predicted shown in rows. Overall accuracy: 61.0% (367 of 602 correct).",
+      "sourceFile": "analysis.qmd",
+      "lineStart": 847,
+      "lineEnd": 894,
+      "reads": [],
+      "writes": [
+        "outputs/rf_conf_matrix.csv"
+      ],
+      "embeddedAsFigure": false,
+      "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/4a0acf1b40d63c42e40bdbde48117b4f5aa34db3/analysis.qmd#L847-L894"
+    },
+    {
+      "label": "tbl-lda",
+      "manuscriptRef": "@tbl-lda",
+      "claimText": "The LDA model achieved a slightly lower overall accuracy of [computed value]% based on leave-one-out cross-validation .",
+      "caption": "LDA model confusion matrix of the 602 signatures tested by 602 folds of cross validation. Actual shown in columns and predicted shown in rows. The diagonal bold numbers are the correct predictions for each site.",
+      "sourceFile": "analysis.qmd",
+      "lineStart": 897,
+      "lineEnd": 976,
+      "reads": [],
+      "writes": [
+        "outputs/lda_conf_matrix.csv"
+      ],
+      "embeddedAsFigure": false,
+      "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/4a0acf1b40d63c42e40bdbde48117b4f5aa34db3/analysis.qmd#L897-L976"
+    },
+    {
+      "label": "fig-lda",
+      "manuscriptRef": "@fig-lda",
+      "claimText": "The temporal stability of Mn, Sr, and Ba is also illustrated in , where the spatial signatures of several sites are visualized using LD1 and LD2 from the preformed LDA model.",
+      "caption": "Scatterplots of LD1 vs LD2 variation of the trace element signatures of elements Mn, Sr, and Ba from the four years divided over the 20 sites. Points in each plot depict individual fish. Ellipses show 0.95 confidence interval for each year for each site. LD1 explains 63.47 %, LD2 explains 22.42 % of the total variance.",
+      "sourceFile": "analysis.qmd",
+      "lineStart": 979,
+      "lineEnd": 1041,
+      "reads": [],
+      "writes": [
+        "outputs/fig-lda.png"
+      ],
+      "embeddedAsFigure": true,
+      "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/4a0acf1b40d63c42e40bdbde48117b4f5aa34db3/analysis.qmd#L979-L1041"
+    },
+    {
+      "label": "tbl-svirgsden-comparison",
+      "manuscriptRef": "@tbl-svirgsden-comparison",
+      "claimText": "Despite these temporal differences, the RF model was able to correctly assign [computed value]% of the 39 samples from 2015 to the Waipahi Tributary A site, while the LDA model achieved a lower assignment accuracy of [computed value]% .",
+      "caption": "Comparison of 2015 Svirgsden et al. (2018) otolith signatures against 2020-2023 samples at Waipahi Tributary A: pairwise Tukey HSD p-values for Mn and Ba, and RF/LDA model accuracy assigning the 2015 samples back to Waipahi Trib A.",
+      "sourceFile": "analysis.qmd",
+      "lineStart": 1219,
+      "lineEnd": 1253,
+      "reads": [],
+      "writes": [
+        "outputs/svirgsden_comparison_table.csv"
+      ],
+      "embeddedAsFigure": false,
+      "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/4a0acf1b40d63c42e40bdbde48117b4f5aa34db3/analysis.qmd#L1219-L1253"
+    },
+    {
+      "label": "fig-nnca",
+      "manuscriptRef": "@fig-nnca",
+      "claimText": "The NNCA dendrogram based on the Silhouette Index show three main clusters of the 20 sites .",
+      "caption": "Dendrogram of the Nearest-Neighbour Cluster Analysis of the trace element signatures of elements Mn, Sr, and Ba from the four years. Based on the Silhouette index, three clusters were selected.",
+      "sourceFile": "analysis.qmd",
+      "lineStart": 1257,
+      "lineEnd": 1331,
+      "reads": [],
+      "writes": [
+        "outputs/fig-nnca.png"
+      ],
+      "embeddedAsFigure": true,
+      "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/4a0acf1b40d63c42e40bdbde48117b4f5aa34db3/analysis.qmd#L1257-L1331"
+    },
+    {
+      "label": "tbl-conf-nnca",
+      "manuscriptRef": "@tbl-conf-nnca",
+      "claimText": "The RF and LDA model where also used to predict the signatures for each cluster, which resulted in an accuracy score of [computed value]% and [computed value]% .",
+      "caption": "Confusion matrix of the RF and LDA of the tree clusters from the NNCA. Actual shown in columns and predicted shown in rows. The diagonal bold numbers are the correct predictions for each cluster.",
+      "sourceFile": "analysis.qmd",
+      "lineStart": 1334,
+      "lineEnd": 1443,
+      "reads": [],
+      "writes": [
+        "outputs/combined_nnca_conf_matrix.csv"
+      ],
+      "embeddedAsFigure": false,
+      "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/4a0acf1b40d63c42e40bdbde48117b4f5aa34db3/analysis.qmd#L1334-L1443"
+    },
+    {
+      "label": "fig-nnca-lda",
+      "manuscriptRef": "@fig-nnca-lda",
+      "claimText": "The LDA model scatterplot also shows the three distinct clusters, with more overlap in cluster b and c .",
+      "caption": "Scatterplots of LD1 vs LD2 variation of the trace element signatures of elements Mn, Sr, and Ba from the four years divided over the three clusters from the NNCA. Points are individual signatures and are coloured according to their prediction, 0 not correct, 1 correct predicted. Ellipses show 0.95 confidence interval, colours represent the different clusters, a: red (n=30), b: green (n=229), c: blue (n=343). LD1 explains 87.4 %, LD2 explains 12.6 % of the total variance.",
+      "sourceFile": "analysis.qmd",
+      "lineStart": 1446,
+      "lineEnd": 1477,
+      "reads": [],
+      "writes": [
+        "outputs/fig-nnca-lda.png"
+      ],
+      "embeddedAsFigure": true,
+      "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/4a0acf1b40d63c42e40bdbde48117b4f5aa34db3/analysis.qmd#L1446-L1477"
+    },
+    {
+      "label": "tbl-temporal",
+      "manuscriptRef": "@tbl-temporal",
+      "claimText": "2022, *p* = [computed value]), and for Mn, Sr, and Ba at Fruit Burn between 2021 and other years .",
+      "caption": "Output of ANOVA and Tukey's HSD test of the three sites that have been sampled in August and September instead of January till March in 2021.",
+      "sourceFile": "analysis.qmd",
+      "lineStart": 1481,
+      "lineEnd": 1661,
+      "reads": [],
+      "writes": [],
+      "embeddedAsFigure": false,
+      "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/4a0acf1b40d63c42e40bdbde48117b4f5aa34db3/analysis.qmd#L1481-L1661"
+    }
+  ]
+}

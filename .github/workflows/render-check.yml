@@ -28,3 +28,6 @@ jobs:
 
       - name: Render manuscript
         run: quarto render index.qmd
+
+      - name: Generate evidence manifest
+        run: Rscript scripts/generate_evidence.R

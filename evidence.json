@@ -3,8 +3,8 @@
     "doi": "10.1016/j.fishres.2025.107420",
     "repo": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research"
   },
-  "generatedAt": "2026-07-25T07:50:01Z",
-  "gitRef": "4a0acf1b40d63c42e40bdbde48117b4f5aa34db3",
+  "generatedAt": "2026-07-27T06:17:17Z",
+  "gitRef": "c8823bbe7f8d4209a946ce976f67065e38d961cf",
   "claims": [
     {
       "label": "tbl-element-selection-static",
@@ -17,7 +17,7 @@
       "reads": [],
       "writes": [],
       "embeddedAsFigure": false,
-      "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/4a0acf1b40d63c42e40bdbde48117b4f5aa34db3/analysis.qmd#L537-L550"
+      "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/c8823bbe7f8d4209a946ce976f67065e38d961cf/analysis.qmd#L537-L550"
     },
     {
       "label": "fig-main-elements",
@@ -32,7 +32,7 @@
         "outputs/fig-main-elements.png"
       ],
       "embeddedAsFigure": true,
-      "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/4a0acf1b40d63c42e40bdbde48117b4f5aa34db3/analysis.qmd#L720-L776"
+      "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/c8823bbe7f8d4209a946ce976f67065e38d961cf/analysis.qmd#L720-L776"
     },
     {
       "label": "fig-other-elements",
@@ -47,7 +47,7 @@
         "outputs/fig-other-elements.png"
       ],
       "embeddedAsFigure": true,
-      "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/4a0acf1b40d63c42e40bdbde48117b4f5aa34db3/analysis.qmd#L779-L844"
+      "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/c8823bbe7f8d4209a946ce976f67065e38d961cf/analysis.qmd#L779-L844"
     },
     {
       "label": "tbl-rf",
@@ -62,7 +62,7 @@
         "outputs/rf_conf_matrix.csv"
       ],
       "embeddedAsFigure": false,
-      "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/4a0acf1b40d63c42e40bdbde48117b4f5aa34db3/analysis.qmd#L847-L894"
+      "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/c8823bbe7f8d4209a946ce976f67065e38d961cf/analysis.qmd#L847-L894"
     },
     {
       "label": "tbl-lda",
@@ -77,7 +77,7 @@
         "outputs/lda_conf_matrix.csv"
       ],
       "embeddedAsFigure": false,
-      "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/4a0acf1b40d63c42e40bdbde48117b4f5aa34db3/analysis.qmd#L897-L976"
+      "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/c8823bbe7f8d4209a946ce976f67065e38d961cf/analysis.qmd#L897-L976"
     },
     {
       "label": "fig-lda",
@@ -92,7 +92,7 @@
         "outputs/fig-lda.png"
       ],
       "embeddedAsFigure": true,
-      "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/4a0acf1b40d63c42e40bdbde48117b4f5aa34db3/analysis.qmd#L979-L1041"
+      "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/c8823bbe7f8d4209a946ce976f67065e38d961cf/analysis.qmd#L979-L1041"
     },
     {
       "label": "tbl-svirgsden-comparison",
@@ -107,7 +107,7 @@
         "outputs/svirgsden_comparison_table.csv"
       ],
       "embeddedAsFigure": false,
-      "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/4a0acf1b40d63c42e40bdbde48117b4f5aa34db3/analysis.qmd#L1219-L1253"
+      "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/c8823bbe7f8d4209a946ce976f67065e38d961cf/analysis.qmd#L1219-L1253"
     },
     {
       "label": "fig-nnca",
@@ -122,7 +122,7 @@
         "outputs/fig-nnca.png"
       ],
       "embeddedAsFigure": true,
-      "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/4a0acf1b40d63c42e40bdbde48117b4f5aa34db3/analysis.qmd#L1257-L1331"
+      "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/c8823bbe7f8d4209a946ce976f67065e38d961cf/analysis.qmd#L1257-L1331"
     },
     {
       "label": "tbl-conf-nnca",
@@ -137,7 +137,7 @@
         "outputs/combined_nnca_conf_matrix.csv"
       ],
       "embeddedAsFigure": false,
-      "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/4a0acf1b40d63c42e40bdbde48117b4f5aa34db3/analysis.qmd#L1334-L1443"
+      "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/c8823bbe7f8d4209a946ce976f67065e38d961cf/analysis.qmd#L1334-L1443"
     },
     {
       "label": "fig-nnca-lda",
@@ -152,7 +152,7 @@
         "outputs/fig-nnca-lda.png"
       ],
       "embeddedAsFigure": true,
-      "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/4a0acf1b40d63c42e40bdbde48117b4f5aa34db3/analysis.qmd#L1446-L1477"
+      "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/c8823bbe7f8d4209a946ce976f67065e38d961cf/analysis.qmd#L1446-L1477"
     },
     {
       "label": "tbl-temporal",
@@ -165,7 +165,7 @@
       "reads": [],
       "writes": [],
       "embeddedAsFigure": false,
-      "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/4a0acf1b40d63c42e40bdbde48117b4f5aa34db3/analysis.qmd#L1481-L1661"
+      "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/c8823bbe7f8d4209a946ce976f67065e38d961cf/analysis.qmd#L1481-L1661"
     }
   ]
 }

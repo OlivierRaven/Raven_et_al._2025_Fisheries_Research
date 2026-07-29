@@ -3,8 +3,8 @@
     "doi": "10.1016/j.fishres.2025.107420",
     "repo": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research"
   },
-  "generatedAt": "2026-07-27T06:17:17Z",
-  "gitRef": "c8823bbe7f8d4209a946ce976f67065e38d961cf",
+  "generatedAt": "2026-07-29T07:32:18Z",
+  "gitRef": "a589fac00011e4189bb4f301b38f881a52d9c1c0",
   "claims": [
     {
       "label": "tbl-element-selection-static",
@@ -14,10 +14,42 @@
       "sourceFile": "analysis.qmd",
       "lineStart": 537,
       "lineEnd": 550,
-      "reads": [],
-      "writes": [],
+      "reads": [
+        "data/derived/df_ablation_juv.csv",
+        "data/derived/df_mean_juv.csv",
+        "data/raw/Slidecode_site_juv.xlsx"
+      ],
+      "writes": [
+        "outputs/element_selection_table.csv"
+      ],
+      "computedIn": [
+        {
+          "label": "tbl-element-selection",
+          "lineStart": 348,
+          "lineEnd": 535,
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/a589fac00011e4189bb4f301b38f881a52d9c1c0/analysis.qmd#L348-L535"
+        },
+        {
+          "label": "fig-raw-ablations",
+          "lineStart": 283,
+          "lineEnd": 344,
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/a589fac00011e4189bb4f301b38f881a52d9c1c0/analysis.qmd#L283-L344"
+        },
+        {
+          "label": "Data import (run only if df_ablation_juv & df_mean_juv not exist yet)",
+          "lineStart": 91,
+          "lineEnd": 279,
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/a589fac00011e4189bb4f301b38f881a52d9c1c0/analysis.qmd#L91-L279"
+        },
+        {
+          "label": "setup",
+          "lineStart": 25,
+          "lineEnd": 88,
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/a589fac00011e4189bb4f301b38f881a52d9c1c0/analysis.qmd#L25-L88"
+        }
+      ],
       "embeddedAsFigure": false,
-      "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/c8823bbe7f8d4209a946ce976f67065e38d961cf/analysis.qmd#L537-L550"
+      "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/a589fac00011e4189bb4f301b38f881a52d9c1c0/analysis.qmd#L537-L550"
     },
     {
       "label": "fig-main-elements",
@@ -27,12 +59,42 @@
       "sourceFile": "analysis.qmd",
       "lineStart": 720,
       "lineEnd": 776,
-      "reads": [],
+      "reads": [
+        "data/derived/df_ablation_juv.csv",
+        "data/derived/df_mean_juv.csv",
+        "data/raw/Slidecode_site_juv.xlsx"
+      ],
       "writes": [
         "outputs/fig-main-elements.png"
       ],
+      "computedIn": [
+        {
+          "label": "tbl-element-selectionI",
+          "lineStart": 553,
+          "lineEnd": 646,
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/a589fac00011e4189bb4f301b38f881a52d9c1c0/analysis.qmd#L553-L646"
+        },
+        {
+          "label": "fig-raw-ablations",
+          "lineStart": 283,
+          "lineEnd": 344,
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/a589fac00011e4189bb4f301b38f881a52d9c1c0/analysis.qmd#L283-L344"
+        },
+        {
+          "label": "Data import (run only if df_ablation_juv & df_mean_juv not exist yet)",
+          "lineStart": 91,
+          "lineEnd": 279,
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/a589fac00011e4189bb4f301b38f881a52d9c1c0/analysis.qmd#L91-L279"
+        },
+        {
+          "label": "setup",
+          "lineStart": 25,
+          "lineEnd": 88,
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/a589fac00011e4189bb4f301b38f881a52d9c1c0/analysis.qmd#L25-L88"
+        }
+      ],
       "embeddedAsFigure": true,
-      "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/c8823bbe7f8d4209a946ce976f67065e38d961cf/analysis.qmd#L720-L776"
+      "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/a589fac00011e4189bb4f301b38f881a52d9c1c0/analysis.qmd#L720-L776"
     },
     {
       "label": "fig-other-elements",
@@ -42,12 +104,42 @@
       "sourceFile": "analysis.qmd",
       "lineStart": 779,
       "lineEnd": 844,
-      "reads": [],
+      "reads": [
+        "data/derived/df_ablation_juv.csv",
+        "data/derived/df_mean_juv.csv",
+        "data/raw/Slidecode_site_juv.xlsx"
+      ],
       "writes": [
         "outputs/fig-other-elements.png"
       ],
+      "computedIn": [
+        {
+          "label": "tbl-element-selectionI",
+          "lineStart": 553,
+          "lineEnd": 646,
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/a589fac00011e4189bb4f301b38f881a52d9c1c0/analysis.qmd#L553-L646"
+        },
+        {
+          "label": "fig-raw-ablations",
+          "lineStart": 283,
+          "lineEnd": 344,
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/a589fac00011e4189bb4f301b38f881a52d9c1c0/analysis.qmd#L283-L344"
+        },
+        {
+          "label": "Data import (run only if df_ablation_juv & df_mean_juv not exist yet)",
+          "lineStart": 91,
+          "lineEnd": 279,
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/a589fac00011e4189bb4f301b38f881a52d9c1c0/analysis.qmd#L91-L279"
+        },
+        {
+          "label": "setup",
+          "lineStart": 25,
+          "lineEnd": 88,
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/a589fac00011e4189bb4f301b38f881a52d9c1c0/analysis.qmd#L25-L88"
+        }
+      ],
       "embeddedAsFigure": true,
-      "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/c8823bbe7f8d4209a946ce976f67065e38d961cf/analysis.qmd#L779-L844"
+      "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/a589fac00011e4189bb4f301b38f881a52d9c1c0/analysis.qmd#L779-L844"
     },
     {
       "label": "tbl-rf",
@@ -57,12 +149,48 @@
       "sourceFile": "analysis.qmd",
       "lineStart": 847,
       "lineEnd": 894,
-      "reads": [],
+      "reads": [
+        "data/derived/df_ablation_juv.csv",
+        "data/derived/df_mean_juv.csv",
+        "data/raw/Slidecode_site_juv.xlsx"
+      ],
       "writes": [
         "outputs/rf_conf_matrix.csv"
       ],
+      "computedIn": [
+        {
+          "label": "tbl-element-selectionI",
+          "lineStart": 553,
+          "lineEnd": 646,
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/a589fac00011e4189bb4f301b38f881a52d9c1c0/analysis.qmd#L553-L646"
+        },
+        {
+          "label": "fig-raw-ablations",
+          "lineStart": 283,
+          "lineEnd": 344,
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/a589fac00011e4189bb4f301b38f881a52d9c1c0/analysis.qmd#L283-L344"
+        },
+        {
+          "label": "Data import (run only if df_ablation_juv & df_mean_juv not exist yet)",
+          "lineStart": 91,
+          "lineEnd": 279,
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/a589fac00011e4189bb4f301b38f881a52d9c1c0/analysis.qmd#L91-L279"
+        },
+        {
+          "label": "setup",
+          "lineStart": 25,
+          "lineEnd": 88,
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/a589fac00011e4189bb4f301b38f881a52d9c1c0/analysis.qmd#L25-L88"
+        },
+        {
+          "label": "fig-main-elements",
+          "lineStart": 720,
+          "lineEnd": 776,
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/a589fac00011e4189bb4f301b38f881a52d9c1c0/analysis.qmd#L720-L776"
+        }
+      ],
       "embeddedAsFigure": false,
-      "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/c8823bbe7f8d4209a946ce976f67065e38d961cf/analysis.qmd#L847-L894"
+      "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/a589fac00011e4189bb4f301b38f881a52d9c1c0/analysis.qmd#L847-L894"
     },
     {
       "label": "tbl-lda",
@@ -72,12 +200,48 @@
       "sourceFile": "analysis.qmd",
       "lineStart": 897,
       "lineEnd": 976,
-      "reads": [],
+      "reads": [
+        "data/derived/df_ablation_juv.csv",
+        "data/derived/df_mean_juv.csv",
+        "data/raw/Slidecode_site_juv.xlsx"
+      ],
       "writes": [
         "outputs/lda_conf_matrix.csv"
       ],
+      "computedIn": [
+        {
+          "label": "tbl-element-selectionI",
+          "lineStart": 553,
+          "lineEnd": 646,
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/a589fac00011e4189bb4f301b38f881a52d9c1c0/analysis.qmd#L553-L646"
+        },
+        {
+          "label": "fig-raw-ablations",
+          "lineStart": 283,
+          "lineEnd": 344,
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/a589fac00011e4189bb4f301b38f881a52d9c1c0/analysis.qmd#L283-L344"
+        },
+        {
+          "label": "Data import (run only if df_ablation_juv & df_mean_juv not exist yet)",
+          "lineStart": 91,
+          "lineEnd": 279,
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/a589fac00011e4189bb4f301b38f881a52d9c1c0/analysis.qmd#L91-L279"
+        },
+        {
+          "label": "setup",
+          "lineStart": 25,
+          "lineEnd": 88,
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/a589fac00011e4189bb4f301b38f881a52d9c1c0/analysis.qmd#L25-L88"
+        },
+        {
+          "label": "fig-main-elements",
+          "lineStart": 720,
+          "lineEnd": 776,
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/a589fac00011e4189bb4f301b38f881a52d9c1c0/analysis.qmd#L720-L776"
+        }
+      ],
       "embeddedAsFigure": false,
-      "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/c8823bbe7f8d4209a946ce976f67065e38d961cf/analysis.qmd#L897-L976"
+      "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/a589fac00011e4189bb4f301b38f881a52d9c1c0/analysis.qmd#L897-L976"
     },
     {
       "label": "fig-lda",
@@ -87,12 +251,54 @@
       "sourceFile": "analysis.qmd",
       "lineStart": 979,
       "lineEnd": 1041,
-      "reads": [],
+      "reads": [
+        "data/derived/df_ablation_juv.csv",
+        "data/derived/df_mean_juv.csv",
+        "data/raw/Slidecode_site_juv.xlsx"
+      ],
       "writes": [
         "outputs/fig-lda.png"
       ],
+      "computedIn": [
+        {
+          "label": "tbl-lda",
+          "lineStart": 897,
+          "lineEnd": 976,
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/a589fac00011e4189bb4f301b38f881a52d9c1c0/analysis.qmd#L897-L976"
+        },
+        {
+          "label": "tbl-element-selectionI",
+          "lineStart": 553,
+          "lineEnd": 646,
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/a589fac00011e4189bb4f301b38f881a52d9c1c0/analysis.qmd#L553-L646"
+        },
+        {
+          "label": "fig-raw-ablations",
+          "lineStart": 283,
+          "lineEnd": 344,
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/a589fac00011e4189bb4f301b38f881a52d9c1c0/analysis.qmd#L283-L344"
+        },
+        {
+          "label": "Data import (run only if df_ablation_juv & df_mean_juv not exist yet)",
+          "lineStart": 91,
+          "lineEnd": 279,
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/a589fac00011e4189bb4f301b38f881a52d9c1c0/analysis.qmd#L91-L279"
+        },
+        {
+          "label": "setup",
+          "lineStart": 25,
+          "lineEnd": 88,
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/a589fac00011e4189bb4f301b38f881a52d9c1c0/analysis.qmd#L25-L88"
+        },
+        {
+          "label": "fig-main-elements",
+          "lineStart": 720,
+          "lineEnd": 776,
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/a589fac00011e4189bb4f301b38f881a52d9c1c0/analysis.qmd#L720-L776"
+        }
+      ],
       "embeddedAsFigure": true,
-      "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/c8823bbe7f8d4209a946ce976f67065e38d961cf/analysis.qmd#L979-L1041"
+      "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/a589fac00011e4189bb4f301b38f881a52d9c1c0/analysis.qmd#L979-L1041"
     },
     {
       "label": "tbl-svirgsden-comparison",
@@ -102,12 +308,73 @@
       "sourceFile": "analysis.qmd",
       "lineStart": 1219,
       "lineEnd": 1253,
-      "reads": [],
+      "reads": [
+        "data/derived/df_ablation_juv.csv",
+        "data/derived/df_mean_juv.csv",
+        "data/raw/Slidecode_site_juv.xlsx",
+        "data/raw/Trout_NZ_FROM_Mehis.xlsx"
+      ],
       "writes": [
         "outputs/svirgsden_comparison_table.csv"
       ],
+      "computedIn": [
+        {
+          "label": "Svirgsden-2018-LDA",
+          "lineStart": 1163,
+          "lineEnd": 1216,
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/a589fac00011e4189bb4f301b38f881a52d9c1c0/analysis.qmd#L1163-L1216"
+        },
+        {
+          "label": "tbl-element-selectionI",
+          "lineStart": 553,
+          "lineEnd": 646,
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/a589fac00011e4189bb4f301b38f881a52d9c1c0/analysis.qmd#L553-L646"
+        },
+        {
+          "label": "fig-raw-ablations",
+          "lineStart": 283,
+          "lineEnd": 344,
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/a589fac00011e4189bb4f301b38f881a52d9c1c0/analysis.qmd#L283-L344"
+        },
+        {
+          "label": "Data import (run only if df_ablation_juv & df_mean_juv not exist yet)",
+          "lineStart": 91,
+          "lineEnd": 279,
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/a589fac00011e4189bb4f301b38f881a52d9c1c0/analysis.qmd#L91-L279"
+        },
+        {
+          "label": "setup",
+          "lineStart": 25,
+          "lineEnd": 88,
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/a589fac00011e4189bb4f301b38f881a52d9c1c0/analysis.qmd#L25-L88"
+        },
+        {
+          "label": "Svirgsden-2018",
+          "lineStart": 1045,
+          "lineEnd": 1111,
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/a589fac00011e4189bb4f301b38f881a52d9c1c0/analysis.qmd#L1045-L1111"
+        },
+        {
+          "label": "Svirgsden-2018-RF",
+          "lineStart": 1114,
+          "lineEnd": 1160,
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/a589fac00011e4189bb4f301b38f881a52d9c1c0/analysis.qmd#L1114-L1160"
+        },
+        {
+          "label": "tbl-lda",
+          "lineStart": 897,
+          "lineEnd": 976,
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/a589fac00011e4189bb4f301b38f881a52d9c1c0/analysis.qmd#L897-L976"
+        },
+        {
+          "label": "fig-main-elements",
+          "lineStart": 720,
+          "lineEnd": 776,
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/a589fac00011e4189bb4f301b38f881a52d9c1c0/analysis.qmd#L720-L776"
+        }
+      ],
       "embeddedAsFigure": false,
-      "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/c8823bbe7f8d4209a946ce976f67065e38d961cf/analysis.qmd#L1219-L1253"
+      "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/a589fac00011e4189bb4f301b38f881a52d9c1c0/analysis.qmd#L1219-L1253"
     },
     {
       "label": "fig-nnca",
@@ -117,12 +384,60 @@
       "sourceFile": "analysis.qmd",
       "lineStart": 1257,
       "lineEnd": 1331,
-      "reads": [],
+      "reads": [
+        "data/derived/df_ablation_juv.csv",
+        "data/derived/df_mean_juv.csv",
+        "data/raw/Slidecode_site_juv.xlsx"
+      ],
       "writes": [
         "outputs/fig-nnca.png"
       ],
+      "computedIn": [
+        {
+          "label": "fig-lda",
+          "lineStart": 979,
+          "lineEnd": 1041,
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/a589fac00011e4189bb4f301b38f881a52d9c1c0/analysis.qmd#L979-L1041"
+        },
+        {
+          "label": "tbl-lda",
+          "lineStart": 897,
+          "lineEnd": 976,
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/a589fac00011e4189bb4f301b38f881a52d9c1c0/analysis.qmd#L897-L976"
+        },
+        {
+          "label": "tbl-element-selectionI",
+          "lineStart": 553,
+          "lineEnd": 646,
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/a589fac00011e4189bb4f301b38f881a52d9c1c0/analysis.qmd#L553-L646"
+        },
+        {
+          "label": "fig-raw-ablations",
+          "lineStart": 283,
+          "lineEnd": 344,
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/a589fac00011e4189bb4f301b38f881a52d9c1c0/analysis.qmd#L283-L344"
+        },
+        {
+          "label": "Data import (run only if df_ablation_juv & df_mean_juv not exist yet)",
+          "lineStart": 91,
+          "lineEnd": 279,
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/a589fac00011e4189bb4f301b38f881a52d9c1c0/analysis.qmd#L91-L279"
+        },
+        {
+          "label": "setup",
+          "lineStart": 25,
+          "lineEnd": 88,
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/a589fac00011e4189bb4f301b38f881a52d9c1c0/analysis.qmd#L25-L88"
+        },
+        {
+          "label": "fig-main-elements",
+          "lineStart": 720,
+          "lineEnd": 776,
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/a589fac00011e4189bb4f301b38f881a52d9c1c0/analysis.qmd#L720-L776"
+        }
+      ],
       "embeddedAsFigure": true,
-      "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/c8823bbe7f8d4209a946ce976f67065e38d961cf/analysis.qmd#L1257-L1331"
+      "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/a589fac00011e4189bb4f301b38f881a52d9c1c0/analysis.qmd#L1257-L1331"
     },
     {
       "label": "tbl-conf-nnca",
@@ -132,12 +447,79 @@
       "sourceFile": "analysis.qmd",
       "lineStart": 1334,
       "lineEnd": 1443,
-      "reads": [],
+      "reads": [
+        "data/derived/df_ablation_juv.csv",
+        "data/derived/df_mean_juv.csv",
+        "data/raw/Slidecode_site_juv.xlsx",
+        "data/raw/Trout_NZ_FROM_Mehis.xlsx"
+      ],
       "writes": [
         "outputs/combined_nnca_conf_matrix.csv"
       ],
+      "computedIn": [
+        {
+          "label": "fig-nnca",
+          "lineStart": 1257,
+          "lineEnd": 1331,
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/a589fac00011e4189bb4f301b38f881a52d9c1c0/analysis.qmd#L1257-L1331"
+        },
+        {
+          "label": "fig-lda",
+          "lineStart": 979,
+          "lineEnd": 1041,
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/a589fac00011e4189bb4f301b38f881a52d9c1c0/analysis.qmd#L979-L1041"
+        },
+        {
+          "label": "tbl-lda",
+          "lineStart": 897,
+          "lineEnd": 976,
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/a589fac00011e4189bb4f301b38f881a52d9c1c0/analysis.qmd#L897-L976"
+        },
+        {
+          "label": "tbl-element-selectionI",
+          "lineStart": 553,
+          "lineEnd": 646,
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/a589fac00011e4189bb4f301b38f881a52d9c1c0/analysis.qmd#L553-L646"
+        },
+        {
+          "label": "fig-raw-ablations",
+          "lineStart": 283,
+          "lineEnd": 344,
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/a589fac00011e4189bb4f301b38f881a52d9c1c0/analysis.qmd#L283-L344"
+        },
+        {
+          "label": "Data import (run only if df_ablation_juv & df_mean_juv not exist yet)",
+          "lineStart": 91,
+          "lineEnd": 279,
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/a589fac00011e4189bb4f301b38f881a52d9c1c0/analysis.qmd#L91-L279"
+        },
+        {
+          "label": "setup",
+          "lineStart": 25,
+          "lineEnd": 88,
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/a589fac00011e4189bb4f301b38f881a52d9c1c0/analysis.qmd#L25-L88"
+        },
+        {
+          "label": "fig-main-elements",
+          "lineStart": 720,
+          "lineEnd": 776,
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/a589fac00011e4189bb4f301b38f881a52d9c1c0/analysis.qmd#L720-L776"
+        },
+        {
+          "label": "Svirgsden-2018-LDA",
+          "lineStart": 1163,
+          "lineEnd": 1216,
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/a589fac00011e4189bb4f301b38f881a52d9c1c0/analysis.qmd#L1163-L1216"
+        },
+        {
+          "label": "Svirgsden-2018",
+          "lineStart": 1045,
+          "lineEnd": 1111,
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/a589fac00011e4189bb4f301b38f881a52d9c1c0/analysis.qmd#L1045-L1111"
+        }
+      ],
       "embeddedAsFigure": false,
-      "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/c8823bbe7f8d4209a946ce976f67065e38d961cf/analysis.qmd#L1334-L1443"
+      "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/a589fac00011e4189bb4f301b38f881a52d9c1c0/analysis.qmd#L1334-L1443"
     },
     {
       "label": "fig-nnca-lda",
@@ -147,12 +529,85 @@
       "sourceFile": "analysis.qmd",
       "lineStart": 1446,
       "lineEnd": 1477,
-      "reads": [],
+      "reads": [
+        "data/derived/df_ablation_juv.csv",
+        "data/derived/df_mean_juv.csv",
+        "data/raw/Slidecode_site_juv.xlsx",
+        "data/raw/Trout_NZ_FROM_Mehis.xlsx"
+      ],
       "writes": [
         "outputs/fig-nnca-lda.png"
       ],
+      "computedIn": [
+        {
+          "label": "tbl-element-selectionI",
+          "lineStart": 553,
+          "lineEnd": 646,
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/a589fac00011e4189bb4f301b38f881a52d9c1c0/analysis.qmd#L553-L646"
+        },
+        {
+          "label": "fig-raw-ablations",
+          "lineStart": 283,
+          "lineEnd": 344,
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/a589fac00011e4189bb4f301b38f881a52d9c1c0/analysis.qmd#L283-L344"
+        },
+        {
+          "label": "Data import (run only if df_ablation_juv & df_mean_juv not exist yet)",
+          "lineStart": 91,
+          "lineEnd": 279,
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/a589fac00011e4189bb4f301b38f881a52d9c1c0/analysis.qmd#L91-L279"
+        },
+        {
+          "label": "setup",
+          "lineStart": 25,
+          "lineEnd": 88,
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/a589fac00011e4189bb4f301b38f881a52d9c1c0/analysis.qmd#L25-L88"
+        },
+        {
+          "label": "tbl-conf-nnca",
+          "lineStart": 1334,
+          "lineEnd": 1443,
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/a589fac00011e4189bb4f301b38f881a52d9c1c0/analysis.qmd#L1334-L1443"
+        },
+        {
+          "label": "fig-nnca",
+          "lineStart": 1257,
+          "lineEnd": 1331,
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/a589fac00011e4189bb4f301b38f881a52d9c1c0/analysis.qmd#L1257-L1331"
+        },
+        {
+          "label": "fig-lda",
+          "lineStart": 979,
+          "lineEnd": 1041,
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/a589fac00011e4189bb4f301b38f881a52d9c1c0/analysis.qmd#L979-L1041"
+        },
+        {
+          "label": "tbl-lda",
+          "lineStart": 897,
+          "lineEnd": 976,
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/a589fac00011e4189bb4f301b38f881a52d9c1c0/analysis.qmd#L897-L976"
+        },
+        {
+          "label": "fig-main-elements",
+          "lineStart": 720,
+          "lineEnd": 776,
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/a589fac00011e4189bb4f301b38f881a52d9c1c0/analysis.qmd#L720-L776"
+        },
+        {
+          "label": "Svirgsden-2018-LDA",
+          "lineStart": 1163,
+          "lineEnd": 1216,
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/a589fac00011e4189bb4f301b38f881a52d9c1c0/analysis.qmd#L1163-L1216"
+        },
+        {
+          "label": "Svirgsden-2018",
+          "lineStart": 1045,
+          "lineEnd": 1111,
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/a589fac00011e4189bb4f301b38f881a52d9c1c0/analysis.qmd#L1045-L1111"
+        }
+      ],
       "embeddedAsFigure": true,
-      "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/c8823bbe7f8d4209a946ce976f67065e38d961cf/analysis.qmd#L1446-L1477"
+      "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/a589fac00011e4189bb4f301b38f881a52d9c1c0/analysis.qmd#L1446-L1477"
     },
     {
       "label": "tbl-temporal",
@@ -162,10 +617,97 @@
       "sourceFile": "analysis.qmd",
       "lineStart": 1481,
       "lineEnd": 1661,
-      "reads": [],
-      "writes": [],
+      "reads": [
+        "data/derived/df_ablation_juv.csv",
+        "data/derived/df_mean_juv.csv",
+        "data/raw/Slidecode_site_juv.xlsx",
+        "data/raw/Trout_NZ_FROM_Mehis.xlsx"
+      ],
+      "writes": [
+        "data/derived/inline_values.rds"
+      ],
+      "computedIn": [
+        {
+          "label": "tbl-element-selectionI",
+          "lineStart": 553,
+          "lineEnd": 646,
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/a589fac00011e4189bb4f301b38f881a52d9c1c0/analysis.qmd#L553-L646"
+        },
+        {
+          "label": "fig-raw-ablations",
+          "lineStart": 283,
+          "lineEnd": 344,
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/a589fac00011e4189bb4f301b38f881a52d9c1c0/analysis.qmd#L283-L344"
+        },
+        {
+          "label": "Data import (run only if df_ablation_juv & df_mean_juv not exist yet)",
+          "lineStart": 91,
+          "lineEnd": 279,
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/a589fac00011e4189bb4f301b38f881a52d9c1c0/analysis.qmd#L91-L279"
+        },
+        {
+          "label": "setup",
+          "lineStart": 25,
+          "lineEnd": 88,
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/a589fac00011e4189bb4f301b38f881a52d9c1c0/analysis.qmd#L25-L88"
+        },
+        {
+          "label": "tbl-lda",
+          "lineStart": 897,
+          "lineEnd": 976,
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/a589fac00011e4189bb4f301b38f881a52d9c1c0/analysis.qmd#L897-L976"
+        },
+        {
+          "label": "fig-main-elements",
+          "lineStart": 720,
+          "lineEnd": 776,
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/a589fac00011e4189bb4f301b38f881a52d9c1c0/analysis.qmd#L720-L776"
+        },
+        {
+          "label": "tbl-conf-nnca",
+          "lineStart": 1334,
+          "lineEnd": 1443,
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/a589fac00011e4189bb4f301b38f881a52d9c1c0/analysis.qmd#L1334-L1443"
+        },
+        {
+          "label": "fig-nnca",
+          "lineStart": 1257,
+          "lineEnd": 1331,
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/a589fac00011e4189bb4f301b38f881a52d9c1c0/analysis.qmd#L1257-L1331"
+        },
+        {
+          "label": "fig-lda",
+          "lineStart": 979,
+          "lineEnd": 1041,
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/a589fac00011e4189bb4f301b38f881a52d9c1c0/analysis.qmd#L979-L1041"
+        },
+        {
+          "label": "Svirgsden-2018-LDA",
+          "lineStart": 1163,
+          "lineEnd": 1216,
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/a589fac00011e4189bb4f301b38f881a52d9c1c0/analysis.qmd#L1163-L1216"
+        },
+        {
+          "label": "Svirgsden-2018",
+          "lineStart": 1045,
+          "lineEnd": 1111,
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/a589fac00011e4189bb4f301b38f881a52d9c1c0/analysis.qmd#L1045-L1111"
+        },
+        {
+          "label": "tbl-rf",
+          "lineStart": 847,
+          "lineEnd": 894,
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/a589fac00011e4189bb4f301b38f881a52d9c1c0/analysis.qmd#L847-L894"
+        },
+        {
+          "label": "Svirgsden-2018-RF",
+          "lineStart": 1114,
+          "lineEnd": 1160,
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/a589fac00011e4189bb4f301b38f881a52d9c1c0/analysis.qmd#L1114-L1160"
+        }
+      ],
       "embeddedAsFigure": false,
-      "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/c8823bbe7f8d4209a946ce976f67065e38d961cf/analysis.qmd#L1481-L1661"
+      "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/a589fac00011e4189bb4f301b38f881a52d9c1c0/analysis.qmd#L1481-L1661"
     }
   ]
 }

@@ -6,8 +6,20 @@
 # string in both files, so no new annotation scheme is needed beyond
 # what Quarto authors already write.
 #
-# Run this after a successful `quarto render` — evidenceGeneratedAt is
-# treated downstream as "last verified reproducible".
+# Many claim chunks are thin display wrappers (e.g. `x |> knitr::kable()`)
+# whose actual computation — and actual file reads/writes — happened in an
+# earlier, unlabelled chunk. This script traces backward through variable
+# assignments to find that source and folds its lineage in too, recording
+# which chunk(s) it came from as `computedIn` rather than silently merging
+# with no attribution.
+#
+# This is a heuristic, not a real R data-flow analysis: it only follows
+# bare top-level `var <- ...` assignments and whole-word variable mentions.
+# Variables built inside loops with dynamic paths (e.g. read.delim(file_path)
+# in a loop) aren't traceable this way and are a known gap.
+#
+# Run this after a successful `quarto render` — generatedAt is treated
+# downstream as "last verified reproducible".
 
 if (!requireNamespace("here", quietly = TRUE)) stop("here package required")
 repo_root <- here::here()
@@ -25,23 +37,47 @@ git_ref <- tryCatch(
   error = function(e) "main"
 )
 
-# ---- find every fig-/tbl- labelled chunk in analysis.qmd ----
-label_lines <- grep('^#\\|\\s*label:\\s*(fig|tbl)-', analysis_lines)
-
-extract_chunk <- function(label_line_idx) {
-  # walk backwards to the opening ```{r}
-  start <- label_line_idx
-  while (start > 1 && !grepl("^```\\{r", analysis_lines[start])) start <- start - 1
-  # walk forwards to the closing ```
-  end <- label_line_idx
-  while (end < length(analysis_lines) && analysis_lines[end] != "```") end <- end + 1
-  list(start = start, end = end)
+# ---- parse every ```{r}...``` chunk in the file, labelled or not ----
+chunk_starts <- grep('^```\\{r', analysis_lines)
+chunks <- list()
+for (s in chunk_starts) {
+  e <- s
+  while (e < length(analysis_lines) && analysis_lines[e] != "```") e <- e + 1
+  body <- paste(analysis_lines[s:e], collapse = "\n")
+  label_match <- regmatches(body, regexpr('#\\|\\s*label:\\s*[^\n]+', body))
+  label <- if (length(label_match)) trimws(sub('#\\|\\s*label:\\s*', "", label_match)) else NA_character_
+  # Only `<-` counts as a real top-level assignment. A bare `=` at the start
+  # of a trimmed line is just as often a named function argument written on
+  # its own line inside a multi-line pipe (e.g. `mutate(\n  Year = as.factor(Year)\n)`)
+  # as a real assignment, and this codebase consistently uses `<-` for the
+  # latter — including `=` here produced false "variable" matches like
+  # "data", "rownames", "tbl" that are really just argument names.
+  own_vars <- character(0)
+  for (ln in analysis_lines[s:e]) {
+    m <- regmatches(ln, regexpr('^\\s*([A-Za-z_.][A-Za-z0-9_.]*)\\s*<-', ln, perl = TRUE))
+    if (length(m) && nzchar(m)) {
+      v <- sub('^\\s*([A-Za-z_.][A-Za-z0-9_.]*)\\s*<-.*', "\\1", m, perl = TRUE)
+      own_vars <- c(own_vars, v)
+    }
+  }
+  chunks[[length(chunks) + 1]] <- list(
+    start = s, end = e, body = body, label = label, own_vars = unique(own_vars)
+  )
 }
 
-get_opt <- function(body, name) {
-  m <- regmatches(body, regexpr(paste0('#\\|\\s*', name, ':\\s*"([^"]*)"'), body))
-  if (length(m) == 0 || m == "") return(NA_character_)
-  sub(paste0('#\\|\\s*', name, ':\\s*"([^"]*)"'), "\\1", m)
+# ---- global variable -> defining chunk index map (in file order) ----
+var_defs <- new.env()
+for (i in seq_along(chunks)) {
+  for (v in chunks[[i]]$own_vars) {
+    var_defs[[v]] <- c(get0(v, envir = var_defs, ifnotfound = integer(0), inherits = FALSE), i)
+  }
+}
+
+chunk_index_at_line <- function(line) {
+  for (i in seq_along(chunks)) {
+    if (line >= chunks[[i]]$start && line <= chunks[[i]]$end) return(i)
+  }
+  NA_integer_
 }
 
 find_files <- function(body, fn_pattern, ext_pattern) {
@@ -50,29 +86,114 @@ find_files <- function(body, fn_pattern, ext_pattern) {
   unique(gsub(paste0('.*"([^"]+', ext_pattern, ')".*'), "\\1", matches))
 }
 
-entries <- list()
-
-for (idx in label_lines) {
-  label <- sub('^#\\|\\s*label:\\s*', "", analysis_lines[idx])
-  bounds <- extract_chunk(idx)
-  body <- paste(analysis_lines[bounds$start:bounds$end], collapse = "\n")
-
-  tbl_cap <- get_opt(body, "tbl-cap")
-  fig_cap <- get_opt(body, "fig-cap")
-  caption <- if (!is.na(tbl_cap)) tbl_cap else fig_cap
-
+find_reads <- function(body) {
   reads <- unique(c(
     find_files(body, "read_excel", "\\.xlsx"),
     find_files(body, "read\\.csv|read_csv", "\\.csv"),
     find_files(body, "readRDS", "\\.rds")
   ))
-  reads <- reads[!is.na(reads)]
+  reads[!is.na(reads)]
+}
 
+find_writes <- function(body) {
   writes <- unique(regmatches(
     body,
     gregexpr('file\\.path\\(out_dir,\\s*"\\s*([^"]+\\.(csv|png|rds))"\\)', body, perl = TRUE)
   )[[1]])
-  writes <- trimws(gsub('file\\.path\\(out_dir,\\s*"\\s*([^"]+)"\\)', "\\1", writes))
+  out_writes <- if (length(writes) == 0) character(0) else
+    # paste0("outputs/", character(0)) returns "outputs/" (length 1), not
+    # character(0) — R treats a zero-length arg as "" for recycling here,
+    # not as "propagate the empty vector" — hence the length check above.
+    paste0("outputs/", trimws(gsub('file\\.path\\(out_dir,\\s*"\\s*([^"]+)"\\)', "\\1", writes)))
+
+  # saveRDS(list(...), "literal/path.rds") — the path is a full literal
+  # string, not built from out_dir, and is the LAST argument in a call that
+  # usually spans many lines (one list element per line). [\\s\\S]*? matches
+  # across those newlines non-greedily so this doesn't stop at the list's
+  # own closing paren before reaching saveRDS's.
+  rds_matches <- regmatches(
+    body,
+    gregexpr('saveRDS\\([\\s\\S]*?"([^"]+\\.rds)"\\s*\\)', body, perl = TRUE)
+  )[[1]]
+  direct_writes <- if (length(rds_matches) == 0) character(0) else
+    # (?s) makes `.` match newlines too — these matches span many lines
+    unique(gsub('(?s).*"([^"]+\\.rds)"\\s*\\)$', "\\1", rds_matches, perl = TRUE))
+
+  unique(c(out_writes, direct_writes))
+}
+
+get_opt <- function(body, name) {
+  m <- regmatches(body, regexpr(paste0('#\\|\\s*', name, ':\\s*"([^"]*)"'), body))
+  if (length(m) == 0 || m == "") return(NA_character_)
+  sub(paste0('#\\|\\s*', name, ':\\s*"([^"]*)"'), "\\1", m)
+}
+
+# Backward-traces ONE field (reads or writes) when a chunk has none of its
+# own — e.g. a display-only chunk that just pipes an earlier variable into
+# knitr::kable(). Kept as two independent chases (see resolve_lineage())
+# rather than one combined pass: a chunk can have its own correct writes
+# but no reads of its own (or vice versa), and merging both fields off a
+# single "has either" check pollutes the field that was already complete
+# with unrelated ancestors' files.
+resolve_field <- function(chunk_idx, extractor, visited = integer(0)) {
+  if (chunk_idx %in% visited) return(list(values = character(0), contributed = list()))
+  visited <- c(visited, chunk_idx)
+  ch <- chunks[[chunk_idx]]
+  values <- extractor(ch$body)
+  contributed <- list()
+
+  if (length(values) == 0) {
+    all_vars <- ls(var_defs)
+    candidates <- all_vars[
+      !(all_vars %in% ch$own_vars) &
+      vapply(all_vars, function(v) grepl(paste0("\\b", v, "\\b"), ch$body, perl = TRUE), logical(1))
+    ]
+    src_idxs <- integer(0)
+    for (v in candidates) {
+      defs <- var_defs[[v]]
+      earlier <- defs[defs < chunk_idx]
+      if (length(earlier)) src_idxs <- c(src_idxs, max(earlier))
+    }
+    src_idxs <- unique(src_idxs)
+    for (si in src_idxs) {
+      sub <- resolve_field(si, extractor, visited)
+      if (length(sub$values)) {
+        values <- union(values, sub$values)
+        contributed <- c(contributed, list(list(
+          chunkIdx = si, label = chunks[[si]]$label,
+          lineStart = chunks[[si]]$start, lineEnd = chunks[[si]]$end
+        )))
+      }
+      contributed <- c(contributed, sub$contributed)
+    }
+  }
+
+  list(values = values, contributed = contributed)
+}
+
+resolve_lineage <- function(chunk_idx) {
+  reads_res <- resolve_field(chunk_idx, find_reads)
+  writes_res <- resolve_field(chunk_idx, find_writes)
+  list(
+    reads = reads_res$values,
+    writes = writes_res$values,
+    contributed = c(reads_res$contributed, writes_res$contributed)
+  )
+}
+
+# ---- build one entry per fig-/tbl- label actually surfaced in index.qmd ----
+entries <- list()
+
+for (chunk_idx in seq_along(chunks)) {
+  label <- chunks[[chunk_idx]]$label
+  if (is.na(label) || !grepl("^(fig|tbl)-", label)) next
+
+  bounds <- list(start = chunks[[chunk_idx]]$start, end = chunks[[chunk_idx]]$end)
+  body <- chunks[[chunk_idx]]$body
+
+  tbl_cap <- get_opt(body, "tbl-cap")
+  fig_cap <- get_opt(body, "fig-cap")
+  caption <- if (!is.na(tbl_cap)) tbl_cap else fig_cap
 
   # does index.qmd embed or cite this label?
   # Negative lookahead guards against e.g. "tbl-element-selection" matching
@@ -99,6 +220,23 @@ for (idx in label_lines) {
     }
   }
 
+  lineage <- resolve_lineage(chunk_idx)
+  seen_idx <- integer(0)
+  computed_in_dedup <- list()
+  for (contrib in lineage$contributed) {
+    if (contrib$chunkIdx %in% seen_idx) next
+    seen_idx <- c(seen_idx, contrib$chunkIdx)
+    computed_in_dedup <- c(computed_in_dedup, list(list(
+      label = contrib$label,
+      lineStart = contrib$lineStart,
+      lineEnd = contrib$lineEnd,
+      githubPermalink = sprintf(
+        "https://github.com/%s/blob/%s/analysis.qmd#L%d-L%d",
+        github_repo, git_ref, contrib$lineStart, contrib$lineEnd
+      )
+    )))
+  }
+
   entries[[length(entries) + 1]] <- list(
     label = label,
     manuscriptRef = paste0("@", label),
@@ -107,8 +245,9 @@ for (idx in label_lines) {
     sourceFile = "analysis.qmd",
     lineStart = bounds$start,
     lineEnd = bounds$end,
-    reads = as.list(if (length(reads)) paste0("data/raw/", reads) else list()),
-    writes = as.list(if (length(writes)) paste0("outputs/", writes) else list()),
+    reads = as.list(lineage$reads),
+    writes = as.list(lineage$writes),
+    computedIn = computed_in_dedup,
     embeddedAsFigure = grepl("^fig-", label),
     githubPermalink = sprintf(
       "https://github.com/%s/blob/%s/analysis.qmd#L%d-L%d",

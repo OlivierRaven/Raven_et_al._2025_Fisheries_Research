@@ -128,6 +128,18 @@ get_opt <- function(body, name) {
   sub(paste0('#\\|\\s*', name, ':\\s*"([^"]*)"'), "\\1", m)
 }
 
+# Strips the ```{r}/``` fences and #| chunk-option lines, leaving just the
+# real R code — this is what gets shown inline for the "interesting"
+# ancestor chunks, so it shouldn't include Quarto's own bookkeeping.
+strip_code <- function(body) {
+  lines <- strsplit(body, "\n")[[1]]
+  lines <- lines[!grepl("^```", lines)]
+  lines <- lines[!grepl("^#\\|", lines)]
+  while (length(lines) && !nzchar(trimws(lines[1]))) lines <- lines[-1]
+  while (length(lines) && !nzchar(trimws(lines[length(lines)]))) lines <- lines[-length(lines)]
+  paste(lines, collapse = "\n")
+}
+
 # Backward-traces ONE field (reads or writes) when a chunk has none of its
 # own — e.g. a display-only chunk that just pipes an earlier variable into
 # knitr::kable(). Kept as two independent chases (see resolve_lineage())
@@ -221,21 +233,18 @@ for (chunk_idx in seq_along(chunks)) {
   }
 
   lineage <- resolve_lineage(chunk_idx)
+  # Dedup by chunk, then sort chronologically (file order) rather than
+  # discovery order, so this reads like the actual pipeline: raw data in,
+  # cleaned, then analysed — not whatever order the backward chase visited
+  # chunks in.
   seen_idx <- integer(0)
-  computed_in_dedup <- list()
+  contrib_idxs <- integer(0)
   for (contrib in lineage$contributed) {
     if (contrib$chunkIdx %in% seen_idx) next
     seen_idx <- c(seen_idx, contrib$chunkIdx)
-    computed_in_dedup <- c(computed_in_dedup, list(list(
-      label = contrib$label,
-      lineStart = contrib$lineStart,
-      lineEnd = contrib$lineEnd,
-      githubPermalink = sprintf(
-        "https://github.com/%s/blob/%s/analysis.qmd#L%d-L%d",
-        github_repo, git_ref, contrib$lineStart, contrib$lineEnd
-      )
-    )))
+    contrib_idxs <- c(contrib_idxs, contrib$chunkIdx)
   }
+  contrib_idxs <- sort(contrib_idxs)
 
   entries[[length(entries) + 1]] <- list(
     label = label,
@@ -247,13 +256,52 @@ for (chunk_idx in seq_along(chunks)) {
     lineEnd = bounds$end,
     reads = as.list(lineage$reads),
     writes = as.list(lineage$writes),
-    computedIn = computed_in_dedup,
+    contribIdxs = contrib_idxs,  # resolved into dataPipeline/computedIn below, once every claim is known
     embeddedAsFigure = grepl("^fig-", label),
     githubPermalink = sprintf(
       "https://github.com/%s/blob/%s/analysis.qmd#L%d-L%d",
       github_repo, git_ref, bounds$start, bounds$end
     )
   )
+}
+
+# ---- classify contributing chunks as shared pipeline vs claim-specific ----
+# A chunk that shows up as an ancestor of most claims (in practice: raw data
+# load -> clean -> cache) is boilerplate every claim depends on and isn't
+# what makes THIS claim's number what it is — collapse those into one line
+# with no code. A chunk that's an ancestor of only some claims (the actual
+# model/statistical test) is the interesting part and gets its code shown.
+all_contrib_idxs <- unique(unlist(lapply(entries, function(e) e$contribIdxs)))
+pipeline_idxs <- integer(0)
+if (length(entries) >= 2) {
+  presence_count <- vapply(all_contrib_idxs, function(idx) {
+    sum(vapply(entries, function(e) idx %in% e$contribIdxs, logical(1)))
+  }, integer(1))
+  pipeline_idxs <- all_contrib_idxs[presence_count > length(entries) / 2]
+}
+
+chunk_ref <- function(idx, with_code) {
+  ch <- chunks[[idx]]
+  base <- list(
+    label = ch$label,
+    lineStart = ch$start,
+    lineEnd = ch$end,
+    githubPermalink = sprintf(
+      "https://github.com/%s/blob/%s/analysis.qmd#L%d-L%d",
+      github_repo, git_ref, ch$start, ch$end
+    )
+  )
+  if (with_code) base$code <- strip_code(ch$body)
+  base
+}
+
+for (i in seq_along(entries)) {
+  idxs <- entries[[i]]$contribIdxs
+  pipeline <- idxs[idxs %in% pipeline_idxs]
+  interesting <- idxs[!(idxs %in% pipeline_idxs)]
+  entries[[i]]$contribIdxs <- NULL
+  entries[[i]]$dataPipeline <- lapply(pipeline, chunk_ref, with_code = FALSE)
+  entries[[i]]$computedIn <- lapply(interesting, chunk_ref, with_code = TRUE)
 }
 
 manifest <- list(

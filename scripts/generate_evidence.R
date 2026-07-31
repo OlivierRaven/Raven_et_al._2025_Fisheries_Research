@@ -256,6 +256,7 @@ for (chunk_idx in seq_along(chunks)) {
     lineEnd = bounds$end,
     reads = as.list(lineage$reads),
     writes = as.list(lineage$writes),
+    code = strip_code(body),  # this chunk's own code — shown even when it IS the interesting part (e.g. tbl-rf's own randomForest() call), not just when an ancestor did the real work
     contribIdxs = contrib_idxs,  # resolved into dataPipeline/computedIn below, once every claim is known
     embeddedAsFigure = grepl("^fig-", label),
     githubPermalink = sprintf(

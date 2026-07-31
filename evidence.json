@@ -3,13 +3,13 @@
     "doi": "10.1016/j.fishres.2025.107420",
     "repo": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research"
   },
-  "generatedAt": "2026-07-31T09:37:28Z",
-  "gitRef": "8a2c97991f35ae304d3c86fd5dcae120daf6b297",
+  "generatedAt": "2026-07-31T09:47:30Z",
+  "gitRef": "e8548c6f178b25314a9be51db73fcd306d4a7cb2",
   "claims": [
     {
       "label": "tbl-element-selection-static",
       "manuscriptRef": "@tbl-element-selection-static",
-      "claimText": "MANOVA results showed that Mn, Sr, and Ba were statistically different among sites but not across years , @fig-main-elements), meeting the selection criteria.",
+      "claimText": "MANOVA results showed that Mn, Sr, and Ba were statistically different among sites but not across years , , meeting the selection criteria.",
       "caption": "Output of MANOVA’s testing the mean of the thirteen trace elements between sites and year separately. The green colour indicating spatial variable but temporal stable.",
       "sourceFile": "analysis.qmd",
       "lineStart": 537,
@@ -24,25 +24,25 @@
       ],
       "code": "element_selection_display |>\n  dplyr::mutate(\n    `Spatial Variability` = ifelse(`Spatial Variability`, \"Yes\", \"No\"),\n    `Temporal Stability` = ifelse(`Temporal Stability`, \"Yes\", \"No\")\n  ) |>\n  knitr::kable()",
       "embeddedAsFigure": false,
-      "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/8a2c97991f35ae304d3c86fd5dcae120daf6b297/analysis.qmd#L537-L550",
+      "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/e8548c6f178b25314a9be51db73fcd306d4a7cb2/analysis.qmd#L537-L550",
       "dataPipeline": [
         {
           "label": "setup",
           "lineStart": 25,
           "lineEnd": 88,
-          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/8a2c97991f35ae304d3c86fd5dcae120daf6b297/analysis.qmd#L25-L88"
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/e8548c6f178b25314a9be51db73fcd306d4a7cb2/analysis.qmd#L25-L88"
         },
         {
           "label": "Data import (run only if df_ablation_juv & df_mean_juv not exist yet)",
           "lineStart": 91,
           "lineEnd": 279,
-          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/8a2c97991f35ae304d3c86fd5dcae120daf6b297/analysis.qmd#L91-L279"
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/e8548c6f178b25314a9be51db73fcd306d4a7cb2/analysis.qmd#L91-L279"
         },
         {
           "label": "fig-raw-ablations",
           "lineStart": 283,
           "lineEnd": 344,
-          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/8a2c97991f35ae304d3c86fd5dcae120daf6b297/analysis.qmd#L283-L344"
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/e8548c6f178b25314a9be51db73fcd306d4a7cb2/analysis.qmd#L283-L344"
         }
       ],
       "computedIn": [
@@ -50,7 +50,7 @@
           "label": "tbl-element-selection",
           "lineStart": 348,
           "lineEnd": 535,
-          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/8a2c97991f35ae304d3c86fd5dcae120daf6b297/analysis.qmd#L348-L535",
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/e8548c6f178b25314a9be51db73fcd306d4a7cb2/analysis.qmd#L348-L535",
           "code": "# Set vars\nvars <- c(\n  \"meanLi7\",\n  \"meanNa23\",\n  \"meanMg24\",\n  \"meanAl27\",\n  \"meanP31\",\n  \"meanK39\",\n  \"meanMn55\",\n  \"meanFe57\",\n  \"meanCu65\",\n  \"meanZn66\",\n  \"meanRb85\",\n  \"meanSr88\",\n  \"meanBa138\"\n)\n\ndf_mean_juv_clean <- df_mean_juv %>%\n  select(Slide_code, Year, Site, all_of(vars)) %>%\n  mutate(across(c(Slide_code, Year, Site), as.factor))\n\nelement_data <- select(df_mean_juv_clean, all_of(vars))\n\n# MANOVA for Year\nmanova_year <- manova(as.matrix(element_data) ~ Year, data = df_mean_juv_clean)\n\n# MANOVA for Site\nmanova_site <- manova(as.matrix(element_data) ~ Site, data = df_mean_juv_clean)\n\n# ANOVA for each element\nanova_row <- function(v, f) {\n  a <- anova(aov(reformulate(f, v), df_mean_juv_clean))\n  if (f %in% rownames(a)) {\n    tibble(\n      Variables = v,\n      Factor = f,\n      Df = a[f, \"Df\"],\n      `Sum Sq` = a[f, \"Sum Sq\"],\n      `Mean Sq` = a[f, \"Mean Sq\"],\n      `F value` = a[f, \"F value\"],\n      p_value = a[f, \"Pr(>F)\"]\n    )\n  } else {\n    tibble(\n      Variables = v,\n      Factor = f,\n      Df = NA_integer_,\n      `Sum Sq` = NA_real_,\n      `Mean Sq` = NA_real_,\n      `F value` = NA_real_,\n      p_value = NA_real_\n    )\n  }\n}\n\nanova_table <- crossing(Variables = vars, Factor = c(\"Year\", \"Site\")) %>%\n  pmap_dfr(~ anova_row(..1, ..2)) %>%\n  mutate(\n    Variables = factor(Variables, levels = vars),\n    Factor = factor(Factor, levels = c(\"Year\", \"Site\"))\n  ) %>%\n  arrange(Variables, Factor)\n\nelement_selection_table <- anova_table %>%\n  select(Variables, Factor, p_value, `F value`) %>%\n  pivot_wider(\n    names_from = Factor,\n    values_from = c(p_value, `F value`),\n    names_sep = \"_\"\n  ) %>%\n  mutate(\n    p_site_adj = p.adjust(p_value_Site, \"BH\"),\n    p_year_adj = p.adjust(p_value_Year, \"BH\"),\n    spatially_variable = p_site_adj < 0.05,\n    temporally_stable = p_year_adj >= 0.05,\n    classification = case_when(\n      spatially_variable &\n        temporally_stable ~ \"Spatially variable & temporally stable\",\n      spatially_variable ~ \"Spatially variable, NOT temporally stable\",\n      temporally_stable ~ \"Temporally stable, NOT spatially variable\",\n      TRUE ~ \"No clear effect\"\n    )\n  )\n\n# Prepare display table with nice element names\nelement_selection_display <- element_selection_table %>%\n  mutate(\n    Element = case_when(\n      Variables == \"meanLi7\" ~ \"Li⁷\",\n      Variables == \"meanNa23\" ~ \"Na²³\",\n      Variables == \"meanMg24\" ~ \"Mg²⁴\",\n      Variables == \"meanAl27\" ~ \"Al²⁷\",\n      Variables == \"meanP31\" ~ \"P³¹\",\n      Variables == \"meanK39\" ~ \"K³⁹\",\n      Variables == \"meanMn55\" ~ \"Mn⁵⁵\",\n      Variables == \"meanFe57\" ~ \"Fe⁵⁷\",\n      Variables == \"meanCu65\" ~ \"Cu⁶⁵\",\n      Variables == \"meanZn66\" ~ \"Zn⁶⁶\",\n      Variables == \"meanRb85\" ~ \"Rb⁸⁵\",\n      Variables == \"meanSr88\" ~ \"Sr⁸⁸\",\n      Variables == \"meanBa138\" ~ \"Ba¹³⁸\",\n      TRUE ~ as.character(Variables)\n    )\n  ) %>%\n  select(\n    Element,\n    `F-value (Site)` = `F value_Site`,\n    `p-value (Site)` = p_site_adj,\n    `F-value (Year)` = `F value_Year`,\n    `p-value (Year)` = p_year_adj,\n    `Spatial Variability` = spatially_variable,\n    `Temporal Stability` = temporally_stable,\n    Classification = classification\n  )\n\n# Save CSV (without fancy element names for easier processing)\nwrite.csv(\n  element_selection_table %>%\n    mutate(Element = gsub(\"mean\", \"\", Variables)) %>%\n    select(\n      Element,\n      `F value_Site`,\n      p_site_adj,\n      `F value_Year`,\n      p_year_adj,\n      classification\n    ),\n  file = file.path(out_dir, \"element_selection_table.csv\"),\n  row.names = FALSE\n)\n\n# Create interactive table with color coding\ndatatable(\n  element_selection_display,\n  options = list(\n    pageLength = 13,\n    scrollX = TRUE,\n    dom = 't', # Hide search box and pagination for this small table\n    columnDefs = list(\n      list(className = 'dt-center', targets = 1:7)\n    )\n  ),\n  rownames = FALSE\n) %>%\n  formatRound(columns = c('F-value (Site)', 'F-value (Year)'), digits = 2) %>%\n  formatSignif(columns = c('p-value (Site)', 'p-value (Year)'), digits = 3) %>%\n  formatStyle(\n    'p-value (Site)',\n    backgroundColor = styleInterval(0.05, c('#d4edda', '#f8d7da')), # Green if < 0.05, red if >= 0.05\n    fontWeight = 'bold'\n  ) %>%\n  formatStyle(\n    'p-value (Year)',\n    backgroundColor = styleInterval(0.05, c('#f8d7da', '#d4edda')), # Red if < 0.05, green if >= 0.05\n    fontWeight = 'bold'\n  ) %>%\n  formatStyle(\n    'Spatial Variability',\n    backgroundColor = styleEqual(c(TRUE, FALSE), c('#d4edda', '#f8d7da'))\n  ) %>%\n  formatStyle(\n    'Temporal Stability',\n    backgroundColor = styleEqual(c(TRUE, FALSE), c('#d4edda', '#f8d7da'))\n  ) %>%\n  formatStyle(\n    'Classification',\n    backgroundColor = styleEqual(\n      c(\n        \"Spatially variable & temporally stable\",\n        \"Spatially variable, NOT temporally stable\",\n        \"Temporally stable, NOT spatially variable\",\n        \"No clear effect\"\n      ),\n      c('#d4edda', '#fff3cd', '#d1ecf1', '#f8d7da')\n    ),\n    fontWeight = styleEqual(\n      \"Spatially variable & temporally stable\",\n      'bold'\n    )\n  )"
         }
       ]
@@ -58,7 +58,7 @@
     {
       "label": "fig-main-elements",
       "manuscriptRef": "@fig-main-elements",
-      "claimText": "MANOVA results showed that Mn, Sr, and Ba were statistically different among sites but not across years (@tbl-element-selection-static, , meeting the selection criteria.",
+      "claimText": "MANOVA results showed that Mn, Sr, and Ba were statistically different among sites but not across years , , meeting the selection criteria.",
       "caption": "Boxplots showing the mean of the three selected elements Mn, Sr, Ba in element:Ca ratio in mmol/mol. Divided over the 20 sites and years (colours). The mean of all sites (dashed line).",
       "sourceFile": "analysis.qmd",
       "lineStart": 720,
@@ -73,31 +73,31 @@
       ],
       "code": "vars_main <- c(\"meanMn55\", \"meanSr88\", \"meanBa138\")\n\n# Combine all variables into a single data frame for faceting\ndf_mean_juv_long_main <- df_mean_juv_clean %>%\n  dplyr::select(Slide_code, Year, Site, dplyr::all_of(vars_main)) %>%\n  tidyr::pivot_longer(\n    cols = dplyr::all_of(vars_main),\n    names_to = \"Variable\",\n    values_to = \"Value\"\n  ) %>%\n  dplyr::mutate(Variable = factor(Variable, levels = vars_main))\n\n# Calculate the mean for each variable\nmean_values_main <- df_mean_juv_long_main %>%\n  group_by(Variable) %>%\n  summarise(mean_values_main = mean(Value, na.rm = TRUE))\n\n# Create the plot\nmain_elements <- ggplot(\n  df_mean_juv_long_main,\n  aes(Site, Value, fill = as.factor(Year))\n) +\n  geom_boxplot(size = 0.2, outlier.shape = 16, outlier.size = .5) +\n  geom_hline(\n    data = mean_values_main,\n    aes(yintercept = mean_values_main),\n    linetype = 2,\n  ) + # Mean line for each variable\n  facet_wrap(~Variable, scales = \"free_y\", ncol = 1) + # Facet by the variable names\n  theme_bw() +\n  theme(\n    axis.title.x = element_blank(),\n    axis.text.x = element_text(angle = 45, hjust = 1),\n    strip.text.x = element_text(),\n    labs(fill = \"Year\")\n  ) +\n  guides(fill = guide_legend(title = \"Year\"))\n\nggsave(\n  main_elements,\n  file = file.path(out_dir, \"fig-main-elements.png\"),\n  width = 6,\n  height = 6,\n  bg = \"white\",\n  dpi = 600\n)\n\nmain_elements",
       "embeddedAsFigure": true,
-      "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/8a2c97991f35ae304d3c86fd5dcae120daf6b297/analysis.qmd#L720-L776",
+      "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/e8548c6f178b25314a9be51db73fcd306d4a7cb2/analysis.qmd#L720-L776",
       "dataPipeline": [
         {
           "label": "setup",
           "lineStart": 25,
           "lineEnd": 88,
-          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/8a2c97991f35ae304d3c86fd5dcae120daf6b297/analysis.qmd#L25-L88"
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/e8548c6f178b25314a9be51db73fcd306d4a7cb2/analysis.qmd#L25-L88"
         },
         {
           "label": "Data import (run only if df_ablation_juv & df_mean_juv not exist yet)",
           "lineStart": 91,
           "lineEnd": 279,
-          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/8a2c97991f35ae304d3c86fd5dcae120daf6b297/analysis.qmd#L91-L279"
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/e8548c6f178b25314a9be51db73fcd306d4a7cb2/analysis.qmd#L91-L279"
         },
         {
           "label": "fig-raw-ablations",
           "lineStart": 283,
           "lineEnd": 344,
-          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/8a2c97991f35ae304d3c86fd5dcae120daf6b297/analysis.qmd#L283-L344"
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/e8548c6f178b25314a9be51db73fcd306d4a7cb2/analysis.qmd#L283-L344"
         },
         {
           "label": "tbl-element-selectionI",
           "lineStart": 553,
           "lineEnd": 646,
-          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/8a2c97991f35ae304d3c86fd5dcae120daf6b297/analysis.qmd#L553-L646"
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/e8548c6f178b25314a9be51db73fcd306d4a7cb2/analysis.qmd#L553-L646"
         }
       ],
       "computedIn": []
@@ -105,7 +105,7 @@
     {
       "label": "fig-other-elements",
       "manuscriptRef": "@fig-other-elements",
-      "claimText": "In contrast, Li, Na, Mg, Al, P, K, Fe, Cu, Zn, and Rb either showed no significant spatial variation or exhibited significant temporal variation (@tbl-element-selection-static, , making them unsuitable.",
+      "claimText": "In contrast, Li, Na, Mg, Al, P, K, Fe, Cu, Zn, and Rb either showed no significant spatial variation or exhibited significant temporal variation , , making them unsuitable.",
       "caption": "Boxplots showing the mean of the elements in element:Ca ratio in mmol/mol. Divided over the 20 sites and years (colours). The mean of all sites (dashed line).",
       "sourceFile": "analysis.qmd",
       "lineStart": 779,
@@ -120,31 +120,31 @@
       ],
       "code": "vars_other <- c(\n  \"meanLi7\",\n  \"meanNa23\",\n  \"meanMg24\",\n  \"meanAl27\",\n  \"meanP31\",\n  \"meanK39\",\n  \"meanFe57\",\n  \"meanCu65\",\n  \"meanZn66\",\n  \"meanRb85\"\n)\n\n# make long format of the other elements\ndf_mean_juv_long_other <- df_mean_juv_clean %>%\n  dplyr::select(Slide_code, Year, Site, dplyr::all_of(vars_other)) %>%\n  tidyr::pivot_longer(\n    cols = dplyr::all_of(vars_other),\n    names_to = \"Variable\",\n    values_to = \"Value\"\n  ) %>%\n  dplyr::mutate(Variable = factor(Variable, levels = vars_other))\n\n# Calculate the mean for each variable\nmean_values_other <- df_mean_juv_long_other %>%\n  group_by(Variable) %>%\n  summarise(mean_values_other = mean(Value, na.rm = TRUE))\n\n# Create the plot\nother_elements <- ggplot(\n  df_mean_juv_long_other,\n  aes(Site, Value, fill = as.factor(Year))\n) + #\n  geom_boxplot(size = 0.2, outlier.shape = 16, outlier.size = .5) +\n  geom_hline(\n    data = mean_values_other,\n    aes(yintercept = mean_values_other),\n    linetype = 2,\n  ) + # Mean line for each variable\n  facet_wrap(~Variable, scales = \"free_y\", ncol = 2) + # Facet by the variable names\n  theme_bw() +\n  theme(\n    axis.title.x = element_blank(),\n    axis.text.x = element_text(angle = 45, hjust = 1),\n    strip.text.x = element_text(),\n    labs(fill = \"Year\")\n  ) +\n  guides(fill = guide_legend(title = \"Year\"))\n\nggsave(\n  other_elements,\n  file = file.path(out_dir, \"fig-other-elements.png\"),\n  width = 10,\n  height = 10,\n  dpi = 600\n)\n\nother_elements",
       "embeddedAsFigure": true,
-      "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/8a2c97991f35ae304d3c86fd5dcae120daf6b297/analysis.qmd#L779-L844",
+      "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/e8548c6f178b25314a9be51db73fcd306d4a7cb2/analysis.qmd#L779-L844",
       "dataPipeline": [
         {
           "label": "setup",
           "lineStart": 25,
           "lineEnd": 88,
-          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/8a2c97991f35ae304d3c86fd5dcae120daf6b297/analysis.qmd#L25-L88"
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/e8548c6f178b25314a9be51db73fcd306d4a7cb2/analysis.qmd#L25-L88"
         },
         {
           "label": "Data import (run only if df_ablation_juv & df_mean_juv not exist yet)",
           "lineStart": 91,
           "lineEnd": 279,
-          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/8a2c97991f35ae304d3c86fd5dcae120daf6b297/analysis.qmd#L91-L279"
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/e8548c6f178b25314a9be51db73fcd306d4a7cb2/analysis.qmd#L91-L279"
         },
         {
           "label": "fig-raw-ablations",
           "lineStart": 283,
           "lineEnd": 344,
-          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/8a2c97991f35ae304d3c86fd5dcae120daf6b297/analysis.qmd#L283-L344"
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/e8548c6f178b25314a9be51db73fcd306d4a7cb2/analysis.qmd#L283-L344"
         },
         {
           "label": "tbl-element-selectionI",
           "lineStart": 553,
           "lineEnd": 646,
-          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/8a2c97991f35ae304d3c86fd5dcae120daf6b297/analysis.qmd#L553-L646"
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/e8548c6f178b25314a9be51db73fcd306d4a7cb2/analysis.qmd#L553-L646"
         }
       ],
       "computedIn": []
@@ -167,37 +167,37 @@
       ],
       "code": "df_mean_juv_clean_main <- df_mean_juv_clean %>%\n  dplyr::select(Site, dplyr::all_of(vars_main))\n\n# Fixed seed: randomForest() bootstrap-samples and picks split variables at\n# random, so accuracy drifts a little on every re-render without this. Added\n# after publication — results are stable from here on, but this exact seed\n# was not used for the numbers printed in the published article.\nset.seed(42)\nrf_model <- randomForest(\n  Site ~ .,\n  data = df_mean_juv_clean_main,\n  ntree = 400,\n  importance = TRUE\n)\n\nconf_matrix <- rf_model$confusion\n\ncorrect_predictions <- sum(diag(conf_matrix))\ntotal_predictions <- sum(conf_matrix)\naccuracy_rf <- correct_predictions / total_predictions\n\n# Remove the class.error column for display\nconf_display_rf <- conf_matrix[, !colnames(conf_matrix) %in% \"class.error\"]\n\n# Add class error as % column\nclass_error_pct <- paste0(round(conf_matrix[, \"class.error\"] * 100, 1), \"%\")\n\nconf_display_rf <- cbind(\n  as.data.frame(conf_display_rf),\n  `Class error` = class_error_pct\n)\n\nwrite.csv(\n  conf_matrix,\n  file = file.path(out_dir, \"rf_conf_matrix.csv\"),\n  row.names = TRUE\n)\n\nknitr::kable(conf_display_rf, rownames_to_stub = TRUE)",
       "embeddedAsFigure": false,
-      "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/8a2c97991f35ae304d3c86fd5dcae120daf6b297/analysis.qmd#L847-L894",
+      "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/e8548c6f178b25314a9be51db73fcd306d4a7cb2/analysis.qmd#L847-L894",
       "dataPipeline": [
         {
           "label": "setup",
           "lineStart": 25,
           "lineEnd": 88,
-          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/8a2c97991f35ae304d3c86fd5dcae120daf6b297/analysis.qmd#L25-L88"
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/e8548c6f178b25314a9be51db73fcd306d4a7cb2/analysis.qmd#L25-L88"
         },
         {
           "label": "Data import (run only if df_ablation_juv & df_mean_juv not exist yet)",
           "lineStart": 91,
           "lineEnd": 279,
-          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/8a2c97991f35ae304d3c86fd5dcae120daf6b297/analysis.qmd#L91-L279"
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/e8548c6f178b25314a9be51db73fcd306d4a7cb2/analysis.qmd#L91-L279"
         },
         {
           "label": "fig-raw-ablations",
           "lineStart": 283,
           "lineEnd": 344,
-          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/8a2c97991f35ae304d3c86fd5dcae120daf6b297/analysis.qmd#L283-L344"
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/e8548c6f178b25314a9be51db73fcd306d4a7cb2/analysis.qmd#L283-L344"
         },
         {
           "label": "tbl-element-selectionI",
           "lineStart": 553,
           "lineEnd": 646,
-          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/8a2c97991f35ae304d3c86fd5dcae120daf6b297/analysis.qmd#L553-L646"
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/e8548c6f178b25314a9be51db73fcd306d4a7cb2/analysis.qmd#L553-L646"
         },
         {
           "label": "fig-main-elements",
           "lineStart": 720,
           "lineEnd": 776,
-          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/8a2c97991f35ae304d3c86fd5dcae120daf6b297/analysis.qmd#L720-L776"
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/e8548c6f178b25314a9be51db73fcd306d4a7cb2/analysis.qmd#L720-L776"
         }
       ],
       "computedIn": []
@@ -220,37 +220,37 @@
       ],
       "code": "# Build a single working frame\ndf_main_full <- df_mean_juv_clean %>%\n  dplyr::select(Slide_code, Year, Site, dplyr::all_of(vars_main)) %>%\n  tidyr::drop_na(dplyr::all_of(vars_main))\n\ndf_mean_juv_clean_main <- df_main_full %>%\n  dplyr::select(Site, dplyr::all_of(vars_main))\n\n# LOOCV\nnum_folds <- nrow(df_mean_juv_clean_main)\naccuracy_scores <- numeric(num_folds)\npartition_indices <- seq_len(num_folds)\n\nsite_levels <- levels(as.factor(df_mean_juv_clean_main$Site))\nK <- length(site_levels)\nclass_table <- matrix(\n  0,\n  nrow = K,\n  ncol = K,\n  dimnames = list(Predicted = site_levels, Actual = site_levels)\n)\n\nfor (i in seq_len(num_folds)) {\n  training_data <- df_mean_juv_clean_main[\n    partition_indices != i,\n    ,\n    drop = FALSE\n  ]\n  testing_data <- df_mean_juv_clean_main[partition_indices == i, , drop = FALSE]\n\n  lda_model_cv <- MASS::lda(Site ~ ., data = training_data)\n  pred_cv <- predict(lda_model_cv, newdata = testing_data)\n  predicted_labels <- pred_cv$class\n\n  accuracy_scores[i] <- mean(predicted_labels == testing_data$Site)\n\n  tbl <- table(\n    factor(predicted_labels, levels = site_levels),\n    factor(testing_data$Site, levels = site_levels)\n  )\n  class_table <- class_table + tbl\n}\n\nmean_accuracy <- mean(accuracy_scores)\nsum_accuracy <- sum(accuracy_scores)\nsd_accuracy <- sd(accuracy_scores)\nse_accuracy <- sd_accuracy / sqrt(length(accuracy_scores))\naccuracy_lda <- mean_accuracy * 100\n\n# Convert matrix to wide data frame correctly\nconf_wide <- as.data.frame.matrix(class_table)\n\n# Add class error column\nclass_error_pct <- paste0(\n  round(\n    (1 - diag(class_table) / rowSums(class_table)) * 100,\n    1\n  ),\n  \"%\"\n)\n\nconf_display_lda <- cbind(conf_wide, `Class error` = class_error_pct)\n\n\nwrite.csv(\n  conf_display_lda,\n  file = file.path(out_dir, \"lda_conf_matrix.csv\"),\n  row.names = TRUE\n)\n\nknitr::kable(conf_display_lda, rownames_to_stub = TRUE)",
       "embeddedAsFigure": false,
-      "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/8a2c97991f35ae304d3c86fd5dcae120daf6b297/analysis.qmd#L897-L976",
+      "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/e8548c6f178b25314a9be51db73fcd306d4a7cb2/analysis.qmd#L897-L976",
       "dataPipeline": [
         {
           "label": "setup",
           "lineStart": 25,
           "lineEnd": 88,
-          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/8a2c97991f35ae304d3c86fd5dcae120daf6b297/analysis.qmd#L25-L88"
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/e8548c6f178b25314a9be51db73fcd306d4a7cb2/analysis.qmd#L25-L88"
         },
         {
           "label": "Data import (run only if df_ablation_juv & df_mean_juv not exist yet)",
           "lineStart": 91,
           "lineEnd": 279,
-          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/8a2c97991f35ae304d3c86fd5dcae120daf6b297/analysis.qmd#L91-L279"
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/e8548c6f178b25314a9be51db73fcd306d4a7cb2/analysis.qmd#L91-L279"
         },
         {
           "label": "fig-raw-ablations",
           "lineStart": 283,
           "lineEnd": 344,
-          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/8a2c97991f35ae304d3c86fd5dcae120daf6b297/analysis.qmd#L283-L344"
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/e8548c6f178b25314a9be51db73fcd306d4a7cb2/analysis.qmd#L283-L344"
         },
         {
           "label": "tbl-element-selectionI",
           "lineStart": 553,
           "lineEnd": 646,
-          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/8a2c97991f35ae304d3c86fd5dcae120daf6b297/analysis.qmd#L553-L646"
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/e8548c6f178b25314a9be51db73fcd306d4a7cb2/analysis.qmd#L553-L646"
         },
         {
           "label": "fig-main-elements",
           "lineStart": 720,
           "lineEnd": 776,
-          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/8a2c97991f35ae304d3c86fd5dcae120daf6b297/analysis.qmd#L720-L776"
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/e8548c6f178b25314a9be51db73fcd306d4a7cb2/analysis.qmd#L720-L776"
         }
       ],
       "computedIn": []
@@ -273,37 +273,37 @@
       ],
       "code": "### Fit to the entire dataset\nlda_model <- MASS::lda(Site ~ ., data = df_mean_juv_clean_main)\n\n# In-sample predictions (scores, classes, posteriors)\npred <- predict(lda_model, newdata = df_mean_juv_clean_main)\n\npredicted_labels_J <- pred$class\naccuracy_score <- mean(predicted_labels_J == df_mean_juv_clean_main$Site)\n\nposterior_probs_J <- pred$posterior\nhigh_probs_J <- apply(posterior_probs_J, 1, max)\n\n# LDA scores (linear discriminant coordinates)\nlda_scores <- pred$x\n\n# Attach IDs and predictors for plotting/export (aligned because we only dropped NAs before)\nJdfII <- cbind(\n  df_main_full[, c(\"meanMn55\", \"meanSr88\", \"meanBa138\"), drop = FALSE],\n  Slide_code = df_main_full$Slide_code,\n  Year = df_main_full$Year,\n  Site = df_main_full$Site,\n  predicted_site = predicted_labels_J,\n  highest_probs = high_probs_J\n)\n\nLD <- cbind(JdfII, LD1 = lda_scores[, 1], LD2 = lda_scores[, 2])\n\nJuv_results <- LD\n\n\n# Plot\n# Scatterplot colored by predicted site\nLDA_Plot_all <- ggplot(Juv_results, aes(x = LD1, y = LD2)) +\n  geom_point(aes(fill = predicted_site), color = \"black\", shape = 21) +\n  stat_ellipse(aes(col = predicted_site), level = 0.95) +\n  theme_bw()\n\n# Scatterplot of LD1 vs LD2, colored by Year, faceted by Site\nlda_plot <- ggplot(Juv_results, aes(x = LD1, y = LD2)) +\n  stat_ellipse(aes(col = as.factor(Year)), level = 0.95) +\n  geom_point(aes(fill = as.factor(Year)), color = \"black\", shape = 21) +\n  labs(x = \"LD1\", y = \"LD2\", fill = \"Year\", color = \"Year\") +\n  facet_wrap(~Site) +\n  theme_bw()\n\nggsave(\n  lda_plot,\n  file = file.path(out_dir, \"fig-lda.png\"),\n  width = 8,\n  height = 6,\n  bg = \"white\",\n  dpi = 600\n)\n\nlda_plot",
       "embeddedAsFigure": true,
-      "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/8a2c97991f35ae304d3c86fd5dcae120daf6b297/analysis.qmd#L979-L1041",
+      "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/e8548c6f178b25314a9be51db73fcd306d4a7cb2/analysis.qmd#L979-L1041",
       "dataPipeline": [
         {
           "label": "setup",
           "lineStart": 25,
           "lineEnd": 88,
-          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/8a2c97991f35ae304d3c86fd5dcae120daf6b297/analysis.qmd#L25-L88"
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/e8548c6f178b25314a9be51db73fcd306d4a7cb2/analysis.qmd#L25-L88"
         },
         {
           "label": "Data import (run only if df_ablation_juv & df_mean_juv not exist yet)",
           "lineStart": 91,
           "lineEnd": 279,
-          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/8a2c97991f35ae304d3c86fd5dcae120daf6b297/analysis.qmd#L91-L279"
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/e8548c6f178b25314a9be51db73fcd306d4a7cb2/analysis.qmd#L91-L279"
         },
         {
           "label": "fig-raw-ablations",
           "lineStart": 283,
           "lineEnd": 344,
-          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/8a2c97991f35ae304d3c86fd5dcae120daf6b297/analysis.qmd#L283-L344"
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/e8548c6f178b25314a9be51db73fcd306d4a7cb2/analysis.qmd#L283-L344"
         },
         {
           "label": "tbl-element-selectionI",
           "lineStart": 553,
           "lineEnd": 646,
-          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/8a2c97991f35ae304d3c86fd5dcae120daf6b297/analysis.qmd#L553-L646"
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/e8548c6f178b25314a9be51db73fcd306d4a7cb2/analysis.qmd#L553-L646"
         },
         {
           "label": "fig-main-elements",
           "lineStart": 720,
           "lineEnd": 776,
-          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/8a2c97991f35ae304d3c86fd5dcae120daf6b297/analysis.qmd#L720-L776"
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/e8548c6f178b25314a9be51db73fcd306d4a7cb2/analysis.qmd#L720-L776"
         }
       ],
       "computedIn": [
@@ -311,7 +311,7 @@
           "label": "tbl-lda",
           "lineStart": 897,
           "lineEnd": 976,
-          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/8a2c97991f35ae304d3c86fd5dcae120daf6b297/analysis.qmd#L897-L976",
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/e8548c6f178b25314a9be51db73fcd306d4a7cb2/analysis.qmd#L897-L976",
           "code": "# Build a single working frame\ndf_main_full <- df_mean_juv_clean %>%\n  dplyr::select(Slide_code, Year, Site, dplyr::all_of(vars_main)) %>%\n  tidyr::drop_na(dplyr::all_of(vars_main))\n\ndf_mean_juv_clean_main <- df_main_full %>%\n  dplyr::select(Site, dplyr::all_of(vars_main))\n\n# LOOCV\nnum_folds <- nrow(df_mean_juv_clean_main)\naccuracy_scores <- numeric(num_folds)\npartition_indices <- seq_len(num_folds)\n\nsite_levels <- levels(as.factor(df_mean_juv_clean_main$Site))\nK <- length(site_levels)\nclass_table <- matrix(\n  0,\n  nrow = K,\n  ncol = K,\n  dimnames = list(Predicted = site_levels, Actual = site_levels)\n)\n\nfor (i in seq_len(num_folds)) {\n  training_data <- df_mean_juv_clean_main[\n    partition_indices != i,\n    ,\n    drop = FALSE\n  ]\n  testing_data <- df_mean_juv_clean_main[partition_indices == i, , drop = FALSE]\n\n  lda_model_cv <- MASS::lda(Site ~ ., data = training_data)\n  pred_cv <- predict(lda_model_cv, newdata = testing_data)\n  predicted_labels <- pred_cv$class\n\n  accuracy_scores[i] <- mean(predicted_labels == testing_data$Site)\n\n  tbl <- table(\n    factor(predicted_labels, levels = site_levels),\n    factor(testing_data$Site, levels = site_levels)\n  )\n  class_table <- class_table + tbl\n}\n\nmean_accuracy <- mean(accuracy_scores)\nsum_accuracy <- sum(accuracy_scores)\nsd_accuracy <- sd(accuracy_scores)\nse_accuracy <- sd_accuracy / sqrt(length(accuracy_scores))\naccuracy_lda <- mean_accuracy * 100\n\n# Convert matrix to wide data frame correctly\nconf_wide <- as.data.frame.matrix(class_table)\n\n# Add class error column\nclass_error_pct <- paste0(\n  round(\n    (1 - diag(class_table) / rowSums(class_table)) * 100,\n    1\n  ),\n  \"%\"\n)\n\nconf_display_lda <- cbind(conf_wide, `Class error` = class_error_pct)\n\n\nwrite.csv(\n  conf_display_lda,\n  file = file.path(out_dir, \"lda_conf_matrix.csv\"),\n  row.names = TRUE\n)\n\nknitr::kable(conf_display_lda, rownames_to_stub = TRUE)"
         }
       ]
@@ -333,19 +333,19 @@
       ],
       "code": "svirgsden_comparison <- data.frame(\n  Comparison = c(\n    \"Mn: 2015 vs 2022\",\n    \"Ba: 2022 vs 2015\",\n    \"Ba: 2021 vs 2015\",\n    \"Ba: 2023 vs 2021\",\n    \"Ba: 2023 vs 2022\",\n    \"RF model accuracy (2015 samples → Waipahi Trib A)\",\n    \"LDA model accuracy (2015 samples → Waipahi Trib A)\"\n  ),\n  Value = c(\n    paste0(\"p = \", format(p_mn_2015_2022, scientific = FALSE)),\n    paste0(\"p = \", format(p_ba_2015_2022, scientific = FALSE)),\n    paste0(\"p = \", format(p_ba_2015_2021, scientific = FALSE)),\n    paste0(\"p = \", format(p_ba_2023_2021, scientific = FALSE)),\n    paste0(\"p = \", format(p_ba_2023_2022, scientific = FALSE)),\n    paste0(round(accuracy_Svirgsden_rf, 1), \"%\"),\n    paste0(round(accuracy_Svirgsden_lda, 1), \"%\")\n  )\n)\n\nwrite.csv(\n  svirgsden_comparison,\n  file = file.path(out_dir, \"svirgsden_comparison_table.csv\"),\n  row.names = FALSE\n)\n\nknitr::kable(svirgsden_comparison)",
       "embeddedAsFigure": false,
-      "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/8a2c97991f35ae304d3c86fd5dcae120daf6b297/analysis.qmd#L1219-L1253",
+      "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/e8548c6f178b25314a9be51db73fcd306d4a7cb2/analysis.qmd#L1219-L1253",
       "dataPipeline": [
         {
           "label": "setup",
           "lineStart": 25,
           "lineEnd": 88,
-          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/8a2c97991f35ae304d3c86fd5dcae120daf6b297/analysis.qmd#L25-L88"
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/e8548c6f178b25314a9be51db73fcd306d4a7cb2/analysis.qmd#L25-L88"
         },
         {
           "label": "Data import (run only if df_ablation_juv & df_mean_juv not exist yet)",
           "lineStart": 91,
           "lineEnd": 279,
-          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/8a2c97991f35ae304d3c86fd5dcae120daf6b297/analysis.qmd#L91-L279"
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/e8548c6f178b25314a9be51db73fcd306d4a7cb2/analysis.qmd#L91-L279"
         }
       ],
       "computedIn": [
@@ -353,21 +353,21 @@
           "label": "Svirgsden-2018",
           "lineStart": 1045,
           "lineEnd": 1111,
-          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/8a2c97991f35ae304d3c86fd5dcae120daf6b297/analysis.qmd#L1045-L1111",
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/e8548c6f178b25314a9be51db73fcd306d4a7cb2/analysis.qmd#L1045-L1111",
           "code": "# load the data from Svirgsden et al. (2018)\nTrout_Mehis <- read_excel(\"data/raw/Trout_NZ_FROM_Mehis.xlsx\")\n\nTrib_A_data <- df_mean_juv_clean %>%\n  filter(Site == \"Waipahi Trib A\") %>%\n  dplyr::select(Site, Year, meanMn55, meanSr88, meanBa138) %>%\n  dplyr::mutate(Year = as.factor(Year), Site = as.factor(Site))\n\ndf_mean_juv_main <- df_mean_juv_clean %>%\n  dplyr::select(Site, Year, meanMn55, meanSr88, meanBa138) %>%\n  dplyr::mutate(Year = as.factor(Year), Site = as.factor(Site))\n\nTrib_A_data_m <- Trout_Mehis %>%\n  filter(Site == \"Mathisons\") %>%\n  dplyr::select(Site, Year, meanMn55, meanSr88, meanBa138) %>%\n  dplyr::mutate(Year = as.factor(Year), Site = as.factor(Site))\n\nWaipahi_data_M <- Trout_Mehis %>%\n  dplyr::select(Site, Year, meanMn55, meanSr88, meanBa138) %>%\n  dplyr::mutate(Year = as.factor(Year), Site = as.factor(Site))\n\n# Combine both datasets\nTrip_A_full <- rbind(Trib_A_data, Trib_A_data_m)\nTrip_A_full$Site[Trip_A_full$Site == \"Mathisons\"] <- \"Waipahi Trib A\"\nWaipahi_data_full <- rbind(Trib_A_data, Waipahi_data_M)\ncombined_data_full <- rbind(df_mean_juv_main, Waipahi_data_M)\n\n# Run MANOVA on all response variables\nmanova_result <- manova(\n  cbind(meanMn55, meanSr88, meanBa138) ~ Year,\n  data = Trip_A_full\n)\n\n# Summarize results\n#summary(manova_result)\n\nanova_mn55 <- aov(meanMn55 ~ Year, data = Trip_A_full)\nanova_sr88 <- aov(meanSr88 ~ Year, data = Trip_A_full)\nanova_ba138 <- aov(meanBa138 ~ Year, data = Trip_A_full)\n\n# Summarize results\n#summary(anova_mn55)\n#summary(anova_sr88)\n#summary(anova_ba138)\n\ntukey_mn55 <- TukeyHSD(anova_mn55)\ntukey_sr88 <- TukeyHSD(anova_sr88)\ntukey_ba138 <- TukeyHSD(anova_ba138)\n\n# Print results\ntukey_mn_df <- as.data.frame(tukey_mn55$Year)\ntukey_ba_df <- as.data.frame(tukey_ba138$Year)\n\n# Mn: only one significant comparison\np_mn_2015_2022 <- round(tukey_mn_df[\"2015-2022\", \"p adj\"], 5)\n\n# Ba: check your actual rownames first, but likely:\np_ba_2015_2022 <- round(tukey_ba_df[\"2015-2022\", \"p adj\"], 7)\np_ba_2015_2021 <- round(tukey_ba_df[\"2015-2021\", \"p adj\"], 4)\np_ba_2023_2021 <- round(tukey_ba_df[\"2023-2021\", \"p adj\"], 4)\np_ba_2023_2022 <- round(tukey_ba_df[\"2023-2022\", \"p adj\"], 7)"
         },
         {
           "label": "Svirgsden-2018-RF",
           "lineStart": 1114,
           "lineEnd": 1160,
-          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/8a2c97991f35ae304d3c86fd5dcae120daf6b297/analysis.qmd#L1114-L1160",
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/e8548c6f178b25314a9be51db73fcd306d4a7cb2/analysis.qmd#L1114-L1160",
           "code": "rf_train <- df_mean_juv_main %>%\n  select(Site, meanMn55, meanSr88, meanBa138) %>%\n  mutate(\n    Site = as.factor(Site),\n    across(c(meanMn55, meanSr88, meanBa138), as.numeric)\n  ) %>%\n  drop_na()\n\n# Fixed seed — see note by the first randomForest() call above.\nset.seed(42)\nrf_model_no_year <- randomForest(\n  Site ~ meanMn55 + meanSr88 + meanBa138,\n  data = rf_train,\n  ntree = 400,\n  importance = TRUE\n)\n\nprint(rf_model_no_year)\n\n# PREDICT for Waipahi_data_M\nnewdata_rf <- Waipahi_data_M %>%\n  select(Site, Year, meanMn55, meanSr88, meanBa138) %>%\n  mutate(across(c(meanMn55, meanSr88, meanBa138), as.numeric)) %>%\n  drop_na(meanMn55, meanSr88, meanBa138)\n\npred_class <- predict(\n  rf_model_no_year,\n  newdata = newdata_rf[, c(\"meanMn55\", \"meanSr88\", \"meanBa138\")]\n)\n\nMdfRF <- newdata_rf %>%\n  mutate(predicted_site = pred_class)\n\naccuracy_Svirgsden_rf <- mean(\n  MdfRF$predicted_site == \"Waipahi Trib A\",\n  na.rm = TRUE\n) *\n  100\nn_wta <- sum(MdfRF$predicted_site == \"Waipahi Trib A\", na.rm = TRUE)\n\naccuracy_Svirgsden_rf\n#cat(sprintf(\"RF model predicted as Waipahi Trib A: %.1f%% (%d of %d)\\n\", pct_wta, n_wta, sum(!is.na(MdfRF$predicted_site))))"
         },
         {
           "label": "Svirgsden-2018-LDA",
           "lineStart": 1163,
           "lineEnd": 1216,
-          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/8a2c97991f35ae304d3c86fd5dcae120daf6b297/analysis.qmd#L1163-L1216",
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/e8548c6f178b25314a9be51db73fcd306d4a7cb2/analysis.qmd#L1163-L1216",
           "code": "# Perform cross-validation\ncombined_data_III <- combined_data_full[, c(\n  \"meanMn55\",\n  \"meanSr88\",\n  \"meanBa138\",\n  \"Site\"\n)]\nnum_folds <- nrow(combined_data_III)\naccuracy_scores <- rep(0, num_folds)\n\npartition_indices <- rep(1:num_folds, length.out = nrow(combined_data_III))\n\n# Create a matrix to store the classification table for each fold\nunique_classes <- unique(combined_data_III$Site)\nclass_table <- matrix(\n  0,\n  nrow = length(unique_classes),\n  ncol = length(unique_classes)\n)\n\n# Set row and column names for the class_table\nrownames(class_table) <- colnames(class_table) <- unique_classes\n\nfor (i in 1:num_folds) {\n  training_data <- combined_data_III[partition_indices != i, ]\n  testing_data <- combined_data_III[partition_indices == i, ]\n\n  lda_model <- lda(Site ~ ., data = training_data)\n\n  predictions <- predict(lda_model, testing_data)\n  predicted_labels <- predictions$class\n\n  accuracy_scores[i] <- sum(predicted_labels == testing_data$Site) /\n    nrow(testing_data)\n\n  # Update the classification table with the predicted and actual labels\n  current_table <- table(predicted_labels, testing_data$Site)\n  class_table[rownames(current_table), colnames(current_table)] <- class_table[\n    rownames(current_table),\n    colnames(current_table)\n  ] +\n    current_table\n}\n\nclass_table\naccuracy_Svirgsden_lda <- mean(accuracy_scores) * 100\naccuracy_Svirgsden_lda"
         }
       ]
@@ -390,37 +390,37 @@
       ],
       "code": "# Calculate mean elemental composition per site\nmean_by_group <- aggregate(\n  cbind(meanMn55, meanSr88, meanBa138) ~ Site,\n  data = Juv_results,\n  FUN = mean\n)\n\n# 1) Prepare matrix with Site names as row names (no reordering)\n#    Assumes mean_by_group has first column 'Site' and remaining numeric features\ndata_mat <- as.matrix(mean_by_group[, -1, drop = FALSE])\nrownames(data_mat) <- mean_by_group$Site\n\n# 2) Distance + clustering (same as before)\ndistance_matrix <- dist(data_mat)\nfit <- hclust(distance_matrix, method = \"single\")\n\n# 3) Determine optimal cluster count via silhouette (same logic)\nk_max <- max(2, min(19, nrow(mean_by_group) - 1))\nsil_scores <- sapply(2:k_max, function(k) {\n  grp <- cutree(fit, k = k)\n  mean(silhouette(grp, distance_matrix)[, \"sil_width\"])\n})\noptimal_clusters <- which.max(sil_scores) + 1\n\n# 4) Convert to ggdendro data; labels come directly from hclust (Site names via rownames)\ndd <- ggdendro::dendro_data(fit, type = \"rectangle\")\n\n# 5) Right panel: horizontal dendrogram (suppress leaf labels here to avoid duplication)\ndend_plot <- ggplot() +\n  geom_segment(\n    data = dd$segments,\n    aes(x = y, y = x, xend = yend, yend = xend),\n    linewidth = 0.3\n  ) +\n  labs(x = \"Distance between sites\", y = NULL) +\n  theme_minimal() +\n  theme(\n    panel.grid = element_blank(),\n    axis.text.y = element_blank(),\n    axis.ticks.y = element_blank(),\n    plot.title.position = \"plot\"\n  )\n\n# 6) Left panel: Site labels in dendrogram leaf order (already Site names)\nlabels_df <- dd$labels\nlabels_df$y <- labels_df$x\nleft_labels <- ggplot(labels_df, aes(x = 1, y = y, label = label)) +\n  geom_text(hjust = 1) +\n  xlim(0.5, 1.02) +\n  labs(x = NULL, y = NULL) +\n  theme_void()\n\n# 7) Combine panels: LEFT labels (narrow) + RIGHT tree (wide)\nNNCA_tree_plot <- left_labels +\n  dend_plot +\n  patchwork::plot_layout(widths = c(1, 1))\n\nggsave(\n  NNCA_tree_plot,\n  file = file.path(out_dir, \" fig-nnca.png\"),\n  width = 4,\n  height = 5,\n  dpi = 600\n)\n\nNNCA_tree_plot",
       "embeddedAsFigure": true,
-      "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/8a2c97991f35ae304d3c86fd5dcae120daf6b297/analysis.qmd#L1257-L1331",
+      "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/e8548c6f178b25314a9be51db73fcd306d4a7cb2/analysis.qmd#L1257-L1331",
       "dataPipeline": [
         {
           "label": "setup",
           "lineStart": 25,
           "lineEnd": 88,
-          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/8a2c97991f35ae304d3c86fd5dcae120daf6b297/analysis.qmd#L25-L88"
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/e8548c6f178b25314a9be51db73fcd306d4a7cb2/analysis.qmd#L25-L88"
         },
         {
           "label": "Data import (run only if df_ablation_juv & df_mean_juv not exist yet)",
           "lineStart": 91,
           "lineEnd": 279,
-          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/8a2c97991f35ae304d3c86fd5dcae120daf6b297/analysis.qmd#L91-L279"
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/e8548c6f178b25314a9be51db73fcd306d4a7cb2/analysis.qmd#L91-L279"
         },
         {
           "label": "fig-raw-ablations",
           "lineStart": 283,
           "lineEnd": 344,
-          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/8a2c97991f35ae304d3c86fd5dcae120daf6b297/analysis.qmd#L283-L344"
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/e8548c6f178b25314a9be51db73fcd306d4a7cb2/analysis.qmd#L283-L344"
         },
         {
           "label": "tbl-element-selectionI",
           "lineStart": 553,
           "lineEnd": 646,
-          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/8a2c97991f35ae304d3c86fd5dcae120daf6b297/analysis.qmd#L553-L646"
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/e8548c6f178b25314a9be51db73fcd306d4a7cb2/analysis.qmd#L553-L646"
         },
         {
           "label": "fig-main-elements",
           "lineStart": 720,
           "lineEnd": 776,
-          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/8a2c97991f35ae304d3c86fd5dcae120daf6b297/analysis.qmd#L720-L776"
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/e8548c6f178b25314a9be51db73fcd306d4a7cb2/analysis.qmd#L720-L776"
         }
       ],
       "computedIn": [
@@ -428,14 +428,14 @@
           "label": "tbl-lda",
           "lineStart": 897,
           "lineEnd": 976,
-          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/8a2c97991f35ae304d3c86fd5dcae120daf6b297/analysis.qmd#L897-L976",
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/e8548c6f178b25314a9be51db73fcd306d4a7cb2/analysis.qmd#L897-L976",
           "code": "# Build a single working frame\ndf_main_full <- df_mean_juv_clean %>%\n  dplyr::select(Slide_code, Year, Site, dplyr::all_of(vars_main)) %>%\n  tidyr::drop_na(dplyr::all_of(vars_main))\n\ndf_mean_juv_clean_main <- df_main_full %>%\n  dplyr::select(Site, dplyr::all_of(vars_main))\n\n# LOOCV\nnum_folds <- nrow(df_mean_juv_clean_main)\naccuracy_scores <- numeric(num_folds)\npartition_indices <- seq_len(num_folds)\n\nsite_levels <- levels(as.factor(df_mean_juv_clean_main$Site))\nK <- length(site_levels)\nclass_table <- matrix(\n  0,\n  nrow = K,\n  ncol = K,\n  dimnames = list(Predicted = site_levels, Actual = site_levels)\n)\n\nfor (i in seq_len(num_folds)) {\n  training_data <- df_mean_juv_clean_main[\n    partition_indices != i,\n    ,\n    drop = FALSE\n  ]\n  testing_data <- df_mean_juv_clean_main[partition_indices == i, , drop = FALSE]\n\n  lda_model_cv <- MASS::lda(Site ~ ., data = training_data)\n  pred_cv <- predict(lda_model_cv, newdata = testing_data)\n  predicted_labels <- pred_cv$class\n\n  accuracy_scores[i] <- mean(predicted_labels == testing_data$Site)\n\n  tbl <- table(\n    factor(predicted_labels, levels = site_levels),\n    factor(testing_data$Site, levels = site_levels)\n  )\n  class_table <- class_table + tbl\n}\n\nmean_accuracy <- mean(accuracy_scores)\nsum_accuracy <- sum(accuracy_scores)\nsd_accuracy <- sd(accuracy_scores)\nse_accuracy <- sd_accuracy / sqrt(length(accuracy_scores))\naccuracy_lda <- mean_accuracy * 100\n\n# Convert matrix to wide data frame correctly\nconf_wide <- as.data.frame.matrix(class_table)\n\n# Add class error column\nclass_error_pct <- paste0(\n  round(\n    (1 - diag(class_table) / rowSums(class_table)) * 100,\n    1\n  ),\n  \"%\"\n)\n\nconf_display_lda <- cbind(conf_wide, `Class error` = class_error_pct)\n\n\nwrite.csv(\n  conf_display_lda,\n  file = file.path(out_dir, \"lda_conf_matrix.csv\"),\n  row.names = TRUE\n)\n\nknitr::kable(conf_display_lda, rownames_to_stub = TRUE)"
         },
         {
           "label": "fig-lda",
           "lineStart": 979,
           "lineEnd": 1041,
-          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/8a2c97991f35ae304d3c86fd5dcae120daf6b297/analysis.qmd#L979-L1041",
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/e8548c6f178b25314a9be51db73fcd306d4a7cb2/analysis.qmd#L979-L1041",
           "code": "### Fit to the entire dataset\nlda_model <- MASS::lda(Site ~ ., data = df_mean_juv_clean_main)\n\n# In-sample predictions (scores, classes, posteriors)\npred <- predict(lda_model, newdata = df_mean_juv_clean_main)\n\npredicted_labels_J <- pred$class\naccuracy_score <- mean(predicted_labels_J == df_mean_juv_clean_main$Site)\n\nposterior_probs_J <- pred$posterior\nhigh_probs_J <- apply(posterior_probs_J, 1, max)\n\n# LDA scores (linear discriminant coordinates)\nlda_scores <- pred$x\n\n# Attach IDs and predictors for plotting/export (aligned because we only dropped NAs before)\nJdfII <- cbind(\n  df_main_full[, c(\"meanMn55\", \"meanSr88\", \"meanBa138\"), drop = FALSE],\n  Slide_code = df_main_full$Slide_code,\n  Year = df_main_full$Year,\n  Site = df_main_full$Site,\n  predicted_site = predicted_labels_J,\n  highest_probs = high_probs_J\n)\n\nLD <- cbind(JdfII, LD1 = lda_scores[, 1], LD2 = lda_scores[, 2])\n\nJuv_results <- LD\n\n\n# Plot\n# Scatterplot colored by predicted site\nLDA_Plot_all <- ggplot(Juv_results, aes(x = LD1, y = LD2)) +\n  geom_point(aes(fill = predicted_site), color = \"black\", shape = 21) +\n  stat_ellipse(aes(col = predicted_site), level = 0.95) +\n  theme_bw()\n\n# Scatterplot of LD1 vs LD2, colored by Year, faceted by Site\nlda_plot <- ggplot(Juv_results, aes(x = LD1, y = LD2)) +\n  stat_ellipse(aes(col = as.factor(Year)), level = 0.95) +\n  geom_point(aes(fill = as.factor(Year)), color = \"black\", shape = 21) +\n  labs(x = \"LD1\", y = \"LD2\", fill = \"Year\", color = \"Year\") +\n  facet_wrap(~Site) +\n  theme_bw()\n\nggsave(\n  lda_plot,\n  file = file.path(out_dir, \"fig-lda.png\"),\n  width = 8,\n  height = 6,\n  bg = \"white\",\n  dpi = 600\n)\n\nlda_plot"
         }
       ]
@@ -459,37 +459,37 @@
       ],
       "code": "# Assign cluster numbers to each Catch_location\nmean_by_group$NNCA <- cutree(fit, k = optimal_clusters)\n\n# Merge NNCA data into Juv_results based on Catch_location\nJuv_results_NNCA <- Juv_results %>%\n  dplyr::left_join(mean_by_group %>% dplyr::select(Site, NNCA), by = \"Site\")\n\n# Select useful columns\nJuv_NNCA <- Juv_results_NNCA %>%\n  dplyr::select(meanMn55, meanSr88, meanBa138, NNCA) %>%\n  dplyr::mutate(NNCA = as.factor(NNCA))\n\ncluster_levels <- levels(Juv_NNCA$NNCA)\nK <- length(cluster_levels)\n\n### RF\n# Fixed seed — see note by the first randomForest() call above.\nset.seed(42)\nrf_model_nnca <- randomForest(\n  NNCA ~ .,\n  data = Juv_NNCA,\n  ntree = 400,\n  importance = TRUE\n)\n\nconf_rf <- rf_model_nnca$confusion[, cluster_levels] # drop class.error\naccuracy_rf_nnca <- sum(diag(conf_rf)) / sum(conf_rf)\naccuracy_rf_nnca <- accuracy_rf_nnca * 100\n\n### LDA - LOOCV confusion matrix\nnum_folds <- nrow(Juv_NNCA)\naccuracy_scores_lda <- numeric(num_folds)\n\nlda_class_table <- matrix(\n  0,\n  nrow = K,\n  ncol = K,\n  dimnames = list(Predicted = cluster_levels, Actual = cluster_levels)\n)\n\nfor (i in seq_len(num_folds)) {\n  training_data <- Juv_NNCA[-i, ]\n  testing_data <- Juv_NNCA[i, , drop = FALSE]\n\n  lda_model_cv <- MASS::lda(NNCA ~ ., data = training_data)\n  pred_cv <- predict(lda_model_cv, newdata = testing_data)$class\n\n  accuracy_scores_lda[i] <- mean(pred_cv == testing_data$NNCA)\n\n  tbl_i <- table(\n    factor(pred_cv, levels = cluster_levels),\n    factor(testing_data$NNCA, levels = cluster_levels)\n  )\n  lda_class_table <- lda_class_table + tbl_i\n}\n\nmean_accuracy_lda <- mean(accuracy_scores_lda)\naccuracy_lda_nnca <- sum(diag(lda_class_table)) / sum(lda_class_table)\naccuracy_lda_nnca <- accuracy_lda_nnca * 100\n# Final LDA for LD scores (plot use)\nlda_model_final <- MASS::lda(NNCA ~ ., data = Juv_NNCA)\npredicted_labels <- predict(lda_model_final, newdata = Juv_NNCA)$class\nLD <- predict(lda_model_final)$x\n\nJuv_NNCA2 <- cbind(\n  Juv_NNCA,\n  predicted_labels = predicted_labels,\n  LD1 = LD[, 1],\n  LD2 = LD[, 2]\n) %>%\n  dplyr::mutate(Correct = ifelse(NNCA == predicted_labels, \"1\", \"0\"))\n\n# ---- Build side-by-side table ----\n\nconf_rf_wide <- as.data.frame.matrix(conf_rf[, cluster_levels])\nconf_lda_wide <- as.data.frame.matrix(lda_class_table)\n\ncombined <- cbind(conf_rf_wide, conf_lda_wide)\n\n# Move rownames to explicit column\ncombined_display <- data.frame(\n  Predicted = cluster_levels,\n  combined,\n  check.names = FALSE\n)\n\n# Rename to avoid duplicates\ncolnames(combined_display) <- c(\n  \"Predicted\",\n  paste0(\"RF_\", cluster_levels),\n  paste0(\"LDA_\", cluster_levels)\n)\n\nwrite.csv(\n  combined_display,\n  file = file.path(out_dir, \"combined_nnca_conf_matrix.csv\"),\n  row.names = TRUE\n)\n\n\nknitr::kable(combined_display)",
       "embeddedAsFigure": false,
-      "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/8a2c97991f35ae304d3c86fd5dcae120daf6b297/analysis.qmd#L1334-L1443",
+      "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/e8548c6f178b25314a9be51db73fcd306d4a7cb2/analysis.qmd#L1334-L1443",
       "dataPipeline": [
         {
           "label": "setup",
           "lineStart": 25,
           "lineEnd": 88,
-          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/8a2c97991f35ae304d3c86fd5dcae120daf6b297/analysis.qmd#L25-L88"
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/e8548c6f178b25314a9be51db73fcd306d4a7cb2/analysis.qmd#L25-L88"
         },
         {
           "label": "Data import (run only if df_ablation_juv & df_mean_juv not exist yet)",
           "lineStart": 91,
           "lineEnd": 279,
-          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/8a2c97991f35ae304d3c86fd5dcae120daf6b297/analysis.qmd#L91-L279"
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/e8548c6f178b25314a9be51db73fcd306d4a7cb2/analysis.qmd#L91-L279"
         },
         {
           "label": "fig-raw-ablations",
           "lineStart": 283,
           "lineEnd": 344,
-          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/8a2c97991f35ae304d3c86fd5dcae120daf6b297/analysis.qmd#L283-L344"
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/e8548c6f178b25314a9be51db73fcd306d4a7cb2/analysis.qmd#L283-L344"
         },
         {
           "label": "tbl-element-selectionI",
           "lineStart": 553,
           "lineEnd": 646,
-          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/8a2c97991f35ae304d3c86fd5dcae120daf6b297/analysis.qmd#L553-L646"
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/e8548c6f178b25314a9be51db73fcd306d4a7cb2/analysis.qmd#L553-L646"
         },
         {
           "label": "fig-main-elements",
           "lineStart": 720,
           "lineEnd": 776,
-          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/8a2c97991f35ae304d3c86fd5dcae120daf6b297/analysis.qmd#L720-L776"
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/e8548c6f178b25314a9be51db73fcd306d4a7cb2/analysis.qmd#L720-L776"
         }
       ],
       "computedIn": [
@@ -497,35 +497,35 @@
           "label": "tbl-lda",
           "lineStart": 897,
           "lineEnd": 976,
-          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/8a2c97991f35ae304d3c86fd5dcae120daf6b297/analysis.qmd#L897-L976",
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/e8548c6f178b25314a9be51db73fcd306d4a7cb2/analysis.qmd#L897-L976",
           "code": "# Build a single working frame\ndf_main_full <- df_mean_juv_clean %>%\n  dplyr::select(Slide_code, Year, Site, dplyr::all_of(vars_main)) %>%\n  tidyr::drop_na(dplyr::all_of(vars_main))\n\ndf_mean_juv_clean_main <- df_main_full %>%\n  dplyr::select(Site, dplyr::all_of(vars_main))\n\n# LOOCV\nnum_folds <- nrow(df_mean_juv_clean_main)\naccuracy_scores <- numeric(num_folds)\npartition_indices <- seq_len(num_folds)\n\nsite_levels <- levels(as.factor(df_mean_juv_clean_main$Site))\nK <- length(site_levels)\nclass_table <- matrix(\n  0,\n  nrow = K,\n  ncol = K,\n  dimnames = list(Predicted = site_levels, Actual = site_levels)\n)\n\nfor (i in seq_len(num_folds)) {\n  training_data <- df_mean_juv_clean_main[\n    partition_indices != i,\n    ,\n    drop = FALSE\n  ]\n  testing_data <- df_mean_juv_clean_main[partition_indices == i, , drop = FALSE]\n\n  lda_model_cv <- MASS::lda(Site ~ ., data = training_data)\n  pred_cv <- predict(lda_model_cv, newdata = testing_data)\n  predicted_labels <- pred_cv$class\n\n  accuracy_scores[i] <- mean(predicted_labels == testing_data$Site)\n\n  tbl <- table(\n    factor(predicted_labels, levels = site_levels),\n    factor(testing_data$Site, levels = site_levels)\n  )\n  class_table <- class_table + tbl\n}\n\nmean_accuracy <- mean(accuracy_scores)\nsum_accuracy <- sum(accuracy_scores)\nsd_accuracy <- sd(accuracy_scores)\nse_accuracy <- sd_accuracy / sqrt(length(accuracy_scores))\naccuracy_lda <- mean_accuracy * 100\n\n# Convert matrix to wide data frame correctly\nconf_wide <- as.data.frame.matrix(class_table)\n\n# Add class error column\nclass_error_pct <- paste0(\n  round(\n    (1 - diag(class_table) / rowSums(class_table)) * 100,\n    1\n  ),\n  \"%\"\n)\n\nconf_display_lda <- cbind(conf_wide, `Class error` = class_error_pct)\n\n\nwrite.csv(\n  conf_display_lda,\n  file = file.path(out_dir, \"lda_conf_matrix.csv\"),\n  row.names = TRUE\n)\n\nknitr::kable(conf_display_lda, rownames_to_stub = TRUE)"
         },
         {
           "label": "fig-lda",
           "lineStart": 979,
           "lineEnd": 1041,
-          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/8a2c97991f35ae304d3c86fd5dcae120daf6b297/analysis.qmd#L979-L1041",
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/e8548c6f178b25314a9be51db73fcd306d4a7cb2/analysis.qmd#L979-L1041",
           "code": "### Fit to the entire dataset\nlda_model <- MASS::lda(Site ~ ., data = df_mean_juv_clean_main)\n\n# In-sample predictions (scores, classes, posteriors)\npred <- predict(lda_model, newdata = df_mean_juv_clean_main)\n\npredicted_labels_J <- pred$class\naccuracy_score <- mean(predicted_labels_J == df_mean_juv_clean_main$Site)\n\nposterior_probs_J <- pred$posterior\nhigh_probs_J <- apply(posterior_probs_J, 1, max)\n\n# LDA scores (linear discriminant coordinates)\nlda_scores <- pred$x\n\n# Attach IDs and predictors for plotting/export (aligned because we only dropped NAs before)\nJdfII <- cbind(\n  df_main_full[, c(\"meanMn55\", \"meanSr88\", \"meanBa138\"), drop = FALSE],\n  Slide_code = df_main_full$Slide_code,\n  Year = df_main_full$Year,\n  Site = df_main_full$Site,\n  predicted_site = predicted_labels_J,\n  highest_probs = high_probs_J\n)\n\nLD <- cbind(JdfII, LD1 = lda_scores[, 1], LD2 = lda_scores[, 2])\n\nJuv_results <- LD\n\n\n# Plot\n# Scatterplot colored by predicted site\nLDA_Plot_all <- ggplot(Juv_results, aes(x = LD1, y = LD2)) +\n  geom_point(aes(fill = predicted_site), color = \"black\", shape = 21) +\n  stat_ellipse(aes(col = predicted_site), level = 0.95) +\n  theme_bw()\n\n# Scatterplot of LD1 vs LD2, colored by Year, faceted by Site\nlda_plot <- ggplot(Juv_results, aes(x = LD1, y = LD2)) +\n  stat_ellipse(aes(col = as.factor(Year)), level = 0.95) +\n  geom_point(aes(fill = as.factor(Year)), color = \"black\", shape = 21) +\n  labs(x = \"LD1\", y = \"LD2\", fill = \"Year\", color = \"Year\") +\n  facet_wrap(~Site) +\n  theme_bw()\n\nggsave(\n  lda_plot,\n  file = file.path(out_dir, \"fig-lda.png\"),\n  width = 8,\n  height = 6,\n  bg = \"white\",\n  dpi = 600\n)\n\nlda_plot"
         },
         {
           "label": "Svirgsden-2018",
           "lineStart": 1045,
           "lineEnd": 1111,
-          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/8a2c97991f35ae304d3c86fd5dcae120daf6b297/analysis.qmd#L1045-L1111",
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/e8548c6f178b25314a9be51db73fcd306d4a7cb2/analysis.qmd#L1045-L1111",
           "code": "# load the data from Svirgsden et al. (2018)\nTrout_Mehis <- read_excel(\"data/raw/Trout_NZ_FROM_Mehis.xlsx\")\n\nTrib_A_data <- df_mean_juv_clean %>%\n  filter(Site == \"Waipahi Trib A\") %>%\n  dplyr::select(Site, Year, meanMn55, meanSr88, meanBa138) %>%\n  dplyr::mutate(Year = as.factor(Year), Site = as.factor(Site))\n\ndf_mean_juv_main <- df_mean_juv_clean %>%\n  dplyr::select(Site, Year, meanMn55, meanSr88, meanBa138) %>%\n  dplyr::mutate(Year = as.factor(Year), Site = as.factor(Site))\n\nTrib_A_data_m <- Trout_Mehis %>%\n  filter(Site == \"Mathisons\") %>%\n  dplyr::select(Site, Year, meanMn55, meanSr88, meanBa138) %>%\n  dplyr::mutate(Year = as.factor(Year), Site = as.factor(Site))\n\nWaipahi_data_M <- Trout_Mehis %>%\n  dplyr::select(Site, Year, meanMn55, meanSr88, meanBa138) %>%\n  dplyr::mutate(Year = as.factor(Year), Site = as.factor(Site))\n\n# Combine both datasets\nTrip_A_full <- rbind(Trib_A_data, Trib_A_data_m)\nTrip_A_full$Site[Trip_A_full$Site == \"Mathisons\"] <- \"Waipahi Trib A\"\nWaipahi_data_full <- rbind(Trib_A_data, Waipahi_data_M)\ncombined_data_full <- rbind(df_mean_juv_main, Waipahi_data_M)\n\n# Run MANOVA on all response variables\nmanova_result <- manova(\n  cbind(meanMn55, meanSr88, meanBa138) ~ Year,\n  data = Trip_A_full\n)\n\n# Summarize results\n#summary(manova_result)\n\nanova_mn55 <- aov(meanMn55 ~ Year, data = Trip_A_full)\nanova_sr88 <- aov(meanSr88 ~ Year, data = Trip_A_full)\nanova_ba138 <- aov(meanBa138 ~ Year, data = Trip_A_full)\n\n# Summarize results\n#summary(anova_mn55)\n#summary(anova_sr88)\n#summary(anova_ba138)\n\ntukey_mn55 <- TukeyHSD(anova_mn55)\ntukey_sr88 <- TukeyHSD(anova_sr88)\ntukey_ba138 <- TukeyHSD(anova_ba138)\n\n# Print results\ntukey_mn_df <- as.data.frame(tukey_mn55$Year)\ntukey_ba_df <- as.data.frame(tukey_ba138$Year)\n\n# Mn: only one significant comparison\np_mn_2015_2022 <- round(tukey_mn_df[\"2015-2022\", \"p adj\"], 5)\n\n# Ba: check your actual rownames first, but likely:\np_ba_2015_2022 <- round(tukey_ba_df[\"2015-2022\", \"p adj\"], 7)\np_ba_2015_2021 <- round(tukey_ba_df[\"2015-2021\", \"p adj\"], 4)\np_ba_2023_2021 <- round(tukey_ba_df[\"2023-2021\", \"p adj\"], 4)\np_ba_2023_2022 <- round(tukey_ba_df[\"2023-2022\", \"p adj\"], 7)"
         },
         {
           "label": "Svirgsden-2018-LDA",
           "lineStart": 1163,
           "lineEnd": 1216,
-          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/8a2c97991f35ae304d3c86fd5dcae120daf6b297/analysis.qmd#L1163-L1216",
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/e8548c6f178b25314a9be51db73fcd306d4a7cb2/analysis.qmd#L1163-L1216",
           "code": "# Perform cross-validation\ncombined_data_III <- combined_data_full[, c(\n  \"meanMn55\",\n  \"meanSr88\",\n  \"meanBa138\",\n  \"Site\"\n)]\nnum_folds <- nrow(combined_data_III)\naccuracy_scores <- rep(0, num_folds)\n\npartition_indices <- rep(1:num_folds, length.out = nrow(combined_data_III))\n\n# Create a matrix to store the classification table for each fold\nunique_classes <- unique(combined_data_III$Site)\nclass_table <- matrix(\n  0,\n  nrow = length(unique_classes),\n  ncol = length(unique_classes)\n)\n\n# Set row and column names for the class_table\nrownames(class_table) <- colnames(class_table) <- unique_classes\n\nfor (i in 1:num_folds) {\n  training_data <- combined_data_III[partition_indices != i, ]\n  testing_data <- combined_data_III[partition_indices == i, ]\n\n  lda_model <- lda(Site ~ ., data = training_data)\n\n  predictions <- predict(lda_model, testing_data)\n  predicted_labels <- predictions$class\n\n  accuracy_scores[i] <- sum(predicted_labels == testing_data$Site) /\n    nrow(testing_data)\n\n  # Update the classification table with the predicted and actual labels\n  current_table <- table(predicted_labels, testing_data$Site)\n  class_table[rownames(current_table), colnames(current_table)] <- class_table[\n    rownames(current_table),\n    colnames(current_table)\n  ] +\n    current_table\n}\n\nclass_table\naccuracy_Svirgsden_lda <- mean(accuracy_scores) * 100\naccuracy_Svirgsden_lda"
         },
         {
           "label": "fig-nnca",
           "lineStart": 1257,
           "lineEnd": 1331,
-          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/8a2c97991f35ae304d3c86fd5dcae120daf6b297/analysis.qmd#L1257-L1331",
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/e8548c6f178b25314a9be51db73fcd306d4a7cb2/analysis.qmd#L1257-L1331",
           "code": "# Calculate mean elemental composition per site\nmean_by_group <- aggregate(\n  cbind(meanMn55, meanSr88, meanBa138) ~ Site,\n  data = Juv_results,\n  FUN = mean\n)\n\n# 1) Prepare matrix with Site names as row names (no reordering)\n#    Assumes mean_by_group has first column 'Site' and remaining numeric features\ndata_mat <- as.matrix(mean_by_group[, -1, drop = FALSE])\nrownames(data_mat) <- mean_by_group$Site\n\n# 2) Distance + clustering (same as before)\ndistance_matrix <- dist(data_mat)\nfit <- hclust(distance_matrix, method = \"single\")\n\n# 3) Determine optimal cluster count via silhouette (same logic)\nk_max <- max(2, min(19, nrow(mean_by_group) - 1))\nsil_scores <- sapply(2:k_max, function(k) {\n  grp <- cutree(fit, k = k)\n  mean(silhouette(grp, distance_matrix)[, \"sil_width\"])\n})\noptimal_clusters <- which.max(sil_scores) + 1\n\n# 4) Convert to ggdendro data; labels come directly from hclust (Site names via rownames)\ndd <- ggdendro::dendro_data(fit, type = \"rectangle\")\n\n# 5) Right panel: horizontal dendrogram (suppress leaf labels here to avoid duplication)\ndend_plot <- ggplot() +\n  geom_segment(\n    data = dd$segments,\n    aes(x = y, y = x, xend = yend, yend = xend),\n    linewidth = 0.3\n  ) +\n  labs(x = \"Distance between sites\", y = NULL) +\n  theme_minimal() +\n  theme(\n    panel.grid = element_blank(),\n    axis.text.y = element_blank(),\n    axis.ticks.y = element_blank(),\n    plot.title.position = \"plot\"\n  )\n\n# 6) Left panel: Site labels in dendrogram leaf order (already Site names)\nlabels_df <- dd$labels\nlabels_df$y <- labels_df$x\nleft_labels <- ggplot(labels_df, aes(x = 1, y = y, label = label)) +\n  geom_text(hjust = 1) +\n  xlim(0.5, 1.02) +\n  labs(x = NULL, y = NULL) +\n  theme_void()\n\n# 7) Combine panels: LEFT labels (narrow) + RIGHT tree (wide)\nNNCA_tree_plot <- left_labels +\n  dend_plot +\n  patchwork::plot_layout(widths = c(1, 1))\n\nggsave(\n  NNCA_tree_plot,\n  file = file.path(out_dir, \" fig-nnca.png\"),\n  width = 4,\n  height = 5,\n  dpi = 600\n)\n\nNNCA_tree_plot"
         }
       ]
@@ -549,37 +549,37 @@
       ],
       "code": "# Create a column to indicate correctness of prediction\nJuv_NNCA2$Correct <- ifelse(\n  Juv_NNCA2$NNCA == Juv_NNCA2$predicted_labels,\n  \"1\",\n  \"0\"\n)\n\n# Plot with correctly classified in black, misclassified in white\nLDA_NNCA <- ggplot(Juv_NNCA2, aes(x = LD1, y = LD2)) +\n  geom_point(aes(fill = Correct), color = 'black', shape = 21) +\n  scale_fill_manual(values = c(\"1\" = \"black\", \"0\" = \"white\")) +\n  stat_ellipse(aes(col = NNCA), level = 0.95) +\n  theme_bw()\n\nggsave(\n  LDA_NNCA,\n  file = file.path(out_dir, \"fig-nnca-lda.png\"),\n  width = 5,\n  height = 4,\n  bg = \"white\",\n  dpi = 600\n)\n\nLDA_NNCA",
       "embeddedAsFigure": true,
-      "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/8a2c97991f35ae304d3c86fd5dcae120daf6b297/analysis.qmd#L1446-L1477",
+      "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/e8548c6f178b25314a9be51db73fcd306d4a7cb2/analysis.qmd#L1446-L1477",
       "dataPipeline": [
         {
           "label": "setup",
           "lineStart": 25,
           "lineEnd": 88,
-          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/8a2c97991f35ae304d3c86fd5dcae120daf6b297/analysis.qmd#L25-L88"
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/e8548c6f178b25314a9be51db73fcd306d4a7cb2/analysis.qmd#L25-L88"
         },
         {
           "label": "Data import (run only if df_ablation_juv & df_mean_juv not exist yet)",
           "lineStart": 91,
           "lineEnd": 279,
-          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/8a2c97991f35ae304d3c86fd5dcae120daf6b297/analysis.qmd#L91-L279"
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/e8548c6f178b25314a9be51db73fcd306d4a7cb2/analysis.qmd#L91-L279"
         },
         {
           "label": "fig-raw-ablations",
           "lineStart": 283,
           "lineEnd": 344,
-          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/8a2c97991f35ae304d3c86fd5dcae120daf6b297/analysis.qmd#L283-L344"
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/e8548c6f178b25314a9be51db73fcd306d4a7cb2/analysis.qmd#L283-L344"
         },
         {
           "label": "tbl-element-selectionI",
           "lineStart": 553,
           "lineEnd": 646,
-          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/8a2c97991f35ae304d3c86fd5dcae120daf6b297/analysis.qmd#L553-L646"
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/e8548c6f178b25314a9be51db73fcd306d4a7cb2/analysis.qmd#L553-L646"
         },
         {
           "label": "fig-main-elements",
           "lineStart": 720,
           "lineEnd": 776,
-          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/8a2c97991f35ae304d3c86fd5dcae120daf6b297/analysis.qmd#L720-L776"
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/e8548c6f178b25314a9be51db73fcd306d4a7cb2/analysis.qmd#L720-L776"
         }
       ],
       "computedIn": [
@@ -587,42 +587,42 @@
           "label": "tbl-lda",
           "lineStart": 897,
           "lineEnd": 976,
-          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/8a2c97991f35ae304d3c86fd5dcae120daf6b297/analysis.qmd#L897-L976",
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/e8548c6f178b25314a9be51db73fcd306d4a7cb2/analysis.qmd#L897-L976",
           "code": "# Build a single working frame\ndf_main_full <- df_mean_juv_clean %>%\n  dplyr::select(Slide_code, Year, Site, dplyr::all_of(vars_main)) %>%\n  tidyr::drop_na(dplyr::all_of(vars_main))\n\ndf_mean_juv_clean_main <- df_main_full %>%\n  dplyr::select(Site, dplyr::all_of(vars_main))\n\n# LOOCV\nnum_folds <- nrow(df_mean_juv_clean_main)\naccuracy_scores <- numeric(num_folds)\npartition_indices <- seq_len(num_folds)\n\nsite_levels <- levels(as.factor(df_mean_juv_clean_main$Site))\nK <- length(site_levels)\nclass_table <- matrix(\n  0,\n  nrow = K,\n  ncol = K,\n  dimnames = list(Predicted = site_levels, Actual = site_levels)\n)\n\nfor (i in seq_len(num_folds)) {\n  training_data <- df_mean_juv_clean_main[\n    partition_indices != i,\n    ,\n    drop = FALSE\n  ]\n  testing_data <- df_mean_juv_clean_main[partition_indices == i, , drop = FALSE]\n\n  lda_model_cv <- MASS::lda(Site ~ ., data = training_data)\n  pred_cv <- predict(lda_model_cv, newdata = testing_data)\n  predicted_labels <- pred_cv$class\n\n  accuracy_scores[i] <- mean(predicted_labels == testing_data$Site)\n\n  tbl <- table(\n    factor(predicted_labels, levels = site_levels),\n    factor(testing_data$Site, levels = site_levels)\n  )\n  class_table <- class_table + tbl\n}\n\nmean_accuracy <- mean(accuracy_scores)\nsum_accuracy <- sum(accuracy_scores)\nsd_accuracy <- sd(accuracy_scores)\nse_accuracy <- sd_accuracy / sqrt(length(accuracy_scores))\naccuracy_lda <- mean_accuracy * 100\n\n# Convert matrix to wide data frame correctly\nconf_wide <- as.data.frame.matrix(class_table)\n\n# Add class error column\nclass_error_pct <- paste0(\n  round(\n    (1 - diag(class_table) / rowSums(class_table)) * 100,\n    1\n  ),\n  \"%\"\n)\n\nconf_display_lda <- cbind(conf_wide, `Class error` = class_error_pct)\n\n\nwrite.csv(\n  conf_display_lda,\n  file = file.path(out_dir, \"lda_conf_matrix.csv\"),\n  row.names = TRUE\n)\n\nknitr::kable(conf_display_lda, rownames_to_stub = TRUE)"
         },
         {
           "label": "fig-lda",
           "lineStart": 979,
           "lineEnd": 1041,
-          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/8a2c97991f35ae304d3c86fd5dcae120daf6b297/analysis.qmd#L979-L1041",
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/e8548c6f178b25314a9be51db73fcd306d4a7cb2/analysis.qmd#L979-L1041",
           "code": "### Fit to the entire dataset\nlda_model <- MASS::lda(Site ~ ., data = df_mean_juv_clean_main)\n\n# In-sample predictions (scores, classes, posteriors)\npred <- predict(lda_model, newdata = df_mean_juv_clean_main)\n\npredicted_labels_J <- pred$class\naccuracy_score <- mean(predicted_labels_J == df_mean_juv_clean_main$Site)\n\nposterior_probs_J <- pred$posterior\nhigh_probs_J <- apply(posterior_probs_J, 1, max)\n\n# LDA scores (linear discriminant coordinates)\nlda_scores <- pred$x\n\n# Attach IDs and predictors for plotting/export (aligned because we only dropped NAs before)\nJdfII <- cbind(\n  df_main_full[, c(\"meanMn55\", \"meanSr88\", \"meanBa138\"), drop = FALSE],\n  Slide_code = df_main_full$Slide_code,\n  Year = df_main_full$Year,\n  Site = df_main_full$Site,\n  predicted_site = predicted_labels_J,\n  highest_probs = high_probs_J\n)\n\nLD <- cbind(JdfII, LD1 = lda_scores[, 1], LD2 = lda_scores[, 2])\n\nJuv_results <- LD\n\n\n# Plot\n# Scatterplot colored by predicted site\nLDA_Plot_all <- ggplot(Juv_results, aes(x = LD1, y = LD2)) +\n  geom_point(aes(fill = predicted_site), color = \"black\", shape = 21) +\n  stat_ellipse(aes(col = predicted_site), level = 0.95) +\n  theme_bw()\n\n# Scatterplot of LD1 vs LD2, colored by Year, faceted by Site\nlda_plot <- ggplot(Juv_results, aes(x = LD1, y = LD2)) +\n  stat_ellipse(aes(col = as.factor(Year)), level = 0.95) +\n  geom_point(aes(fill = as.factor(Year)), color = \"black\", shape = 21) +\n  labs(x = \"LD1\", y = \"LD2\", fill = \"Year\", color = \"Year\") +\n  facet_wrap(~Site) +\n  theme_bw()\n\nggsave(\n  lda_plot,\n  file = file.path(out_dir, \"fig-lda.png\"),\n  width = 8,\n  height = 6,\n  bg = \"white\",\n  dpi = 600\n)\n\nlda_plot"
         },
         {
           "label": "Svirgsden-2018",
           "lineStart": 1045,
           "lineEnd": 1111,
-          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/8a2c97991f35ae304d3c86fd5dcae120daf6b297/analysis.qmd#L1045-L1111",
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/e8548c6f178b25314a9be51db73fcd306d4a7cb2/analysis.qmd#L1045-L1111",
           "code": "# load the data from Svirgsden et al. (2018)\nTrout_Mehis <- read_excel(\"data/raw/Trout_NZ_FROM_Mehis.xlsx\")\n\nTrib_A_data <- df_mean_juv_clean %>%\n  filter(Site == \"Waipahi Trib A\") %>%\n  dplyr::select(Site, Year, meanMn55, meanSr88, meanBa138) %>%\n  dplyr::mutate(Year = as.factor(Year), Site = as.factor(Site))\n\ndf_mean_juv_main <- df_mean_juv_clean %>%\n  dplyr::select(Site, Year, meanMn55, meanSr88, meanBa138) %>%\n  dplyr::mutate(Year = as.factor(Year), Site = as.factor(Site))\n\nTrib_A_data_m <- Trout_Mehis %>%\n  filter(Site == \"Mathisons\") %>%\n  dplyr::select(Site, Year, meanMn55, meanSr88, meanBa138) %>%\n  dplyr::mutate(Year = as.factor(Year), Site = as.factor(Site))\n\nWaipahi_data_M <- Trout_Mehis %>%\n  dplyr::select(Site, Year, meanMn55, meanSr88, meanBa138) %>%\n  dplyr::mutate(Year = as.factor(Year), Site = as.factor(Site))\n\n# Combine both datasets\nTrip_A_full <- rbind(Trib_A_data, Trib_A_data_m)\nTrip_A_full$Site[Trip_A_full$Site == \"Mathisons\"] <- \"Waipahi Trib A\"\nWaipahi_data_full <- rbind(Trib_A_data, Waipahi_data_M)\ncombined_data_full <- rbind(df_mean_juv_main, Waipahi_data_M)\n\n# Run MANOVA on all response variables\nmanova_result <- manova(\n  cbind(meanMn55, meanSr88, meanBa138) ~ Year,\n  data = Trip_A_full\n)\n\n# Summarize results\n#summary(manova_result)\n\nanova_mn55 <- aov(meanMn55 ~ Year, data = Trip_A_full)\nanova_sr88 <- aov(meanSr88 ~ Year, data = Trip_A_full)\nanova_ba138 <- aov(meanBa138 ~ Year, data = Trip_A_full)\n\n# Summarize results\n#summary(anova_mn55)\n#summary(anova_sr88)\n#summary(anova_ba138)\n\ntukey_mn55 <- TukeyHSD(anova_mn55)\ntukey_sr88 <- TukeyHSD(anova_sr88)\ntukey_ba138 <- TukeyHSD(anova_ba138)\n\n# Print results\ntukey_mn_df <- as.data.frame(tukey_mn55$Year)\ntukey_ba_df <- as.data.frame(tukey_ba138$Year)\n\n# Mn: only one significant comparison\np_mn_2015_2022 <- round(tukey_mn_df[\"2015-2022\", \"p adj\"], 5)\n\n# Ba: check your actual rownames first, but likely:\np_ba_2015_2022 <- round(tukey_ba_df[\"2015-2022\", \"p adj\"], 7)\np_ba_2015_2021 <- round(tukey_ba_df[\"2015-2021\", \"p adj\"], 4)\np_ba_2023_2021 <- round(tukey_ba_df[\"2023-2021\", \"p adj\"], 4)\np_ba_2023_2022 <- round(tukey_ba_df[\"2023-2022\", \"p adj\"], 7)"
         },
         {
           "label": "Svirgsden-2018-LDA",
           "lineStart": 1163,
           "lineEnd": 1216,
-          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/8a2c97991f35ae304d3c86fd5dcae120daf6b297/analysis.qmd#L1163-L1216",
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/e8548c6f178b25314a9be51db73fcd306d4a7cb2/analysis.qmd#L1163-L1216",
           "code": "# Perform cross-validation\ncombined_data_III <- combined_data_full[, c(\n  \"meanMn55\",\n  \"meanSr88\",\n  \"meanBa138\",\n  \"Site\"\n)]\nnum_folds <- nrow(combined_data_III)\naccuracy_scores <- rep(0, num_folds)\n\npartition_indices <- rep(1:num_folds, length.out = nrow(combined_data_III))\n\n# Create a matrix to store the classification table for each fold\nunique_classes <- unique(combined_data_III$Site)\nclass_table <- matrix(\n  0,\n  nrow = length(unique_classes),\n  ncol = length(unique_classes)\n)\n\n# Set row and column names for the class_table\nrownames(class_table) <- colnames(class_table) <- unique_classes\n\nfor (i in 1:num_folds) {\n  training_data <- combined_data_III[partition_indices != i, ]\n  testing_data <- combined_data_III[partition_indices == i, ]\n\n  lda_model <- lda(Site ~ ., data = training_data)\n\n  predictions <- predict(lda_model, testing_data)\n  predicted_labels <- predictions$class\n\n  accuracy_scores[i] <- sum(predicted_labels == testing_data$Site) /\n    nrow(testing_data)\n\n  # Update the classification table with the predicted and actual labels\n  current_table <- table(predicted_labels, testing_data$Site)\n  class_table[rownames(current_table), colnames(current_table)] <- class_table[\n    rownames(current_table),\n    colnames(current_table)\n  ] +\n    current_table\n}\n\nclass_table\naccuracy_Svirgsden_lda <- mean(accuracy_scores) * 100\naccuracy_Svirgsden_lda"
         },
         {
           "label": "fig-nnca",
           "lineStart": 1257,
           "lineEnd": 1331,
-          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/8a2c97991f35ae304d3c86fd5dcae120daf6b297/analysis.qmd#L1257-L1331",
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/e8548c6f178b25314a9be51db73fcd306d4a7cb2/analysis.qmd#L1257-L1331",
           "code": "# Calculate mean elemental composition per site\nmean_by_group <- aggregate(\n  cbind(meanMn55, meanSr88, meanBa138) ~ Site,\n  data = Juv_results,\n  FUN = mean\n)\n\n# 1) Prepare matrix with Site names as row names (no reordering)\n#    Assumes mean_by_group has first column 'Site' and remaining numeric features\ndata_mat <- as.matrix(mean_by_group[, -1, drop = FALSE])\nrownames(data_mat) <- mean_by_group$Site\n\n# 2) Distance + clustering (same as before)\ndistance_matrix <- dist(data_mat)\nfit <- hclust(distance_matrix, method = \"single\")\n\n# 3) Determine optimal cluster count via silhouette (same logic)\nk_max <- max(2, min(19, nrow(mean_by_group) - 1))\nsil_scores <- sapply(2:k_max, function(k) {\n  grp <- cutree(fit, k = k)\n  mean(silhouette(grp, distance_matrix)[, \"sil_width\"])\n})\noptimal_clusters <- which.max(sil_scores) + 1\n\n# 4) Convert to ggdendro data; labels come directly from hclust (Site names via rownames)\ndd <- ggdendro::dendro_data(fit, type = \"rectangle\")\n\n# 5) Right panel: horizontal dendrogram (suppress leaf labels here to avoid duplication)\ndend_plot <- ggplot() +\n  geom_segment(\n    data = dd$segments,\n    aes(x = y, y = x, xend = yend, yend = xend),\n    linewidth = 0.3\n  ) +\n  labs(x = \"Distance between sites\", y = NULL) +\n  theme_minimal() +\n  theme(\n    panel.grid = element_blank(),\n    axis.text.y = element_blank(),\n    axis.ticks.y = element_blank(),\n    plot.title.position = \"plot\"\n  )\n\n# 6) Left panel: Site labels in dendrogram leaf order (already Site names)\nlabels_df <- dd$labels\nlabels_df$y <- labels_df$x\nleft_labels <- ggplot(labels_df, aes(x = 1, y = y, label = label)) +\n  geom_text(hjust = 1) +\n  xlim(0.5, 1.02) +\n  labs(x = NULL, y = NULL) +\n  theme_void()\n\n# 7) Combine panels: LEFT labels (narrow) + RIGHT tree (wide)\nNNCA_tree_plot <- left_labels +\n  dend_plot +\n  patchwork::plot_layout(widths = c(1, 1))\n\nggsave(\n  NNCA_tree_plot,\n  file = file.path(out_dir, \" fig-nnca.png\"),\n  width = 4,\n  height = 5,\n  dpi = 600\n)\n\nNNCA_tree_plot"
         },
         {
           "label": "tbl-conf-nnca",
           "lineStart": 1334,
           "lineEnd": 1443,
-          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/8a2c97991f35ae304d3c86fd5dcae120daf6b297/analysis.qmd#L1334-L1443",
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/e8548c6f178b25314a9be51db73fcd306d4a7cb2/analysis.qmd#L1334-L1443",
           "code": "# Assign cluster numbers to each Catch_location\nmean_by_group$NNCA <- cutree(fit, k = optimal_clusters)\n\n# Merge NNCA data into Juv_results based on Catch_location\nJuv_results_NNCA <- Juv_results %>%\n  dplyr::left_join(mean_by_group %>% dplyr::select(Site, NNCA), by = \"Site\")\n\n# Select useful columns\nJuv_NNCA <- Juv_results_NNCA %>%\n  dplyr::select(meanMn55, meanSr88, meanBa138, NNCA) %>%\n  dplyr::mutate(NNCA = as.factor(NNCA))\n\ncluster_levels <- levels(Juv_NNCA$NNCA)\nK <- length(cluster_levels)\n\n### RF\n# Fixed seed — see note by the first randomForest() call above.\nset.seed(42)\nrf_model_nnca <- randomForest(\n  NNCA ~ .,\n  data = Juv_NNCA,\n  ntree = 400,\n  importance = TRUE\n)\n\nconf_rf <- rf_model_nnca$confusion[, cluster_levels] # drop class.error\naccuracy_rf_nnca <- sum(diag(conf_rf)) / sum(conf_rf)\naccuracy_rf_nnca <- accuracy_rf_nnca * 100\n\n### LDA - LOOCV confusion matrix\nnum_folds <- nrow(Juv_NNCA)\naccuracy_scores_lda <- numeric(num_folds)\n\nlda_class_table <- matrix(\n  0,\n  nrow = K,\n  ncol = K,\n  dimnames = list(Predicted = cluster_levels, Actual = cluster_levels)\n)\n\nfor (i in seq_len(num_folds)) {\n  training_data <- Juv_NNCA[-i, ]\n  testing_data <- Juv_NNCA[i, , drop = FALSE]\n\n  lda_model_cv <- MASS::lda(NNCA ~ ., data = training_data)\n  pred_cv <- predict(lda_model_cv, newdata = testing_data)$class\n\n  accuracy_scores_lda[i] <- mean(pred_cv == testing_data$NNCA)\n\n  tbl_i <- table(\n    factor(pred_cv, levels = cluster_levels),\n    factor(testing_data$NNCA, levels = cluster_levels)\n  )\n  lda_class_table <- lda_class_table + tbl_i\n}\n\nmean_accuracy_lda <- mean(accuracy_scores_lda)\naccuracy_lda_nnca <- sum(diag(lda_class_table)) / sum(lda_class_table)\naccuracy_lda_nnca <- accuracy_lda_nnca * 100\n# Final LDA for LD scores (plot use)\nlda_model_final <- MASS::lda(NNCA ~ ., data = Juv_NNCA)\npredicted_labels <- predict(lda_model_final, newdata = Juv_NNCA)$class\nLD <- predict(lda_model_final)$x\n\nJuv_NNCA2 <- cbind(\n  Juv_NNCA,\n  predicted_labels = predicted_labels,\n  LD1 = LD[, 1],\n  LD2 = LD[, 2]\n) %>%\n  dplyr::mutate(Correct = ifelse(NNCA == predicted_labels, \"1\", \"0\"))\n\n# ---- Build side-by-side table ----\n\nconf_rf_wide <- as.data.frame.matrix(conf_rf[, cluster_levels])\nconf_lda_wide <- as.data.frame.matrix(lda_class_table)\n\ncombined <- cbind(conf_rf_wide, conf_lda_wide)\n\n# Move rownames to explicit column\ncombined_display <- data.frame(\n  Predicted = cluster_levels,\n  combined,\n  check.names = FALSE\n)\n\n# Rename to avoid duplicates\ncolnames(combined_display) <- c(\n  \"Predicted\",\n  paste0(\"RF_\", cluster_levels),\n  paste0(\"LDA_\", cluster_levels)\n)\n\nwrite.csv(\n  combined_display,\n  file = file.path(out_dir, \"combined_nnca_conf_matrix.csv\"),\n  row.names = TRUE\n)\n\n\nknitr::kable(combined_display)"
         }
       ]
@@ -646,37 +646,37 @@
       ],
       "code": "sites <- list(\n  \"Waiwera River\" = filter(df_mean_juv_clean, Site == \"Waiwera River\"),\n  \"Waitahuna River\" = filter(df_mean_juv_clean, Site == \"Waitahuna River\"),\n  \"Fruid Burn\" = filter(df_mean_juv_clean, Site == \"Fruid Burn\")\n)\n\nelements <- c(\"meanMn55\", \"meanSr88\", \"meanBa138\")\n\nresults <- list()\n\nfor (site_name in names(sites)) {\n  df_site <- sites[[site_name]]\n  df_site$Year <- as.factor(df_site$Year)\n\n  for (elem in elements) {\n    formula <- as.formula(paste(elem, \"~ Year\"))\n    anova_res <- aov(formula, data = df_site)\n    sm <- summary(anova_res)\n    f_val <- round(sm[[1]]$`F value`[1], 3)\n    p_val <- sm[[1]]$`Pr(>F)`[1]\n\n    # Significance stars\n    sig <- dplyr::case_when(\n      p_val < 0.001 ~ \"***\",\n      p_val < 0.01 ~ \"**\",\n      p_val < 0.05 ~ \"*\",\n      TRUE ~ \"\"\n    )\n\n    # Always return a character string\n    p_fmt <- as.character(\n      ifelse(\n        p_val < 0.0001,\n        formatC(p_val, format = \"e\", digits = 2),\n        as.character(round(p_val, 3))\n      )\n    )\n\n    # Tukey HSD\n    tukey <- TukeyHSD(anova_res)\n    tukey_df <- as.data.frame(tukey$Year)\n    tukey_df$comparison <- rownames(tukey_df)\n\n    tukey_str <- if (p_val < 0.05) {\n      paste(\n        apply(tukey_df, 1, function(row) {\n          comp <- row[\"comparison\"]\n          diff <- round(as.numeric(row[\"diff\"]), 5)\n          p_t <- round(as.numeric(row[\"p adj\"]), 4)\n          paste0(comp, \": \", diff, \" (p=\", p_t, \")\")\n        }),\n        collapse = \"\\n\"\n      )\n    } else {\n      \"\"\n    }\n\n    results[[length(results) + 1]] <- data.frame(\n      Site = site_name,\n      Element = elem,\n      F_value = f_val,\n      Pr_F = p_fmt,\n      Significance = sig,\n      Tukey_HSD = tukey_str,\n      stringsAsFactors = FALSE\n    )\n  }\n}\n\n\ntbl_temporal <- bind_rows(results)\n\n# Keep site name only on first row per site\ntbl_temporal <- tbl_temporal |>\n  group_by(Site) |>\n  mutate(Site = ifelse(row_number() == 1, Site, \"\")) |>\n  ungroup()\n\ncolnames(tbl_temporal) <- c(\n  \"Site\",\n  \"Element\",\n  \"F value\",\n  \"Pr(>F)\",\n  \"Significance\",\n  \"Tukey HSD Results\"\n)\n\nknitr::kable(tbl_temporal)\n\n# Re-run the ANOVAs for Waiwera specifically\nwaiwera_data <- filter(df_mean_juv_clean, Site == \"Waiwera River\") |>\n  mutate(Year = as.factor(Year))\n\nfruid_data <- filter(df_mean_juv_clean, Site == \"Fruid Burn\") |>\n  mutate(Year = as.factor(Year))\n\ntukey_waiwera_mn <- TukeyHSD(aov(meanMn55 ~ Year, data = waiwera_data))\n\ntukey_fruid_mn <- TukeyHSD(aov(meanMn55 ~ Year, data = fruid_data))\ntukey_fruid_sr <- TukeyHSD(aov(meanSr88 ~ Year, data = fruid_data))\ntukey_fruid_ba <- TukeyHSD(aov(meanBa138 ~ Year, data = fruid_data))\n\n# Extract p-values\np_waiwera_mn_2022_2021 <- round(\n  as.data.frame(tukey_waiwera_mn$Year)[\"2022-2021\", \"p adj\"],\n  4\n)\np_waiwera_mn_2023_2022 <- round(\n  as.data.frame(tukey_waiwera_mn$Year)[\"2023-2022\", \"p adj\"],\n  4\n)\np_waiwera_mn_2023_2021 <- round(\n  as.data.frame(tukey_waiwera_mn$Year)[\"2023-2021\", \"p adj\"],\n  4\n)\n\np_fruid_mn_2022_2021 <- round(\n  as.data.frame(tukey_fruid_mn$Year)[\"2022-2021\", \"p adj\"],\n  4\n)\np_fruid_mn_2023_2022 <- round(\n  as.data.frame(tukey_fruid_mn$Year)[\"2023-2022\", \"p adj\"],\n  4\n)\np_fruid_mn_2023_2021 <- round(\n  as.data.frame(tukey_fruid_mn$Year)[\"2023-2021\", \"p adj\"],\n  4\n)\n\np_fruid_sr_2022_2021 <- round(\n  as.data.frame(tukey_fruid_sr$Year)[\"2022-2021\", \"p adj\"],\n  4\n)\np_fruid_sr_2023_2022 <- round(\n  as.data.frame(tukey_fruid_sr$Year)[\"2023-2022\", \"p adj\"],\n  4\n)\np_fruid_sr_2023_2021 <- round(\n  as.data.frame(tukey_fruid_sr$Year)[\"2023-2021\", \"p adj\"],\n  4\n)\n\np_fruid_ba_2022_2021 <- round(\n  as.data.frame(tukey_fruid_ba$Year)[\"2022-2021\", \"p adj\"],\n  4\n)\np_fruid_ba_2023_2022 <- round(\n  as.data.frame(tukey_fruid_ba$Year)[\"2023-2022\", \"p adj\"],\n  4\n)\np_fruid_ba_2023_2021 <- round(\n  as.data.frame(tukey_fruid_ba$Year)[\"2023-2021\", \"p adj\"],\n  4\n)\n\n\nsaveRDS(\n  list(\n    accuracy_lda = accuracy_lda,\n    accuracy_rf = accuracy_rf,\n    p_waiwera_mn_2022_2021 = p_waiwera_mn_2022_2021,\n    p_mn_2015_2022 = p_mn_2015_2022,\n    p_ba_2015_2022 = p_ba_2015_2022,\n    p_ba_2015_2021 = p_ba_2015_2021,\n    p_ba_2023_2021 = p_ba_2023_2021,\n    p_ba_2023_2022 = p_ba_2023_2022,\n    accuracy_Svirgsden_rf = accuracy_Svirgsden_rf,\n    accuracy_Svirgsden_lda = accuracy_Svirgsden_lda,\n    accuracy_lda_nnca = accuracy_lda_nnca,\n    accuracy_rf_nnca = accuracy_rf_nnca\n  ),\n  \"data/derived/inline_values.rds\"\n)",
       "embeddedAsFigure": false,
-      "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/8a2c97991f35ae304d3c86fd5dcae120daf6b297/analysis.qmd#L1481-L1661",
+      "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/e8548c6f178b25314a9be51db73fcd306d4a7cb2/analysis.qmd#L1481-L1661",
       "dataPipeline": [
         {
           "label": "setup",
           "lineStart": 25,
           "lineEnd": 88,
-          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/8a2c97991f35ae304d3c86fd5dcae120daf6b297/analysis.qmd#L25-L88"
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/e8548c6f178b25314a9be51db73fcd306d4a7cb2/analysis.qmd#L25-L88"
         },
         {
           "label": "Data import (run only if df_ablation_juv & df_mean_juv not exist yet)",
           "lineStart": 91,
           "lineEnd": 279,
-          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/8a2c97991f35ae304d3c86fd5dcae120daf6b297/analysis.qmd#L91-L279"
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/e8548c6f178b25314a9be51db73fcd306d4a7cb2/analysis.qmd#L91-L279"
         },
         {
           "label": "fig-raw-ablations",
           "lineStart": 283,
           "lineEnd": 344,
-          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/8a2c97991f35ae304d3c86fd5dcae120daf6b297/analysis.qmd#L283-L344"
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/e8548c6f178b25314a9be51db73fcd306d4a7cb2/analysis.qmd#L283-L344"
         },
         {
           "label": "tbl-element-selectionI",
           "lineStart": 553,
           "lineEnd": 646,
-          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/8a2c97991f35ae304d3c86fd5dcae120daf6b297/analysis.qmd#L553-L646"
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/e8548c6f178b25314a9be51db73fcd306d4a7cb2/analysis.qmd#L553-L646"
         },
         {
           "label": "fig-main-elements",
           "lineStart": 720,
           "lineEnd": 776,
-          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/8a2c97991f35ae304d3c86fd5dcae120daf6b297/analysis.qmd#L720-L776"
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/e8548c6f178b25314a9be51db73fcd306d4a7cb2/analysis.qmd#L720-L776"
         }
       ],
       "computedIn": [
@@ -684,56 +684,56 @@
           "label": "tbl-rf",
           "lineStart": 847,
           "lineEnd": 894,
-          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/8a2c97991f35ae304d3c86fd5dcae120daf6b297/analysis.qmd#L847-L894",
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/e8548c6f178b25314a9be51db73fcd306d4a7cb2/analysis.qmd#L847-L894",
           "code": "df_mean_juv_clean_main <- df_mean_juv_clean %>%\n  dplyr::select(Site, dplyr::all_of(vars_main))\n\n# Fixed seed: randomForest() bootstrap-samples and picks split variables at\n# random, so accuracy drifts a little on every re-render without this. Added\n# after publication — results are stable from here on, but this exact seed\n# was not used for the numbers printed in the published article.\nset.seed(42)\nrf_model <- randomForest(\n  Site ~ .,\n  data = df_mean_juv_clean_main,\n  ntree = 400,\n  importance = TRUE\n)\n\nconf_matrix <- rf_model$confusion\n\ncorrect_predictions <- sum(diag(conf_matrix))\ntotal_predictions <- sum(conf_matrix)\naccuracy_rf <- correct_predictions / total_predictions\n\n# Remove the class.error column for display\nconf_display_rf <- conf_matrix[, !colnames(conf_matrix) %in% \"class.error\"]\n\n# Add class error as % column\nclass_error_pct <- paste0(round(conf_matrix[, \"class.error\"] * 100, 1), \"%\")\n\nconf_display_rf <- cbind(\n  as.data.frame(conf_display_rf),\n  `Class error` = class_error_pct\n)\n\nwrite.csv(\n  conf_matrix,\n  file = file.path(out_dir, \"rf_conf_matrix.csv\"),\n  row.names = TRUE\n)\n\nknitr::kable(conf_display_rf, rownames_to_stub = TRUE)"
         },
         {
           "label": "tbl-lda",
           "lineStart": 897,
           "lineEnd": 976,
-          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/8a2c97991f35ae304d3c86fd5dcae120daf6b297/analysis.qmd#L897-L976",
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/e8548c6f178b25314a9be51db73fcd306d4a7cb2/analysis.qmd#L897-L976",
           "code": "# Build a single working frame\ndf_main_full <- df_mean_juv_clean %>%\n  dplyr::select(Slide_code, Year, Site, dplyr::all_of(vars_main)) %>%\n  tidyr::drop_na(dplyr::all_of(vars_main))\n\ndf_mean_juv_clean_main <- df_main_full %>%\n  dplyr::select(Site, dplyr::all_of(vars_main))\n\n# LOOCV\nnum_folds <- nrow(df_mean_juv_clean_main)\naccuracy_scores <- numeric(num_folds)\npartition_indices <- seq_len(num_folds)\n\nsite_levels <- levels(as.factor(df_mean_juv_clean_main$Site))\nK <- length(site_levels)\nclass_table <- matrix(\n  0,\n  nrow = K,\n  ncol = K,\n  dimnames = list(Predicted = site_levels, Actual = site_levels)\n)\n\nfor (i in seq_len(num_folds)) {\n  training_data <- df_mean_juv_clean_main[\n    partition_indices != i,\n    ,\n    drop = FALSE\n  ]\n  testing_data <- df_mean_juv_clean_main[partition_indices == i, , drop = FALSE]\n\n  lda_model_cv <- MASS::lda(Site ~ ., data = training_data)\n  pred_cv <- predict(lda_model_cv, newdata = testing_data)\n  predicted_labels <- pred_cv$class\n\n  accuracy_scores[i] <- mean(predicted_labels == testing_data$Site)\n\n  tbl <- table(\n    factor(predicted_labels, levels = site_levels),\n    factor(testing_data$Site, levels = site_levels)\n  )\n  class_table <- class_table + tbl\n}\n\nmean_accuracy <- mean(accuracy_scores)\nsum_accuracy <- sum(accuracy_scores)\nsd_accuracy <- sd(accuracy_scores)\nse_accuracy <- sd_accuracy / sqrt(length(accuracy_scores))\naccuracy_lda <- mean_accuracy * 100\n\n# Convert matrix to wide data frame correctly\nconf_wide <- as.data.frame.matrix(class_table)\n\n# Add class error column\nclass_error_pct <- paste0(\n  round(\n    (1 - diag(class_table) / rowSums(class_table)) * 100,\n    1\n  ),\n  \"%\"\n)\n\nconf_display_lda <- cbind(conf_wide, `Class error` = class_error_pct)\n\n\nwrite.csv(\n  conf_display_lda,\n  file = file.path(out_dir, \"lda_conf_matrix.csv\"),\n  row.names = TRUE\n)\n\nknitr::kable(conf_display_lda, rownames_to_stub = TRUE)"
         },
         {
           "label": "fig-lda",
           "lineStart": 979,
           "lineEnd": 1041,
-          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/8a2c97991f35ae304d3c86fd5dcae120daf6b297/analysis.qmd#L979-L1041",
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/e8548c6f178b25314a9be51db73fcd306d4a7cb2/analysis.qmd#L979-L1041",
           "code": "### Fit to the entire dataset\nlda_model <- MASS::lda(Site ~ ., data = df_mean_juv_clean_main)\n\n# In-sample predictions (scores, classes, posteriors)\npred <- predict(lda_model, newdata = df_mean_juv_clean_main)\n\npredicted_labels_J <- pred$class\naccuracy_score <- mean(predicted_labels_J == df_mean_juv_clean_main$Site)\n\nposterior_probs_J <- pred$posterior\nhigh_probs_J <- apply(posterior_probs_J, 1, max)\n\n# LDA scores (linear discriminant coordinates)\nlda_scores <- pred$x\n\n# Attach IDs and predictors for plotting/export (aligned because we only dropped NAs before)\nJdfII <- cbind(\n  df_main_full[, c(\"meanMn55\", \"meanSr88\", \"meanBa138\"), drop = FALSE],\n  Slide_code = df_main_full$Slide_code,\n  Year = df_main_full$Year,\n  Site = df_main_full$Site,\n  predicted_site = predicted_labels_J,\n  highest_probs = high_probs_J\n)\n\nLD <- cbind(JdfII, LD1 = lda_scores[, 1], LD2 = lda_scores[, 2])\n\nJuv_results <- LD\n\n\n# Plot\n# Scatterplot colored by predicted site\nLDA_Plot_all <- ggplot(Juv_results, aes(x = LD1, y = LD2)) +\n  geom_point(aes(fill = predicted_site), color = \"black\", shape = 21) +\n  stat_ellipse(aes(col = predicted_site), level = 0.95) +\n  theme_bw()\n\n# Scatterplot of LD1 vs LD2, colored by Year, faceted by Site\nlda_plot <- ggplot(Juv_results, aes(x = LD1, y = LD2)) +\n  stat_ellipse(aes(col = as.factor(Year)), level = 0.95) +\n  geom_point(aes(fill = as.factor(Year)), color = \"black\", shape = 21) +\n  labs(x = \"LD1\", y = \"LD2\", fill = \"Year\", color = \"Year\") +\n  facet_wrap(~Site) +\n  theme_bw()\n\nggsave(\n  lda_plot,\n  file = file.path(out_dir, \"fig-lda.png\"),\n  width = 8,\n  height = 6,\n  bg = \"white\",\n  dpi = 600\n)\n\nlda_plot"
         },
         {
           "label": "Svirgsden-2018",
           "lineStart": 1045,
           "lineEnd": 1111,
-          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/8a2c97991f35ae304d3c86fd5dcae120daf6b297/analysis.qmd#L1045-L1111",
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/e8548c6f178b25314a9be51db73fcd306d4a7cb2/analysis.qmd#L1045-L1111",
           "code": "# load the data from Svirgsden et al. (2018)\nTrout_Mehis <- read_excel(\"data/raw/Trout_NZ_FROM_Mehis.xlsx\")\n\nTrib_A_data <- df_mean_juv_clean %>%\n  filter(Site == \"Waipahi Trib A\") %>%\n  dplyr::select(Site, Year, meanMn55, meanSr88, meanBa138) %>%\n  dplyr::mutate(Year = as.factor(Year), Site = as.factor(Site))\n\ndf_mean_juv_main <- df_mean_juv_clean %>%\n  dplyr::select(Site, Year, meanMn55, meanSr88, meanBa138) %>%\n  dplyr::mutate(Year = as.factor(Year), Site = as.factor(Site))\n\nTrib_A_data_m <- Trout_Mehis %>%\n  filter(Site == \"Mathisons\") %>%\n  dplyr::select(Site, Year, meanMn55, meanSr88, meanBa138) %>%\n  dplyr::mutate(Year = as.factor(Year), Site = as.factor(Site))\n\nWaipahi_data_M <- Trout_Mehis %>%\n  dplyr::select(Site, Year, meanMn55, meanSr88, meanBa138) %>%\n  dplyr::mutate(Year = as.factor(Year), Site = as.factor(Site))\n\n# Combine both datasets\nTrip_A_full <- rbind(Trib_A_data, Trib_A_data_m)\nTrip_A_full$Site[Trip_A_full$Site == \"Mathisons\"] <- \"Waipahi Trib A\"\nWaipahi_data_full <- rbind(Trib_A_data, Waipahi_data_M)\ncombined_data_full <- rbind(df_mean_juv_main, Waipahi_data_M)\n\n# Run MANOVA on all response variables\nmanova_result <- manova(\n  cbind(meanMn55, meanSr88, meanBa138) ~ Year,\n  data = Trip_A_full\n)\n\n# Summarize results\n#summary(manova_result)\n\nanova_mn55 <- aov(meanMn55 ~ Year, data = Trip_A_full)\nanova_sr88 <- aov(meanSr88 ~ Year, data = Trip_A_full)\nanova_ba138 <- aov(meanBa138 ~ Year, data = Trip_A_full)\n\n# Summarize results\n#summary(anova_mn55)\n#summary(anova_sr88)\n#summary(anova_ba138)\n\ntukey_mn55 <- TukeyHSD(anova_mn55)\ntukey_sr88 <- TukeyHSD(anova_sr88)\ntukey_ba138 <- TukeyHSD(anova_ba138)\n\n# Print results\ntukey_mn_df <- as.data.frame(tukey_mn55$Year)\ntukey_ba_df <- as.data.frame(tukey_ba138$Year)\n\n# Mn: only one significant comparison\np_mn_2015_2022 <- round(tukey_mn_df[\"2015-2022\", \"p adj\"], 5)\n\n# Ba: check your actual rownames first, but likely:\np_ba_2015_2022 <- round(tukey_ba_df[\"2015-2022\", \"p adj\"], 7)\np_ba_2015_2021 <- round(tukey_ba_df[\"2015-2021\", \"p adj\"], 4)\np_ba_2023_2021 <- round(tukey_ba_df[\"2023-2021\", \"p adj\"], 4)\np_ba_2023_2022 <- round(tukey_ba_df[\"2023-2022\", \"p adj\"], 7)"
         },
         {
           "label": "Svirgsden-2018-RF",
           "lineStart": 1114,
           "lineEnd": 1160,
-          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/8a2c97991f35ae304d3c86fd5dcae120daf6b297/analysis.qmd#L1114-L1160",
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/e8548c6f178b25314a9be51db73fcd306d4a7cb2/analysis.qmd#L1114-L1160",
           "code": "rf_train <- df_mean_juv_main %>%\n  select(Site, meanMn55, meanSr88, meanBa138) %>%\n  mutate(\n    Site = as.factor(Site),\n    across(c(meanMn55, meanSr88, meanBa138), as.numeric)\n  ) %>%\n  drop_na()\n\n# Fixed seed — see note by the first randomForest() call above.\nset.seed(42)\nrf_model_no_year <- randomForest(\n  Site ~ meanMn55 + meanSr88 + meanBa138,\n  data = rf_train,\n  ntree = 400,\n  importance = TRUE\n)\n\nprint(rf_model_no_year)\n\n# PREDICT for Waipahi_data_M\nnewdata_rf <- Waipahi_data_M %>%\n  select(Site, Year, meanMn55, meanSr88, meanBa138) %>%\n  mutate(across(c(meanMn55, meanSr88, meanBa138), as.numeric)) %>%\n  drop_na(meanMn55, meanSr88, meanBa138)\n\npred_class <- predict(\n  rf_model_no_year,\n  newdata = newdata_rf[, c(\"meanMn55\", \"meanSr88\", \"meanBa138\")]\n)\n\nMdfRF <- newdata_rf %>%\n  mutate(predicted_site = pred_class)\n\naccuracy_Svirgsden_rf <- mean(\n  MdfRF$predicted_site == \"Waipahi Trib A\",\n  na.rm = TRUE\n) *\n  100\nn_wta <- sum(MdfRF$predicted_site == \"Waipahi Trib A\", na.rm = TRUE)\n\naccuracy_Svirgsden_rf\n#cat(sprintf(\"RF model predicted as Waipahi Trib A: %.1f%% (%d of %d)\\n\", pct_wta, n_wta, sum(!is.na(MdfRF$predicted_site))))"
         },
         {
           "label": "Svirgsden-2018-LDA",
           "lineStart": 1163,
           "lineEnd": 1216,
-          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/8a2c97991f35ae304d3c86fd5dcae120daf6b297/analysis.qmd#L1163-L1216",
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/e8548c6f178b25314a9be51db73fcd306d4a7cb2/analysis.qmd#L1163-L1216",
           "code": "# Perform cross-validation\ncombined_data_III <- combined_data_full[, c(\n  \"meanMn55\",\n  \"meanSr88\",\n  \"meanBa138\",\n  \"Site\"\n)]\nnum_folds <- nrow(combined_data_III)\naccuracy_scores <- rep(0, num_folds)\n\npartition_indices <- rep(1:num_folds, length.out = nrow(combined_data_III))\n\n# Create a matrix to store the classification table for each fold\nunique_classes <- unique(combined_data_III$Site)\nclass_table <- matrix(\n  0,\n  nrow = length(unique_classes),\n  ncol = length(unique_classes)\n)\n\n# Set row and column names for the class_table\nrownames(class_table) <- colnames(class_table) <- unique_classes\n\nfor (i in 1:num_folds) {\n  training_data <- combined_data_III[partition_indices != i, ]\n  testing_data <- combined_data_III[partition_indices == i, ]\n\n  lda_model <- lda(Site ~ ., data = training_data)\n\n  predictions <- predict(lda_model, testing_data)\n  predicted_labels <- predictions$class\n\n  accuracy_scores[i] <- sum(predicted_labels == testing_data$Site) /\n    nrow(testing_data)\n\n  # Update the classification table with the predicted and actual labels\n  current_table <- table(predicted_labels, testing_data$Site)\n  class_table[rownames(current_table), colnames(current_table)] <- class_table[\n    rownames(current_table),\n    colnames(current_table)\n  ] +\n    current_table\n}\n\nclass_table\naccuracy_Svirgsden_lda <- mean(accuracy_scores) * 100\naccuracy_Svirgsden_lda"
         },
         {
           "label": "fig-nnca",
           "lineStart": 1257,
           "lineEnd": 1331,
-          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/8a2c97991f35ae304d3c86fd5dcae120daf6b297/analysis.qmd#L1257-L1331",
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/e8548c6f178b25314a9be51db73fcd306d4a7cb2/analysis.qmd#L1257-L1331",
           "code": "# Calculate mean elemental composition per site\nmean_by_group <- aggregate(\n  cbind(meanMn55, meanSr88, meanBa138) ~ Site,\n  data = Juv_results,\n  FUN = mean\n)\n\n# 1) Prepare matrix with Site names as row names (no reordering)\n#    Assumes mean_by_group has first column 'Site' and remaining numeric features\ndata_mat <- as.matrix(mean_by_group[, -1, drop = FALSE])\nrownames(data_mat) <- mean_by_group$Site\n\n# 2) Distance + clustering (same as before)\ndistance_matrix <- dist(data_mat)\nfit <- hclust(distance_matrix, method = \"single\")\n\n# 3) Determine optimal cluster count via silhouette (same logic)\nk_max <- max(2, min(19, nrow(mean_by_group) - 1))\nsil_scores <- sapply(2:k_max, function(k) {\n  grp <- cutree(fit, k = k)\n  mean(silhouette(grp, distance_matrix)[, \"sil_width\"])\n})\noptimal_clusters <- which.max(sil_scores) + 1\n\n# 4) Convert to ggdendro data; labels come directly from hclust (Site names via rownames)\ndd <- ggdendro::dendro_data(fit, type = \"rectangle\")\n\n# 5) Right panel: horizontal dendrogram (suppress leaf labels here to avoid duplication)\ndend_plot <- ggplot() +\n  geom_segment(\n    data = dd$segments,\n    aes(x = y, y = x, xend = yend, yend = xend),\n    linewidth = 0.3\n  ) +\n  labs(x = \"Distance between sites\", y = NULL) +\n  theme_minimal() +\n  theme(\n    panel.grid = element_blank(),\n    axis.text.y = element_blank(),\n    axis.ticks.y = element_blank(),\n    plot.title.position = \"plot\"\n  )\n\n# 6) Left panel: Site labels in dendrogram leaf order (already Site names)\nlabels_df <- dd$labels\nlabels_df$y <- labels_df$x\nleft_labels <- ggplot(labels_df, aes(x = 1, y = y, label = label)) +\n  geom_text(hjust = 1) +\n  xlim(0.5, 1.02) +\n  labs(x = NULL, y = NULL) +\n  theme_void()\n\n# 7) Combine panels: LEFT labels (narrow) + RIGHT tree (wide)\nNNCA_tree_plot <- left_labels +\n  dend_plot +\n  patchwork::plot_layout(widths = c(1, 1))\n\nggsave(\n  NNCA_tree_plot,\n  file = file.path(out_dir, \" fig-nnca.png\"),\n  width = 4,\n  height = 5,\n  dpi = 600\n)\n\nNNCA_tree_plot"
         },
         {
           "label": "tbl-conf-nnca",
           "lineStart": 1334,
           "lineEnd": 1443,
-          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/8a2c97991f35ae304d3c86fd5dcae120daf6b297/analysis.qmd#L1334-L1443",
+          "githubPermalink": "https://github.com/OlivierRaven/Raven_et_al._2025_Fisheries_Research/blob/e8548c6f178b25314a9be51db73fcd306d4a7cb2/analysis.qmd#L1334-L1443",
           "code": "# Assign cluster numbers to each Catch_location\nmean_by_group$NNCA <- cutree(fit, k = optimal_clusters)\n\n# Merge NNCA data into Juv_results based on Catch_location\nJuv_results_NNCA <- Juv_results %>%\n  dplyr::left_join(mean_by_group %>% dplyr::select(Site, NNCA), by = \"Site\")\n\n# Select useful columns\nJuv_NNCA <- Juv_results_NNCA %>%\n  dplyr::select(meanMn55, meanSr88, meanBa138, NNCA) %>%\n  dplyr::mutate(NNCA = as.factor(NNCA))\n\ncluster_levels <- levels(Juv_NNCA$NNCA)\nK <- length(cluster_levels)\n\n### RF\n# Fixed seed — see note by the first randomForest() call above.\nset.seed(42)\nrf_model_nnca <- randomForest(\n  NNCA ~ .,\n  data = Juv_NNCA,\n  ntree = 400,\n  importance = TRUE\n)\n\nconf_rf <- rf_model_nnca$confusion[, cluster_levels] # drop class.error\naccuracy_rf_nnca <- sum(diag(conf_rf)) / sum(conf_rf)\naccuracy_rf_nnca <- accuracy_rf_nnca * 100\n\n### LDA - LOOCV confusion matrix\nnum_folds <- nrow(Juv_NNCA)\naccuracy_scores_lda <- numeric(num_folds)\n\nlda_class_table <- matrix(\n  0,\n  nrow = K,\n  ncol = K,\n  dimnames = list(Predicted = cluster_levels, Actual = cluster_levels)\n)\n\nfor (i in seq_len(num_folds)) {\n  training_data <- Juv_NNCA[-i, ]\n  testing_data <- Juv_NNCA[i, , drop = FALSE]\n\n  lda_model_cv <- MASS::lda(NNCA ~ ., data = training_data)\n  pred_cv <- predict(lda_model_cv, newdata = testing_data)$class\n\n  accuracy_scores_lda[i] <- mean(pred_cv == testing_data$NNCA)\n\n  tbl_i <- table(\n    factor(pred_cv, levels = cluster_levels),\n    factor(testing_data$NNCA, levels = cluster_levels)\n  )\n  lda_class_table <- lda_class_table + tbl_i\n}\n\nmean_accuracy_lda <- mean(accuracy_scores_lda)\naccuracy_lda_nnca <- sum(diag(lda_class_table)) / sum(lda_class_table)\naccuracy_lda_nnca <- accuracy_lda_nnca * 100\n# Final LDA for LD scores (plot use)\nlda_model_final <- MASS::lda(NNCA ~ ., data = Juv_NNCA)\npredicted_labels <- predict(lda_model_final, newdata = Juv_NNCA)$class\nLD <- predict(lda_model_final)$x\n\nJuv_NNCA2 <- cbind(\n  Juv_NNCA,\n  predicted_labels = predicted_labels,\n  LD1 = LD[, 1],\n  LD2 = LD[, 2]\n) %>%\n  dplyr::mutate(Correct = ifelse(NNCA == predicted_labels, \"1\", \"0\"))\n\n# ---- Build side-by-side table ----\n\nconf_rf_wide <- as.data.frame.matrix(conf_rf[, cluster_levels])\nconf_lda_wide <- as.data.frame.matrix(lda_class_table)\n\ncombined <- cbind(conf_rf_wide, conf_lda_wide)\n\n# Move rownames to explicit column\ncombined_display <- data.frame(\n  Predicted = cluster_levels,\n  combined,\n  check.names = FALSE\n)\n\n# Rename to avoid duplicates\ncolnames(combined_display) <- c(\n  \"Predicted\",\n  paste0(\"RF_\", cluster_levels),\n  paste0(\"LDA_\", cluster_levels)\n)\n\nwrite.csv(\n  combined_display,\n  file = file.path(out_dir, \"combined_nnca_conf_matrix.csv\"),\n  row.names = TRUE\n)\n\n\nknitr::kable(combined_display)"
         }
       ]
